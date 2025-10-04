@@ -14,7 +14,202 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cta_clicks: {
+        Row: {
+          clicked_at: string | null
+          cta_label: string
+          id: string
+          session_id: string | null
+        }
+        Insert: {
+          clicked_at?: string | null
+          cta_label: string
+          id?: string
+          session_id?: string | null
+        }
+        Update: {
+          clicked_at?: string | null
+          cta_label?: string
+          id?: string
+          session_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cta_clicks_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "viewer_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      data_room_requests: {
+        Row: {
+          company: string | null
+          created_at: string | null
+          email: string
+          id: string
+          message: string | null
+          nda_accepted: boolean | null
+          role: string | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string | null
+          email: string
+          id?: string
+          message?: string | null
+          nda_accepted?: boolean | null
+          role?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          message?: string | null
+          nda_accepted?: boolean | null
+          role?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      meeting_requests: {
+        Row: {
+          aum: string | null
+          cheque_size: string | null
+          company: string | null
+          created_at: string | null
+          email: string
+          id: string
+          mandate_type: string | null
+          message: string | null
+          status: string | null
+          timing: string | null
+          user_id: string | null
+        }
+        Insert: {
+          aum?: string | null
+          cheque_size?: string | null
+          company?: string | null
+          created_at?: string | null
+          email: string
+          id?: string
+          mandate_type?: string | null
+          message?: string | null
+          status?: string | null
+          timing?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          aum?: string | null
+          cheque_size?: string | null
+          company?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          mandate_type?: string | null
+          message?: string | null
+          status?: string | null
+          timing?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          company: string | null
+          created_at: string | null
+          email: string
+          id: string
+          role: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string | null
+          email: string
+          id: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          role?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      section_views: {
+        Row: {
+          dwell_time_ms: number | null
+          id: string
+          section_slug: string
+          session_id: string | null
+          viewed_at: string | null
+        }
+        Insert: {
+          dwell_time_ms?: number | null
+          id?: string
+          section_slug: string
+          session_id?: string | null
+          viewed_at?: string | null
+        }
+        Update: {
+          dwell_time_ms?: number | null
+          id?: string
+          section_slug?: string
+          session_id?: string | null
+          viewed_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "section_views_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "viewer_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      viewer_sessions: {
+        Row: {
+          completion_rate: number | null
+          email: string
+          id: string
+          last_active_at: string | null
+          started_at: string | null
+          total_dwell_time: number | null
+          user_id: string | null
+        }
+        Insert: {
+          completion_rate?: number | null
+          email: string
+          id?: string
+          last_active_at?: string | null
+          started_at?: string | null
+          total_dwell_time?: number | null
+          user_id?: string | null
+        }
+        Update: {
+          completion_rate?: number | null
+          email?: string
+          id?: string
+          last_active_at?: string | null
+          started_at?: string | null
+          total_dwell_time?: number | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
