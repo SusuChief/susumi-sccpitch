@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
+import MeetingRequest from "./pages/MeetingRequest";
+import DataRoomRequest from "./pages/DataRoomRequest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +21,8 @@ const App = () => (
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/meeting" element={<ProtectedRoute><MeetingRequest /></ProtectedRoute>} />
+          <Route path="/request-access" element={<ProtectedRoute><DataRoomRequest /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
