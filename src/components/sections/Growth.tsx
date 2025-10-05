@@ -156,7 +156,7 @@ export const Growth = ({ onView }: GrowthProps) => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">Platform Fees</div>
-                <div className="text-muted-foreground">8.3% basic, 5.3% enterprise, 6.5% community</div>
+                <div className="text-muted-foreground">8.3% basic, 5.0% enterprise, 3.1% community</div>
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">NFT Sales</div>

@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recha
 const tokenData = [
   { name: "Circulating Supply", value: 1, color: "hsl(168 76% 42%)" },
   { name: "Time-Locked (24mo)", value: 4, color: "hsl(92 90% 55%)" },
-  { name: "Unminted Reserve", value: 95, color: "hsl(220 15% 20%)" }
+  { name: "Unminted Reserve", value: 95, color: "hsl(220 15% 20%)", labelColor: "hsl(0 0% 95%)" }
 ];
 
 interface TokenomicsProps {
@@ -55,7 +55,11 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ name, value }) => `${name}: ${value}%`}
+                  label={(entry: any) => {
+                    const dataEntry = tokenData.find(d => d.name === entry.name);
+                    const color = dataEntry?.labelColor || entry.fill;
+                    return `${entry.name}: ${entry.value}%`;
+                  }}
                   outerRadius={120}
                   fill="#8884d8"
                   dataKey="value"
@@ -102,7 +106,7 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
               <h3 className="text-lg font-semibold mb-2">Utility & Monetization</h3>
               <ul className="text-sm space-y-2 text-muted-foreground">
                 <li>• <strong>Activate Funds:</strong> SUSU+ required to raise funds on platform</li>
-                <li>• <strong>Donor Rewards:</strong> Earn tokens for contributing to funds</li>
+                <li>• <strong>Donor Rewards:</strong> Earn tokens for contributing to funds. Each Donor earns the right to become a Fund beneficiary too.</li>
                 <li>• <strong>Purchase NFTs:</strong> Buy revenue-generating ecosystem NFTs</li>
                 <li>• <strong>Stake & Earn:</strong> Lock in Validator Panel for 40% revenue share</li>
               </ul>

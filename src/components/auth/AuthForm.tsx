@@ -90,13 +90,20 @@ export const AuthForm = () => {
 
   return (
     <div className="w-full max-w-md space-y-6">
-      <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold mb-2">
-          <span className="gradient-text font-goldman">SUSUMI</span> Decentralized Crowdfunding
-        </h1>
-        <p className="text-muted-foreground">
-          Private Investor Panel  •  Invite-only Access
-        </p>
+      <div className="space-y-4 text-center">
+        <img 
+          src="/src/assets/susumi-corporate-logo.png" 
+          alt="Susumi Logo" 
+          className="h-20 mx-auto"
+        />
+        <div className="space-y-1">
+          <h1 className="text-3xl font-bold gradient-text">
+            Decentralized Crowdfunding
+          </h1>
+          <p className="text-muted-foreground">
+            Private Investor Panel  •  Invite-only Access
+          </p>
+        </div>
       </div>
 
       {step === "email" ? (

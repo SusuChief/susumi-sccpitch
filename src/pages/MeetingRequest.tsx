@@ -26,8 +26,8 @@ const MeetingRequest = () => {
     setLoading(true);
 
     try {
-      // Redirect to Calendly page
-      window.location.href = 'https://calendly.com/susumi/30min';
+      // Open Calendly page in new tab
+      window.open('https://calendly.com/susumi/30min', '_blank');
     } catch (error: any) {
       toast({
         title: "Error",

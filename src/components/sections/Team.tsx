@@ -36,7 +36,8 @@ const team = [
     name: "Keith Benson",
     role: "Advisor",
     bio: "Holds International Patent and IP NFC to IoT blockchain protocols",
-    image: keithBensonImg
+    image: keithBensonImg,
+    linkedin: "https://www.linkedin.com/in/keith-benson-a61aaa12/"
   },
   {
     name: "John Ondoma",
@@ -56,7 +57,8 @@ const team = [
     name: "Felix Achibiri",
     role: "Advisor",
     bio: "Harvard Alum and ex-Chairman Fortis Microfinance Bank",
-    image: felixAchibiriImg
+    image: felixAchibiriImg,
+    linkedin: "https://www.linkedin.com/in/felixachibiri/"
   }
 ];
 

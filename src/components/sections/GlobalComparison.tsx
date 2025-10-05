@@ -11,6 +11,8 @@ const comparisonData = [
   { country: "Ukraine", rank: 6, region: "Eastern Europe" },
   { country: "Russia", rank: 7, region: "Eastern Europe" },
   { country: "Philippines", rank: 8, region: "Central & Southern Asia and Oceania" },
+  { country: "", rank: 9, region: "" },
+  { country: "", rank: 10, region: "" },
 ];
 
 const countryColors = [
@@ -69,7 +71,7 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
               <BarChart data={comparisonData}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                 <XAxis dataKey="country" />
-                <YAxis reversed domain={[0, 8]} ticks={[1, 2, 3, 4, 5, 6, 7, 8]} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
+                <YAxis domain={[0, 10]} ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
                 <Tooltip
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
