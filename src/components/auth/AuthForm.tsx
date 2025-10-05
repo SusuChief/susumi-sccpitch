@@ -26,11 +26,9 @@ export const AuthForm = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: `${window.location.origin}/`,
-        },
+      const redirectTo = `${window.location.origin}/`;
+      const { error } = await supabase.functions.invoke('send-magic-link', {
+        body: { email, redirectTo },
       });
 
       if (error) throw error;
