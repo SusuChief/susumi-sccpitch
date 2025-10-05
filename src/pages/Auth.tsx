@@ -10,34 +10,6 @@ const Auth = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    const token_hash = params.get('token_hash');
-    const typeParam = params.get('type') || 'magiclink';
-    const emailParam = params.get('email');
-
-    console.log('Auth page loaded with hash params:', { token_hash, typeParam, emailParam });
-
-    if (token_hash && emailParam) {
-      setLoading(true);
-      console.log('Verifying OTP with:', { type: typeParam, token_hash, email: emailParam });
-      
-      supabase.auth.verifyOtp({
-        type: typeParam as any,
-        token_hash,
-        email: emailParam,
-      }).then(({ data, error }) => {
-        console.log('verifyOtp result:', { data, error });
-        if (error) {
-          toast({ title: 'Login failed', description: error.message, variant: 'destructive' });
-        }
-      }).finally(() => {
-        window.location.hash = '';
-        setLoading(false);
-      });
-    }
-  }, [toast]);
 
   useEffect(() => {
     // Handle auth state changes (including magic link callbacks)

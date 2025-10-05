@@ -77,7 +77,7 @@ serve(async (req: Request) => {
     const emailResponse = await resend.emails.send({
       from: "Susumi <info@susumicapital.com>",
       to: [email],
-      subject: "Sign in to Susumi Investor Access",
+      subject: "Your Susumi verification code",
       html: `
         <!DOCTYPE html>
         <html>
@@ -90,9 +90,10 @@ serve(async (req: Request) => {
               .header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 40px 20px; text-align: center; }
               .logo { color: white; font-size: 32px; font-weight: bold; margin: 0; }
               .content { padding: 40px 30px; }
-              .title { color: #1f2937; font-size: 24px; margin: 0 0 20px 0; }
-              .text { color: #6b7280; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0; }
-              .button { display: inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; text-decoration: none; padding: 14px 32px; border-radius: 6px; font-weight: 600; font-size: 16px; }
+              .title { color: #1f2937; font-size: 24px; margin: 0 0 20px 0; text-align: center; }
+              .text { color: #6b7280; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0; text-align: center; }
+              .code-box { text-align: center; margin: 30px 0; }
+              .code { display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 32px; letter-spacing: 8px; font-weight: 700; background: #f3f4f6; color: #111827; padding: 20px 40px; border-radius: 8px; border: 2px solid #e5e7eb; }
               .footer { background: #f9fafb; padding: 30px; text-align: center; color: #9ca3af; font-size: 14px; }
             </style>
           </head>
@@ -102,19 +103,13 @@ serve(async (req: Request) => {
                 <h1 class="logo">Susumi</h1>
               </div>
               <div class="content">
-                <h2 class="title">Sign in to Investor Access</h2>
-                <p class="text">Click the button below to securely sign in to your Susumi Investor portal. This link is valid for 24 hours.</p>
-                <div style="text-align: center; margin: 30px 0;">
-                  <a href="${custom_link}" class="button">Sign In to Susumi</a>
+                <h2 class="title">Your Verification Code</h2>
+                <p class="text">Enter this code to access your Susumi Investor portal:</p>
+                <div class="code-box">
+                  <div class="code">${email_otp}</div>
                 </div>
-                <p class="text" style="font-size: 14px; margin: 16px 0 6px; text-align:center; color:#6b7280;">Or paste this 6‑digit code:</p>
-                <div style="text-align:center; margin: 10px 0 20px;">
-                  <span style="display:inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 22px; letter-spacing: 4px; font-weight: 700; background:#f3f4f6; color:#111827; padding: 12px 16px; border-radius: 8px;">${email_otp}</span>
-                </div>
-                <p class="text" style="font-size: 14px; line-height:1.6;">If the button opens a Lovable login page, simply go to <a href="${finalRedirect}" style="color:#059669; text-decoration:underline;">${finalRedirect}</a> and paste the code above to sign in.</p>
-                <p class="text" style="font-size: 12px; color:#9ca3af;">Having trouble? Copy and paste this link into your browser:</p>
-                <p class="text" style="font-size: 12px; word-break: break-all; color:#4b5563;">${custom_link}</p>
-                <p class="text" style="font-size: 14px; margin-top: 20px;">If you didn't request this email, you can safely ignore it.</p>
+                <p class="text">This code is valid for 60 minutes.</p>
+                <p class="text" style="font-size: 14px; color: #9ca3af; margin-top: 40px;">If you didn't request this code, you can safely ignore this email.</p>
               </div>
               <div class="footer">
                 <p style="margin: 0;">Susumi - African Cryptocurrency Opportunity</p>
