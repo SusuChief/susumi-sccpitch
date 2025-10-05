@@ -62,6 +62,11 @@ serve(async (req: Request) => {
       throw new Error("Unable to generate magic link");
     }
 
+    const hashed_token = (data as any)?.properties?.hashed_token || (data as any)?.hashed_token;
+    const custom_link = hashed_token && finalRedirect
+      ? `${finalRedirect}?type=magiclink&token_hash=${encodeURIComponent(hashed_token)}&email=${encodeURIComponent(email)}`
+      : action_link;
+
     const emailResponse = await resend.emails.send({
       from: "Susumi <info@susumicapital.com>",
       to: [email],
@@ -93,7 +98,7 @@ serve(async (req: Request) => {
                 <h2 class="title">Sign in to Investor Access</h2>
                 <p class="text">Click the button below to securely sign in to your Susumi Investor portal. This link is valid for 24 hours.</p>
                 <div style="text-align: center; margin: 30px 0;">
-                  <a href="${action_link}" class="button">Sign In to Susumi</a>
+                  <a href="${custom_link}" class="button">Sign In to Susumi</a>
                 </div>
                 <p class="text" style="font-size: 14px; margin-top: 30px;">If you didn't request this email, you can safely ignore it.</p>
               </div>

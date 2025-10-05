@@ -11,6 +11,33 @@ const Auth = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const url = new URL(window.location.href);
+    const token_hash = url.searchParams.get('token_hash');
+    const typeParam = url.searchParams.get('type') || 'magiclink';
+    const emailParam = url.searchParams.get('email');
+
+    if (token_hash && emailParam) {
+      setLoading(true);
+      supabase.auth.verifyOtp({
+        type: typeParam as any,
+        token_hash,
+        email: emailParam,
+      }).then(({ error }) => {
+        if (error) {
+          toast({ title: 'Login failed', description: error.message, variant: 'destructive' });
+        }
+      }).finally(() => {
+        // Clean URL
+        url.searchParams.delete('token_hash');
+        url.searchParams.delete('type');
+        url.searchParams.delete('email');
+        window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+        setLoading(false);
+      });
+    }
+  }, [toast]);
+
+  useEffect(() => {
     // Handle auth state changes (including magic link callbacks)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
