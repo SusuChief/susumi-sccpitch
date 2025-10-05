@@ -11,27 +11,29 @@ const Auth = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = new URL(window.location.href);
-    const token_hash = url.searchParams.get('token_hash');
-    const typeParam = url.searchParams.get('type') || 'magiclink';
-    const emailParam = url.searchParams.get('email');
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const token_hash = params.get('token_hash');
+    const typeParam = params.get('type') || 'magiclink';
+    const emailParam = params.get('email');
+
+    console.log('Auth page loaded with hash params:', { token_hash, typeParam, emailParam });
 
     if (token_hash && emailParam) {
       setLoading(true);
+      console.log('Verifying OTP with:', { type: typeParam, token_hash, email: emailParam });
+      
       supabase.auth.verifyOtp({
         type: typeParam as any,
         token_hash,
         email: emailParam,
-      }).then(({ error }) => {
+      }).then(({ data, error }) => {
+        console.log('verifyOtp result:', { data, error });
         if (error) {
           toast({ title: 'Login failed', description: error.message, variant: 'destructive' });
         }
       }).finally(() => {
-        // Clean URL
-        url.searchParams.delete('token_hash');
-        url.searchParams.delete('type');
-        url.searchParams.delete('email');
-        window.history.replaceState({}, document.title, url.pathname + url.search + url.hash);
+        window.location.hash = '';
         setLoading(false);
       });
     }

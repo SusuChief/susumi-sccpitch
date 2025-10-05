@@ -44,6 +44,8 @@ serve(async (req: Request) => {
 
     const finalRedirect = redirectTo || ""; // Pass from client to ensure correct site URL
 
+    console.log("Generating magic link for:", email, "redirect:", finalRedirect);
+
     const { data, error } = await supabase.auth.admin.generateLink({
       type: "magiclink",
       email,
@@ -55,17 +57,21 @@ serve(async (req: Request) => {
       throw error;
     }
 
-    const action_link = (data as any)?.properties?.action_link || (data as any)?.action_link;
+    console.log("generateLink response data:", JSON.stringify(data, null, 2));
 
-    if (!action_link) {
-      console.error("No action_link returned from generateLink", data);
-      throw new Error("Unable to generate magic link");
+    const action_link = (data as any)?.properties?.action_link || (data as any)?.action_link;
+    const hashed_token = (data as any)?.properties?.hashed_token || (data as any)?.hashed_token;
+    
+    console.log("Extracted - action_link:", action_link, "hashed_token:", hashed_token);
+
+    if (!hashed_token) {
+      console.error("No hashed_token returned from generateLink", data);
+      throw new Error("Unable to generate magic link - no hashed_token");
     }
 
-    const hashed_token = (data as any)?.properties?.hashed_token || (data as any)?.hashed_token;
-    const custom_link = hashed_token && finalRedirect
-      ? `${finalRedirect}?type=magiclink&token_hash=${encodeURIComponent(hashed_token)}&email=${encodeURIComponent(email)}`
-      : action_link;
+    const custom_link = `${finalRedirect}#type=magiclink&token_hash=${encodeURIComponent(hashed_token)}&email=${encodeURIComponent(email)}`;
+    
+    console.log("Custom link generated:", custom_link);
 
     const emailResponse = await resend.emails.send({
       from: "Susumi <info@susumicapital.com>",
