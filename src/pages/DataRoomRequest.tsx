@@ -78,7 +78,7 @@ const DataRoomRequest = () => {
         <div className="bg-card p-8 rounded-lg shadow-xl border border-border">
           <div className="flex items-center gap-3 mb-2">
             <Shield className="h-8 w-8 text-primary" />
-            <h1 className="text-3xl font-bold gradient-text">Data Room Access</h1>
+            <h1 className="text-3xl font-bold"><span className="gradient-text font-goldman">Susumi</span> Data Room Access</h1>
           </div>
           <p className="text-muted-foreground mb-6">
             Request access to comprehensive due diligence materials

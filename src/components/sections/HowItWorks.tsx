@@ -57,7 +57,7 @@ export const HowItWorks = ({ onView }: HowItWorksProps) => {
     >
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          How <span className="gradient-text">Susumi</span> Works
+          How <span className="gradient-text font-goldman">Susumi</span> Works
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
           Susumi is a unique decentralised crowdfunding method using Web3 technology, smart contracts, and cryptocurrency rewards. It is based on reciprocal fundraising principles from the ancient Susu cooperative finance models.

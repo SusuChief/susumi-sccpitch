@@ -3,14 +3,14 @@ import { Card } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from "recharts";
 
 const comparisonData = [
-  { country: "India", rank: 1, region: "CSAO" },
+  { country: "India", rank: 1, region: "Central & Southern Asia and Oceania" },
   { country: "Nigeria", rank: 2, region: "Sub-Saharan Africa" },
-  { country: "Indonesia", rank: 3, region: "CSAO" },
+  { country: "Indonesia", rank: 3, region: "Central & Southern Asia and Oceania" },
   { country: "United States", rank: 4, region: "North America" },
-  { country: "Vietnam", rank: 5, region: "CSAO" },
-  { country: "United Kingdom", rank: 6, region: "Europe" },
-  { country: "Philippines", rank: 7, region: "CSAO" },
-  { country: "Pakistan", rank: 8, region: "CSAO" },
+  { country: "Vietnam", rank: 5, region: "Central & Southern Asia and Oceania" },
+  { country: "Ukraine", rank: 6, region: "Eastern Europe" },
+  { country: "Russia", rank: 7, region: "Eastern Europe" },
+  { country: "Philippines", rank: 8, region: "Central & Southern Asia and Oceania" },
 ];
 
 const countryColors = [
@@ -19,9 +19,9 @@ const countryColors = [
   "hsl(280, 81%, 60%)",  // Indonesia - Violet
   "hsl(346, 77%, 50%)",  // USA - Red
   "hsl(262, 83%, 58%)",  // Vietnam - Purple
-  "hsl(48, 96%, 53%)",   // UK - Yellow
-  "hsl(173, 58%, 39%)",  // Philippines - Teal
-  "hsl(142, 71%, 45%)",  // Pakistan - Emerald
+  "hsl(48, 96%, 53%)",   // Ukraine - Yellow
+  "hsl(173, 58%, 39%)",  // Russia - Teal
+  "hsl(142, 71%, 45%)",  // Philippines - Emerald
 ];
 
 interface GlobalComparisonProps {

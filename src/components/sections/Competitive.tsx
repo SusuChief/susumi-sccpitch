@@ -77,7 +77,7 @@ export const Competitive = ({ onView }: CompetitiveProps) => {
     >
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Why <span className="gradient-text">Susumi</span> Wins
+          Why <span className="gradient-text font-goldman">Susumi</span> Wins
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Competitors may build apps, but cannot easily replicate our license, network effects, and incentive-driven ecosystem

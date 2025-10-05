@@ -53,7 +53,7 @@ export const AuthForm = () => {
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold gradient-text">Susumi Investor Access</h1>
+        <h1 className="text-3xl font-bold"><span className="gradient-text font-goldman">Susumi</span> Investor Access</h1>
         <p className="text-muted-foreground">
           Private investor pitch • Invite-only access
         </p>

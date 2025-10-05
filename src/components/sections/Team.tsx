@@ -85,7 +85,7 @@ export const Team = ({ onView }: TeamProps) => {
     >
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Meet the <span className="gradient-text">Susumi</span> Team
+          Meet the <span className="gradient-text font-goldman">Susumi</span> Team
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Experienced leaders in technology, finance, and blockchain innovation

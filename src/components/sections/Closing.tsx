@@ -71,13 +71,18 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
 
           <div className="border-t border-border pt-8 space-y-4 text-center">
             <h3 className="text-xl font-semibold mb-6">Live Platform Preview</h3>
-            <div className="mb-8 rounded-lg overflow-hidden border border-border">
+            <a 
+              href="https://stage.susumi.io/dashboard" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block mb-8 rounded-lg overflow-hidden border border-border hover:border-primary transition-colors"
+            >
               <img 
                 src={dashboardImg} 
                 alt="Susumi Platform Dashboard" 
                 className="w-full h-auto"
               />
-            </div>
+            </a>
             
             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm">
