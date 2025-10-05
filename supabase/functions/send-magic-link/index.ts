@@ -42,13 +42,18 @@ serve(async (req: Request) => {
       });
     }
 
-    const finalRedirect = redirectTo || ""; // Pass from client to ensure correct site URL
+    // Ensure we always have a valid redirect URL
+    const finalRedirect = redirectTo || `${SUPABASE_URL.replace('.supabase.co', '.lovableproject.com')}/`;
+    
+    console.log("Generating magic link with redirect:", finalRedirect);
 
     const { data, error } = await supabase.auth.admin.generateLink({
       type: "magiclink",
       email,
-      options: { redirectTo: finalRedirect },
-    } as any);
+      options: { 
+        redirectTo: finalRedirect 
+      },
+    });
 
     if (error) {
       console.error("generateLink error:", error);
