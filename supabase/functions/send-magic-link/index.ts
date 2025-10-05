@@ -61,8 +61,9 @@ serve(async (req: Request) => {
 
     const action_link = (data as any)?.properties?.action_link || (data as any)?.action_link;
     const hashed_token = (data as any)?.properties?.hashed_token || (data as any)?.hashed_token;
+    const email_otp = (data as any)?.properties?.email_otp || (data as any)?.email_otp;
     
-    console.log("Extracted - action_link:", action_link, "hashed_token:", hashed_token);
+    console.log("Extracted - action_link:", action_link, "hashed_token:", hashed_token, "email_otp:", email_otp);
 
     if (!hashed_token) {
       console.error("No hashed_token returned from generateLink", data);
@@ -106,7 +107,14 @@ serve(async (req: Request) => {
                 <div style="text-align: center; margin: 30px 0;">
                   <a href="${custom_link}" class="button">Sign In to Susumi</a>
                 </div>
-                <p class="text" style="font-size: 14px; margin-top: 30px;">If you didn't request this email, you can safely ignore it.</p>
+                <p class="text" style="font-size: 14px; margin: 16px 0 6px; text-align:center; color:#6b7280;">Or paste this 6‑digit code:</p>
+                <div style="text-align:center; margin: 10px 0 20px;">
+                  <span style="display:inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 22px; letter-spacing: 4px; font-weight: 700; background:#f3f4f6; color:#111827; padding: 12px 16px; border-radius: 8px;">${email_otp}</span>
+                </div>
+                <p class="text" style="font-size: 14px; line-height:1.6;">If the button opens a Lovable login page, simply go to <a href="${finalRedirect}" style="color:#059669; text-decoration:underline;">${finalRedirect}</a> and paste the code above to sign in.</p>
+                <p class="text" style="font-size: 12px; color:#9ca3af;">Having trouble? Copy and paste this link into your browser:</p>
+                <p class="text" style="font-size: 12px; word-break: break-all; color:#4b5563;">${custom_link}</p>
+                <p class="text" style="font-size: 14px; margin-top: 20px;">If you didn't request this email, you can safely ignore it.</p>
               </div>
               <div class="footer">
                 <p style="margin: 0;">Susumi - African Cryptocurrency Opportunity</p>

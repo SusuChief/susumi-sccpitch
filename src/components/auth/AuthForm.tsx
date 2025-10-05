@@ -48,6 +48,34 @@ export const AuthForm = () => {
     }
   };
 
+  const [code, setCode] = useState("");
+  const [verifying, setVerifying] = useState(false);
+
+  const handleVerifyCode = async () => {
+    if (!email) {
+      toast({ title: "Email required", description: "Enter your email above first.", variant: "destructive" });
+      return;
+    }
+    if (!code || code.length < 6) {
+      toast({ title: "Invalid code", description: "Enter the 6-digit code from the email.", variant: "destructive" });
+      return;
+    }
+    setVerifying(true);
+    try {
+      const { data, error } = await supabase.auth.verifyOtp({ type: 'email' as any, email, token: code });
+      console.log('Manual code verifyOtp result:', { data, error });
+      if (error) {
+        toast({ title: 'Verification failed', description: error.message, variant: 'destructive' });
+      } else {
+        toast({ title: 'Signed in', description: 'Welcome back.' });
+      }
+    } catch (err: any) {
+      toast({ title: 'Error', description: err.message, variant: 'destructive' });
+    } finally {
+      setVerifying(false);
+    }
+  };
+
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="space-y-2 text-center">
@@ -80,6 +108,38 @@ export const AuthForm = () => {
           You'll receive a secure login link via email. No password required.
         </p>
       </form>
+
+      <div className="relative my-6">
+        <div className="absolute inset-0 flex items-center">
+          <span className="w-full border-t border-border"></span>
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-background px-3 text-xs text-muted-foreground">Or paste 6-digit code</span>
+        </div>
+      </div>
+
+      <div className="space-y-4" aria-label="Verify code">
+        <div className="space-y-2">
+          <Label htmlFor="code">Verification code</Label>
+          <Input
+            id="code"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            maxLength={6}
+            placeholder="123456"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            className="bg-secondary"
+          />
+        </div>
+        <Button type="button" className="w-full hover-glow" onClick={handleVerifyCode} disabled={verifying || !email || code.length < 6}>
+          {verifying && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          Verify & Sign in
+        </Button>
+        <p className="text-xs text-center text-muted-foreground">
+          Tip: If the email button opens a Lovable login page, paste the code here instead.
+        </p>
+      </div>
     </div>
   );
 };
