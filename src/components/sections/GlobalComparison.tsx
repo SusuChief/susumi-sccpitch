@@ -69,8 +69,8 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
               <BarChart data={comparisonData}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                 <XAxis dataKey="country" />
-                <YAxis domain={[0, 8]} ticks={[1, 2, 3, 4, 5, 6, 7, 8]} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
-                <Tooltip 
+                <YAxis reversed domain={[0, 8]} ticks={[1, 2, 3, 4, 5, 6, 7, 8]} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
+                <Tooltip
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
                     border: '1px solid hsl(var(--border))' 
@@ -92,7 +92,7 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
                 <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                 <div>
                   <p className="font-semibold">Highest in Sub-Saharan Africa</p>
-                  <p className="text-sm text-muted-foreground">Nigeria dominates crypto adoption across the entire African continent</p>
+                  <p className="text-sm text-muted-foreground">Nigeria dominates crypto adoption across the entire African continent, and is number two globally.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">

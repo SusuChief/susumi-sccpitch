@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Linkedin } from "lucide-react";
 import samIgweImg from "@/assets/team/sam-igwe.jpg";
 import johnOtiImg from "@/assets/team/john-oti.jpg";
 import okeyIgweImg from "@/assets/team/okey-emmanuel-igwe.jpg";
@@ -13,19 +15,22 @@ const team = [
     name: "Sam Igwe",
     role: "Founder & CEO",
     bio: "Experienced Tech Consultant with a passion for social finance.",
-    image: samIgweImg
+    image: samIgweImg,
+    linkedin: "https://www.linkedin.com/in/samigwe-susumi/"
   },
   {
     name: "Dr John Oti",
     role: "Founder & CTO",
     bio: "DSc in Electrophysics, Computer Science & System Science",
-    image: johnOtiImg
+    image: johnOtiImg,
+    linkedin: "https://www.linkedin.com/in/john-oti-3117621"
   },
   {
     name: "Emmanuel Igwe",
     role: "Founder & CMO",
     bio: "Founded and exited multiple digital media businesses",
-    image: okeyIgweImg
+    image: okeyIgweImg,
+    linkedin: "https://www.linkedin.com/in/emmanuel-igwe/"
   },
   {
     name: "Keith Benson",
@@ -37,13 +42,15 @@ const team = [
     name: "John Ondoma",
     role: "CFO - Nigeria",
     bio: "Pioneer of the Mobile Money industry in Nigeria",
-    image: johnOndomaImg
+    image: johnOndomaImg,
+    linkedin: "https://www.linkedin.com/in/john-o-ondoma/"
   },
   {
     name: "Uche Anyanwu",
     role: "Head of Legal - Nigeria",
     bio: "Experienced Nigerian Attorney with over 30yrs expertise in corporate law",
-    image: ucheAnyanwuImg
+    image: ucheAnyanwuImg,
+    linkedin: "https://www.linkedin.com/in/uchenna-anyanwu-cmc-fimc-94b24937/"
   },
   {
     name: "Felix Achibiri",
@@ -85,7 +92,7 @@ export const Team = ({ onView }: TeamProps) => {
     >
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Meet the <span className="gradient-text font-goldman">Susumi</span> Team
+          Meet the <span className="gradient-text font-goldman">SUSUMI</span> Team
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Experienced leaders in technology, finance, and blockchain innovation
@@ -106,7 +113,18 @@ export const Team = ({ onView }: TeamProps) => {
               </div>
               <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
               <div className="text-primary text-sm font-medium mb-3">{member.role}</div>
-              <p className="text-sm text-muted-foreground">{member.bio}</p>
+              <p className="text-sm text-muted-foreground mb-3">{member.bio}</p>
+              {member.linkedin && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-2"
+                  onClick={() => window.open(member.linkedin, '_blank')}
+                >
+                  <Linkedin className="h-4 w-4 mr-2" />
+                  LinkedIn
+                </Button>
+              )}
             </Card>
           ))}
         </div>

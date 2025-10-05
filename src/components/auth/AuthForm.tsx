@@ -91,9 +91,11 @@ export const AuthForm = () => {
   return (
     <div className="w-full max-w-md space-y-6">
       <div className="space-y-2 text-center">
-        <h1 className="text-3xl font-bold"><span className="gradient-text font-goldman">Susumi</span> Investor Access</h1>
+        <h1 className="text-3xl font-bold mb-2">
+          <span className="gradient-text font-goldman">SUSUMI</span> Decentralized Crowdfunding
+        </h1>
         <p className="text-muted-foreground">
-          Private investor pitch • Invite-only access
+          Private Investor Panel  •  Invite-only Access
         </p>
       </div>
 
@@ -119,6 +121,8 @@ export const AuthForm = () => {
 
           <p className="text-xs text-center text-muted-foreground">
             You'll receive a 6-digit code via email. No password required.
+            <br />
+            Please check your junk mail if you don't find it in your inbox.
           </p>
         </form>
       ) : (
