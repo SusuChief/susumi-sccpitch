@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Mail, Phone } from "lucide-react";
+import dashboardImg from "@/assets/dashboard-screenshot.png";
 
 interface ClosingProps {
   onView: () => void;
@@ -69,6 +70,15 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
           </div>
 
           <div className="border-t border-border pt-8 space-y-4 text-center">
+            <h3 className="text-xl font-semibold mb-6">Live Platform Preview</h3>
+            <div className="mb-8 rounded-lg overflow-hidden border border-border">
+              <img 
+                src={dashboardImg} 
+                alt="Susumi Platform Dashboard" 
+                className="w-full h-auto"
+              />
+            </div>
+            
             <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm">
               <a 

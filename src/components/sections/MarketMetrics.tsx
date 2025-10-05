@@ -110,7 +110,7 @@ export const MarketMetrics = ({ onView }: MarketMetricsProps) => {
           />
           <MetricCard
             value="47%"
-            label="Nigerian Adoption Rate"
+            label="Nigerian Crypto Adoption Rate"
             description="Of Nigerians aged 18-64 have used cryptocurrency"
           />
         </div>

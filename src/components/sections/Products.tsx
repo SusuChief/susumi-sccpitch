@@ -1,27 +1,28 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { Wallet, Coins, Image, Lock } from "lucide-react";
-import susumiPlusLogo from "@/assets/susumi-plus-logo.png";
+import susuFundImg from "@/assets/susu-fund.png";
+import susuTokensImg from "@/assets/susu-tokens.png";
+import susuNftsImg from "@/assets/susu-nfts.png";
+import validatorPanelImg from "@/assets/validator-panel.png";
 
 const products = [
   {
-    icon: Wallet,
+    image: susuFundImg,
     title: "Susu Funds",
-    description: "A blockchain version of Esusu. Enables anybody to raise money quickly using crypto. Individuals, enterprises, and communities can all participate. All participants benefit: 'You Give, You Get, Plus More.'"
+    description: "A blockchain version of Esusu (Rotating Savings and Credit Associations). Enables anybody to raise money quickly without collateral or a credit check. Individuals, enterprises, and communities can all participate. All participants benefit."
   },
   {
-    icon: Coins,
-    title: "SUSU+ Tokens",
-    logo: true,
-    description: "Unique token with limited circulation. Max supply: 100 Billion units. Less than 1% in circulation, 4% time-locked, 95% unminted. New tokens minted only after donations received. Used for investment and revenue-generating NFTs."
+    image: susuTokensImg,
+    title: "SUSU+ Token",
+    description: "Unique ERC 20 token with limited circulation. Max supply: 100 Billion units. Less than 1% in circulation, 4% time-locked, 95% unminted. New tokens can only be minted after donations have been received and a Susu Fund has successfully matured. No donations, no tokens."
   },
   {
-    icon: Image,
+    image: susuNftsImg,
     title: "Susumi NFTs",
-    description: "Various NFT series representing roles and ownership in the Susumi ecosystem. Enable viral social investments and platform growth. Unique revenue-generating tokens tradeable on secondary markets."
+    description: "Various NFT series representing roles and ownership within the Susumi ecosystem. Susumi NFTs are dynamic and enable peer-regulation and viral platform growth. The Unique revenue-generating tokens are tradeable on secondary markets."
   },
   {
-    icon: Lock,
+    image: validatorPanelImg,
     title: "The Validator Panel",
     description: "Secure vault for time-locked SUSU+ tokens. 40% of USDT platform revenue distributed to locked tokens every 30 days. Increases token value and encourages wider adoption."
   }
@@ -71,15 +72,11 @@ export const Products = ({ onView }: ProductsProps) => {
               key={index}
               className="p-8 bg-card hover-glow"
             >
-              {product.logo ? (
-                <img 
-                  src={susumiPlusLogo} 
-                  alt="SUSU+" 
-                  className="h-16 w-16 mb-4"
-                />
-              ) : (
-                <product.icon className="h-16 w-16 text-primary mb-4" />
-              )}
+              <img 
+                src={product.image} 
+                alt={product.title} 
+                className="w-24 h-24 object-contain mb-4 rounded-lg"
+              />
               <h3 className="text-2xl font-semibold mb-3">{product.title}</h3>
               <p className="text-muted-foreground leading-relaxed">
                 {product.description}

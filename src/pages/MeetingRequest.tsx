@@ -16,8 +16,6 @@ const MeetingRequest = () => {
   const [formData, setFormData] = useState({
     company: "",
     email: "",
-    aum: "",
-    mandate_type: "",
     cheque_size: "",
     timing: "",
     message: ""
@@ -28,21 +26,8 @@ const MeetingRequest = () => {
     setLoading(true);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      
-      const { error } = await supabase.from("meeting_requests").insert({
-        user_id: user?.id,
-        ...formData
-      });
-
-      if (error) throw error;
-
-      toast({
-        title: "Request Submitted",
-        description: "We'll be in touch soon to schedule your meeting.",
-      });
-
-      navigate("/");
+      // Redirect to Calendly page
+      window.location.href = 'https://calendly.com/susumi/30min';
     } catch (error: any) {
       toast({
         title: "Error",
@@ -97,42 +82,16 @@ const MeetingRequest = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="aum">AUM Range</Label>
-              <Select value={formData.aum} onValueChange={(value) => setFormData({ ...formData, aum: value })}>
-                <SelectTrigger className="bg-secondary">
-                  <SelectValue placeholder="Select AUM range" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="<$50M">&lt;$50M</SelectItem>
-                  <SelectItem value="$50M-$250M">$50M-$250M</SelectItem>
-                  <SelectItem value="$250M-$1B">$250M-$1B</SelectItem>
-                  <SelectItem value=">$1B">&gt;$1B</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="mandate_type">Investment Mandate</Label>
-              <Input
-                id="mandate_type"
-                placeholder="e.g., Fintech, Web3, Emerging Markets"
-                value={formData.mandate_type}
-                onChange={(e) => setFormData({ ...formData, mandate_type: e.target.value })}
-                className="bg-secondary"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="cheque_size">Typical Cheque Size</Label>
-              <Select value={formData.cheque_size} onValueChange={(value) => setFormData({ ...formData, cheque_size: value })}>
+              <Label htmlFor="cheque_size">Typical Cheque Size *</Label>
+              <Select value={formData.cheque_size} onValueChange={(value) => setFormData({ ...formData, cheque_size: value })} required>
                 <SelectTrigger className="bg-secondary">
                   <SelectValue placeholder="Select cheque size" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="<$500K">&lt;$500K</SelectItem>
-                  <SelectItem value="$500K-$2M">$500K-$2M</SelectItem>
-                  <SelectItem value="$2M-$10M">$2M-$10M</SelectItem>
-                  <SelectItem value=">$10M">&gt;$10M</SelectItem>
+                  <SelectItem value="$100K-$250K">$100K-$250K</SelectItem>
+                  <SelectItem value="$250K-$500K">$250K-$500K</SelectItem>
+                  <SelectItem value="$500K-$1M">$500K-$1M</SelectItem>
+                  <SelectItem value="$1M-$1.5M">$1M-$1.5M</SelectItem>
                 </SelectContent>
               </Select>
             </div>

@@ -26,8 +26,9 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           />
           
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            A Groundbreaking Opportunity in the{" "}
-            <span className="gradient-text">Cryptocurrency Market</span>
+            A Groundbreaking Opportunity in the
+            <br />
+            African <span className="gradient-text">Cryptocurrency Market</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">

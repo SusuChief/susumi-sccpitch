@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Hero } from "@/components/sections/Hero";
 import { MarketMetrics } from "@/components/sections/MarketMetrics";
+import { GlobalComparison } from "@/components/sections/GlobalComparison";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Products } from "@/components/sections/Products";
 import { Tokenomics } from "@/components/sections/Tokenomics";
@@ -80,6 +81,7 @@ const Home = () => {
 
       <Hero onCTAClick={handleCTAClick} />
       <MarketMetrics onView={() => handleSectionView("market")} />
+      <GlobalComparison onView={() => handleSectionView("global-comparison")} />
       <HowItWorks onView={() => handleSectionView("how-it-works")} />
       <Products onView={() => handleSectionView("products")} />
       <Tokenomics onView={() => handleSectionView("tokenomics")} />

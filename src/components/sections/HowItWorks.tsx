@@ -6,22 +6,22 @@ const steps = [
   {
     icon: Users,
     title: "Create a Susu Fund",
-    description: "Individuals, communities, and enterprises raise money for their needs through the Susumi platform using USDT stablecoin."
+    description: "Individuals, communities, or enterprises deposit SUSU+ Tokens to enable them create a fund to raise money for their needs through the Susumi platform using USDT stablecoin."
   },
   {
     icon: Gift,
     title: "Donors Contribute",
-    description: "Community members donate USDT to Susu Funds. Unlike traditional crowdfunding, donors are incentivized with SUSU+ token rewards."
+    description: "Community members/Public donate USDT to Susu Funds. Unlike traditional crowdfunding, donors are incentivized with SUSU+ token rewards."
   },
   {
     icon: Coins,
-    title: "Earn SUSU+ Tokens",
-    description: "Donors receive SUSU+ tokens as rewards. These tokens are dynamically minted and have strong utility within the ecosystem."
+    title: "Earn Susu Tokens",
+    description: "Donors receive SUSU+ tokens as rewards. These tokens are dynamically minted and have strong utility within the ecosystem, but they have a vesting period before being released."
   },
   {
     icon: TrendingUp,
     title: "Everyone Benefits",
-    description: "SUSU+ tokens can be used to activate funds, purchase NFTs, or stake in the Validator Panel for revenue sharing."
+    description: "Campaigns receive USDT, Donors receive SUSU+ tokens which can be used to create new campaigns, Platform earns a fee on successful funds, Validators earn a share of this revenue for reviewing campaigns and keeping the Platform clean. As transactions increase the value of the SUSU+ Token increases."
   }
 ];
 
@@ -60,8 +60,7 @@ export const HowItWorks = ({ onView }: HowItWorksProps) => {
           How <span className="gradient-text">Susumi</span> Works
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-          A unique blockchain crowdfunding method using Web3 technology, smart contracts, and cryptocurrency rewards. 
-          Based on the traditional Susu cooperative finance model: <em>"You Give, You Get, Plus More"</em>
+          Susumi is a unique decentralised crowdfunding method using Web3 technology, smart contracts, and cryptocurrency rewards. It is based on reciprocal fundraising principles from the ancient Susu cooperative finance models.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -97,7 +96,7 @@ export const HowItWorks = ({ onView }: HowItWorksProps) => {
             </div>
             <div>
               <p className="font-semibold mb-2">Scalable Model</p>
-              <p className="text-muted-foreground">Individuals can raise up to $10M for personal, community, or enterprise needs.</p>
+              <p className="text-muted-foreground">Campaigns can now raise funds globally from donors outside their immediate local networks. Crowdfunding campaigns can be easily replicated across communities.</p>
             </div>
           </div>
         </Card>

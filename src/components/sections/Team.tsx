@@ -1,41 +1,55 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
+import samIgweImg from "@/assets/team/sam-igwe.jpg";
+import johnOtiImg from "@/assets/team/john-oti.jpg";
+import okeyIgweImg from "@/assets/team/okey-emmanuel-igwe.jpg";
+import keithBensonImg from "@/assets/team/keith-benson.jpg";
+import johnOndomaImg from "@/assets/team/john-ondoma.jpg";
+import ucheAnyanwuImg from "@/assets/team/uche-anyanwu.jpg";
+import felixAchibiriImg from "@/assets/team/felix-achibiri.jpg";
 
 const team = [
   {
     name: "Sam Igwe",
     role: "Founder & CEO",
-    bio: "Experienced Tech Consultant with a passion for social finance."
+    bio: "Experienced Tech Consultant with a passion for social finance.",
+    image: samIgweImg
   },
   {
     name: "Dr John Oti",
     role: "Founder & CTO",
-    bio: "DSc in Electrophysics, Computer Science & System Science"
+    bio: "DSc in Electrophysics, Computer Science & System Science",
+    image: johnOtiImg
   },
   {
     name: "Emmanuel Igwe",
     role: "Founder & CMO",
-    bio: "Founded and exited multiple digital media businesses"
+    bio: "Founded and exited multiple digital media businesses",
+    image: okeyIgweImg
   },
   {
     name: "Keith Benson",
     role: "Advisor",
-    bio: "Holds International Patent and IP NFC to IoT blockchain protocols"
+    bio: "Holds International Patent and IP NFC to IoT blockchain protocols",
+    image: keithBensonImg
   },
   {
     name: "John Ondoma",
     role: "CFO - Nigeria",
-    bio: "Pioneer of the Mobile Money industry in Nigeria"
+    bio: "Pioneer of the Mobile Money industry in Nigeria",
+    image: johnOndomaImg
   },
   {
     name: "Uche Anyanwu",
     role: "Head of Legal - Nigeria",
-    bio: "Experienced Nigerian Attorney with over 30yrs expertise in corporate law"
+    bio: "Experienced Nigerian Attorney with over 30yrs expertise in corporate law",
+    image: ucheAnyanwuImg
   },
   {
     name: "Felix Achibiri",
     role: "Advisor",
-    bio: "Harvard Alum and ex-Chairman Fortis Microfinance Bank"
+    bio: "Harvard Alum and ex-Chairman Fortis Microfinance Bank",
+    image: felixAchibiriImg
   }
 ];
 
@@ -83,8 +97,12 @@ export const Team = ({ onView }: TeamProps) => {
               key={index}
               className="p-6 bg-card hover-glow text-center"
             >
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-3xl font-bold text-white">
-                {member.name.split(' ').map(n => n[0]).join('')}
+              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
               <div className="text-primary text-sm font-medium mb-3">{member.role}</div>
