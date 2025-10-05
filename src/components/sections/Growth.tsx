@@ -6,25 +6,25 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, R
 const scenarios = {
   conservative: {
     year1: {
-      users: "74,327",
-      fundsPerMonth: "4,751",
-      avgFundSize: "$1,850",
-      annualRevenue: "$2.1M",
-      roi: "1.8x"
+      users: "50,000",
+      fundsPerMonth: "3,200",
+      avgFundSize: "$1,650",
+      annualRevenue: "$1.4M",
+      roi: "1.2x"
     },
     year2: {
-      users: "1.7M",
-      fundsPerMonth: "83,300",
-      avgFundSize: "$1,850",
-      annualRevenue: "$298M",
-      roi: "248x"
+      users: "1.2M",
+      fundsPerMonth: "55,000",
+      avgFundSize: "$1,750",
+      annualRevenue: "$198M",
+      roi: "165x"
     },
     year3: {
-      users: "12.8M",
-      fundsPerMonth: "993,978",
+      users: "8.5M",
+      fundsPerMonth: "650,000",
       avgFundSize: "$1,850",
-      annualRevenue: "$3.03B",
-      roi: "2,526x"
+      annualRevenue: "$2.0B",
+      roi: "1,667x"
     }
   },
   base: {
@@ -284,6 +284,7 @@ export const Growth = ({ onView }: GrowthProps) => {
           {/* Break-Even Analysis */}
           <Card className="p-8 bg-card">
             <h3 className="text-2xl font-semibold mb-6">Year 1 Break-Even Analysis</h3>
+            <p className="text-sm text-muted-foreground mb-6">Based on Base Model assumptions</p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-lg font-semibold mb-4">Cumulative Cash Flow</h4>
@@ -333,6 +334,7 @@ export const Growth = ({ onView }: GrowthProps) => {
           {/* 3-Year Financial Overview */}
           <Card className="p-8 bg-card">
             <h3 className="text-2xl font-semibold mb-6">3-Year Financial Overview</h3>
+            <p className="text-sm text-muted-foreground mb-6">Based on Base Model assumptions</p>
             <div className="mb-8">
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={yearlyProjections}>
@@ -375,6 +377,9 @@ export const Growth = ({ onView }: GrowthProps) => {
                 <div className="text-3xl font-bold mb-1">$3.03B</div>
                 <div className="text-sm text-accent font-semibold">+$3.01B profit</div>
                 <div className="text-xs text-muted-foreground mt-2">12.8M users • 99% margin</div>
+                <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded text-xs text-muted-foreground">
+                  <strong className="text-primary">Exponential Growth:</strong> Susumi's viral nature drives exponential growth—each successful fund generates at least 12 potential new funds. These projections assume 50% of potential new funds are actually created.
+                </div>
               </div>
             </div>
           </Card>

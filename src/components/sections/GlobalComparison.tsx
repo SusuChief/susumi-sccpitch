@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from "recharts";
 
 const comparisonData = [
   { country: "India", rank: 1, region: "CSAO" },
@@ -11,6 +11,17 @@ const comparisonData = [
   { country: "United Kingdom", rank: 6, region: "Europe" },
   { country: "Philippines", rank: 7, region: "CSAO" },
   { country: "Pakistan", rank: 8, region: "CSAO" },
+];
+
+const countryColors = [
+  "hsl(221, 83%, 53%)",  // India - Blue
+  "hsl(142, 76%, 36%)",  // Nigeria - Green (primary)
+  "hsl(280, 81%, 60%)",  // Indonesia - Violet
+  "hsl(346, 77%, 50%)",  // USA - Red
+  "hsl(262, 83%, 58%)",  // Vietnam - Purple
+  "hsl(48, 96%, 53%)",   // UK - Yellow
+  "hsl(173, 58%, 39%)",  // Philippines - Teal
+  "hsl(142, 71%, 45%)",  // Pakistan - Emerald
 ];
 
 interface GlobalComparisonProps {
@@ -55,17 +66,21 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
           <Card className="p-8 bg-card">
             <h3 className="text-2xl font-semibold mb-6">Top 8 Countries by Crypto Adoption</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={comparisonData} layout="horizontal">
+              <BarChart data={comparisonData}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                <XAxis type="number" reversed domain={[0, 8]} />
-                <YAxis type="category" dataKey="country" width={100} />
+                <XAxis dataKey="country" />
+                <YAxis domain={[0, 8]} ticks={[1, 2, 3, 4, 5, 6, 7, 8]} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
                     border: '1px solid hsl(var(--border))' 
                   }}
                 />
-                <Bar dataKey="rank" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+                <Bar dataKey="rank" radius={[4, 4, 0, 0]}>
+                  {comparisonData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={countryColors[index]} />
+                  ))}
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
           </Card>
