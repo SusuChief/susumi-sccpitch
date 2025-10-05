@@ -26,7 +26,7 @@ export const AuthForm = () => {
     setLoading(true);
 
     try {
-      const redirectTo = `${window.location.origin}/`;
+      const redirectTo = `${window.location.origin}/auth`;
       const { error } = await supabase.functions.invoke('send-magic-link', {
         body: { email, redirectTo },
       });
