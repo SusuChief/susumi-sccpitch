@@ -32,7 +32,7 @@ const handler = async (req: Request): Promise<Response> => {
     const magicLink = `${supabaseUrl}/auth/v1/verify?token=${token_hash}&type=${email_action_type}&redirect_to=${redirect_to}`;
 
     const emailResponse = await resend.emails.send({
-      from: "Susumi <onboarding@resend.dev>", // Update this with your verified domain
+      from: "Susumi <info@susumicapital.com>",
       to: [email],
       subject: "Sign in to Susumi Investor Access",
       html: `
