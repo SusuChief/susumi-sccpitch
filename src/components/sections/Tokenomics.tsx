@@ -94,8 +94,8 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                   wrapperStyle={{ 
                     paddingTop: '16px'
                   }}
-                  formatter={(value: string, entry: any) => {
-                    const textColor = value === "Unminted Reserve" ? "#FFFFFF" : entry.color;
+                  formatter={(value: string) => {
+                    const textColor = value === "Unminted Reserve" ? "#FFFFFF" : undefined;
                     return <span style={{ color: textColor }}>{value}</span>;
                   }}
                 />
