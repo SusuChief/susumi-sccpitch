@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 
 const tokenData = [
   { name: "Circulating Supply", value: 1, color: "hsl(168 76% 42%)" },
@@ -48,62 +47,39 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Card className="p-8 bg-card">
-            <ResponsiveContainer width="100%" height={400}>
-              <PieChart>
-                <Pie
-                  data={tokenData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={(props: any) => {
-                    const { cx, cy, midAngle, innerRadius, outerRadius, name, value } = props;
-                    const RADIAN = Math.PI / 180;
-                    const radius = outerRadius + 15;
-                    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-                    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-                    const fill = name === "Unminted Reserve" ? "#FFFFFF" : props.fill;
-                    
-                    return (
-                      <text 
-                        x={x} 
-                        y={y} 
-                        fill={fill}
-                        textAnchor={x > cx ? 'start' : 'end'} 
-                        dominantBaseline="central"
-                        className="text-xs md:text-sm"
-                      >
-                        {`${name}: ${value}%`}
-                      </text>
-                    );
+            <div className="flex flex-col items-center justify-center h-[400px]">
+              {/* CSS Donut Chart */}
+              <div className="relative w-64 h-64 md:w-72 md:h-72">
+                <div 
+                  className="w-full h-full rounded-full"
+                  style={{
+                    background: `conic-gradient(
+                      ${tokenData[0].color} 0% ${tokenData[0].value}%,
+                      ${tokenData[1].color} ${tokenData[0].value}% ${tokenData[0].value + tokenData[1].value}%,
+                      ${tokenData[2].color} ${tokenData[0].value + tokenData[1].value}% 100%
+                    )`,
                   }}
-                  outerRadius={110}
-                  fill="#8884d8"
-                  dataKey="value"
                 >
-                  {tokenData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: 'hsl(220 18% 12%)', 
-                    border: '1px solid hsl(220 15% 20%)',
-                    borderRadius: '8px'
-                  }}
-                />
-                <Legend 
-                  wrapperStyle={{ 
-                    paddingTop: '16px',
-                    position: 'relative',
-                    zIndex: 10
-                  }}
-                  formatter={(value: string) => {
-                    const textColor = value === "Unminted Reserve" ? "#FFFFFF" : undefined;
-                    return <span style={{ color: textColor, fontWeight: value === "Unminted Reserve" ? 600 : 400 }}>{value}</span>;
-                  }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
+                  {/* Inner circle to create donut effect */}
+                  <div className="absolute inset-0 m-auto w-32 h-32 md:w-36 md:h-36 rounded-full bg-card" />
+                </div>
+              </div>
+              
+              {/* HTML Legend */}
+              <div className="mt-8 space-y-3 w-full max-w-sm">
+                {tokenData.map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div 
+                      className="w-4 h-4 rounded-sm flex-shrink-0"
+                      style={{ backgroundColor: item.color }}
+                    />
+                    <span className="text-sm text-foreground font-medium">
+                      {item.name}: {item.value}%
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </Card>
 
           <div className="space-y-6">
