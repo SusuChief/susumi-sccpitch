@@ -58,7 +58,7 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                   label={(props: any) => {
                     const { cx, cy, midAngle, innerRadius, outerRadius, name, value } = props;
                     const RADIAN = Math.PI / 180;
-                    const radius = outerRadius + 25;
+                    const radius = outerRadius + 15;
                     const x = cx + radius * Math.cos(-midAngle * RADIAN);
                     const y = cy + radius * Math.sin(-midAngle * RADIAN);
                     const fill = name === "Unminted Reserve" ? "#FFFFFF" : props.fill;
@@ -70,12 +70,13 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                         fill={fill}
                         textAnchor={x > cx ? 'start' : 'end'} 
                         dominantBaseline="central"
+                        className="text-xs md:text-sm"
                       >
                         {`${name}: ${value}%`}
                       </text>
                     );
                   }}
-                  outerRadius={120}
+                  outerRadius={110}
                   fill="#8884d8"
                   dataKey="value"
                 >
@@ -92,11 +93,13 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                 />
                 <Legend 
                   wrapperStyle={{ 
-                    paddingTop: '16px'
+                    paddingTop: '16px',
+                    position: 'relative',
+                    zIndex: 10
                   }}
                   formatter={(value: string) => {
                     const textColor = value === "Unminted Reserve" ? "#FFFFFF" : undefined;
-                    return <span style={{ color: textColor }}>{value}</span>;
+                    return <span style={{ color: textColor, fontWeight: value === "Unminted Reserve" ? 600 : 400 }}>{value}</span>;
                   }}
                 />
               </PieChart>
