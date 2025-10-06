@@ -47,35 +47,49 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Card className="p-8 bg-card">
-            <div className="flex flex-col items-center justify-center h-[400px]">
-              {/* CSS Donut Chart */}
-              <div className="relative w-64 h-64 md:w-72 md:h-72">
-                <div 
-                  className="w-full h-full rounded-full"
-                  style={{
-                    background: `conic-gradient(
-                      ${tokenData[0].color} 0% ${tokenData[0].value}%,
-                      ${tokenData[1].color} ${tokenData[0].value}% ${tokenData[0].value + tokenData[1].value}%,
-                      ${tokenData[2].color} ${tokenData[0].value + tokenData[1].value}% 100%
-                    )`,
-                  }}
-                >
-                  {/* Inner circle to create donut effect */}
-                  <div className="absolute inset-0 m-auto w-32 h-32 md:w-36 md:h-36 rounded-full bg-card" />
+            <div className="space-y-6">
+              {/* Stacked Bar Visualization (100% width) */}
+              <div className="space-y-3">
+                <div className="relative flex h-8 w-full overflow-hidden rounded-md ring-1 ring-border">
+                  <div
+                    className="h-full bg-primary"
+                    style={{ width: `${tokenData[0].value}%` }}
+                    aria-label={`${tokenData[0].name} ${tokenData[0].value}%`}
+                  />
+                  <div
+                    className="h-full bg-accent"
+                    style={{ width: `${tokenData[1].value}%` }}
+                    aria-label={`${tokenData[1].name} ${tokenData[1].value}%`}
+                  />
+                  <div
+                    className="h-full bg-foreground/10"
+                    style={{ width: `${tokenData[2].value}%` }}
+                    aria-label={`${tokenData[2].name} ${tokenData[2].value}%`}
+                  />
+                </div>
+                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <span>0%</span>
+                  <span>100%</span>
                 </div>
               </div>
-              
-              {/* HTML Legend */}
-              <div className="mt-8 space-y-3 w-full max-w-sm">
+
+              {/* High-contrast Legend */}
+              <div className="grid gap-3 w-full max-w-xl">
                 {tokenData.map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div 
-                      className="w-4 h-4 rounded-sm flex-shrink-0"
-                      style={{ backgroundColor: item.color }}
-                    />
-                    <span className="text-sm text-foreground font-medium">
-                      {item.name}: {item.value}%
-                    </span>
+                  <div key={index} className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`w-4 h-4 rounded-sm ${
+                          index === 0
+                            ? 'bg-primary'
+                            : index === 1
+                            ? 'bg-accent'
+                            : 'bg-foreground/10 ring-1 ring-border'
+                        }`}
+                      />
+                      <span className="text-foreground font-medium text-sm md:text-base">{item.name}</span>
+                    </div>
+                    <span className="font-semibold text-foreground text-sm md:text-base">{item.value}%</span>
                   </div>
                 ))}
               </div>
