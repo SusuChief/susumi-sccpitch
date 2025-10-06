@@ -3,16 +3,16 @@ import { Card } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from "recharts";
 
 const comparisonData = [
-  { country: "India", rank: 1, region: "Central & Southern Asia and Oceania" },
-  { country: "Nigeria", rank: 2, region: "Sub-Saharan Africa" },
-  { country: "Indonesia", rank: 3, region: "Central & Southern Asia and Oceania" },
-  { country: "United States", rank: 4, region: "North America" },
-  { country: "Vietnam", rank: 5, region: "Central & Southern Asia and Oceania" },
-  { country: "Ukraine", rank: 6, region: "Eastern Europe" },
-  { country: "Russia", rank: 7, region: "Eastern Europe" },
-  { country: "Philippines", rank: 8, region: "Central & Southern Asia and Oceania" },
-  { country: "", rank: 9, region: "" },
-  { country: "", rank: 10, region: "" },
+  { country: "India", rank: 1, height: 10, region: "Central & Southern Asia and Oceania" },
+  { country: "Nigeria", rank: 2, height: 9, region: "Sub-Saharan Africa" },
+  { country: "Indonesia", rank: 3, height: 8, region: "Central & Southern Asia and Oceania" },
+  { country: "United States", rank: 4, height: 7, region: "North America" },
+  { country: "Vietnam", rank: 5, height: 6, region: "Central & Southern Asia and Oceania" },
+  { country: "Ukraine", rank: 6, height: 5, region: "Eastern Europe" },
+  { country: "Russia", rank: 7, height: 4, region: "Eastern Europe" },
+  { country: "Philippines", rank: 8, height: 3, region: "Central & Southern Asia and Oceania" },
+  { country: "", rank: 9, height: 2, region: "" },
+  { country: "", rank: 10, height: 1, region: "" },
 ];
 
 const countryColors = [
@@ -77,8 +77,9 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
                     backgroundColor: 'hsl(var(--card))', 
                     border: '1px solid hsl(var(--border))' 
                   }}
+                  formatter={(value: any, name: any, props: any) => [props.payload.rank, 'Rank']}
                 />
-                <Bar dataKey="rank" radius={[4, 4, 0, 0]}>
+                <Bar dataKey="height" radius={[4, 4, 0, 0]}>
                   {comparisonData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={countryColors[index]} />
                   ))}
