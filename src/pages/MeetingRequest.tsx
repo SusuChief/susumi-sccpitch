@@ -8,6 +8,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, ArrowLeft } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { z } from "zod";
+
+const meetingRequestSchema = z.object({
+  company: z.string().trim().min(1, "Company name is required").max(100, "Company name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  cheque_size: z.string().min(1, "Please select a cheque size"),
+  timing: z.string().optional(),
+  message: z.string().trim().max(1000, "Message must be less than 1000 characters").optional(),
+});
 
 const MeetingRequest = () => {
   const navigate = useNavigate();
@@ -26,14 +35,53 @@ const MeetingRequest = () => {
     setLoading(true);
 
     try {
+      // Validate input
+      const validatedData = meetingRequestSchema.parse(formData);
+
+      // Get current user
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
+        throw new Error("You must be logged in to submit a meeting request");
+      }
+
+      // Save to database
+      const { error: dbError } = await supabase
+        .from("meeting_requests")
+        .insert({
+          company: validatedData.company,
+          email: validatedData.email,
+          cheque_size: validatedData.cheque_size,
+          timing: validatedData.timing || null,
+          message: validatedData.message || null,
+          user_id: user.id,
+        });
+
+      if (dbError) throw dbError;
+
+      toast({
+        title: "Request submitted",
+        description: "Your meeting request has been saved. Opening Calendly to schedule...",
+      });
+
       // Open Calendly page in new tab
       window.open('https://calendly.com/susumi/30min', '_blank');
+
+      // Navigate back to home
+      setTimeout(() => navigate("/"), 1500);
     } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
     } finally {
       setLoading(false);
     }

@@ -8,6 +8,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, ArrowLeft, Shield } from "lucide-react";
+import { z } from "zod";
+
+const dataRoomRequestSchema = z.object({
+  company: z.string().trim().min(1, "Company name is required").max(100, "Company name must be less than 100 characters"),
+  role: z.string().trim().min(1, "Role is required").max(100, "Role must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  message: z.string().trim().max(1000, "Message must be less than 1000 characters").optional(),
+});
 
 const DataRoomRequest = () => {
   const navigate = useNavigate();
@@ -36,12 +44,22 @@ const DataRoomRequest = () => {
     setLoading(true);
 
     try {
+      // Validate input
+      const validatedData = dataRoomRequestSchema.parse(formData);
+
       const { data: { user } } = await supabase.auth.getUser();
       
+      if (!user) {
+        throw new Error("You must be logged in to request data room access");
+      }
+      
       const { error } = await supabase.from("data_room_requests").insert({
-        user_id: user?.id,
+        company: validatedData.company,
+        role: validatedData.role,
+        email: validatedData.email,
+        message: validatedData.message || null,
         nda_accepted: ndaAccepted,
-        ...formData
+        user_id: user.id,
       });
 
       if (error) throw error;
@@ -53,11 +71,19 @@ const DataRoomRequest = () => {
 
       navigate("/");
     } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
     } finally {
       setLoading(false);
     }
