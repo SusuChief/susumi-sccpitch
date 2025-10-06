@@ -90,7 +90,26 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                     borderRadius: '8px'
                   }}
                 />
-                <Legend />
+                <Legend 
+                  content={(props) => {
+                    const { payload } = props;
+                    return (
+                      <ul className="flex flex-wrap justify-center gap-4 mt-4">
+                        {payload?.map((entry: any, index: number) => (
+                          <li key={`legend-${index}`} className="flex items-center gap-2">
+                            <span 
+                              className="w-3 h-3 rounded-sm" 
+                              style={{ backgroundColor: entry.color }}
+                            />
+                            <span style={{ color: entry.color }}>
+                              {entry.value}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }}
+                />
               </PieChart>
             </ResponsiveContainer>
           </Card>
