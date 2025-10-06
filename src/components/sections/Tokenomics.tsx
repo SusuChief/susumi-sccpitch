@@ -94,9 +94,10 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                   wrapperStyle={{ 
                     paddingTop: '16px'
                   }}
-                  formatter={(value: string, entry: any) => (
-                    <span style={{ color: entry.color }}>{value}</span>
-                  )}
+                  formatter={(value: string, entry: any) => {
+                    const textColor = value === "Unminted Reserve" ? "#FFFFFF" : entry.color;
+                    return <span style={{ color: textColor }}>{value}</span>;
+                  }}
                 />
               </PieChart>
             </ResponsiveContainer>
