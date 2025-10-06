@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recha
 const tokenData = [
   { name: "Circulating Supply", value: 1, color: "hsl(168 76% 42%)" },
   { name: "Time-Locked (24mo)", value: 4, color: "hsl(92 90% 55%)" },
-  { name: "Unminted Reserve", value: 95, color: "hsl(220 15% 20%)", labelColor: "hsl(0 0% 95%)" }
+  { name: "Unminted Reserve", value: 95, color: "hsl(220 15% 20%)" }
 ];
 
 interface TokenomicsProps {
@@ -55,10 +55,25 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={(entry: any) => {
-                    const dataEntry = tokenData.find(d => d.name === entry.name);
-                    const color = dataEntry?.labelColor || entry.fill;
-                    return `${entry.name}: ${entry.value}%`;
+                  label={(props: any) => {
+                    const { cx, cy, midAngle, innerRadius, outerRadius, name, value } = props;
+                    const RADIAN = Math.PI / 180;
+                    const radius = outerRadius + 25;
+                    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+                    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+                    const fill = name === "Unminted Reserve" ? "#FFFFFF" : props.fill;
+                    
+                    return (
+                      <text 
+                        x={x} 
+                        y={y} 
+                        fill={fill}
+                        textAnchor={x > cx ? 'start' : 'end'} 
+                        dominantBaseline="central"
+                      >
+                        {`${name}: ${value}%`}
+                      </text>
+                    );
                   }}
                   outerRadius={120}
                   fill="#8884d8"
