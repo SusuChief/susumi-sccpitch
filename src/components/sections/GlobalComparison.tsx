@@ -11,8 +11,7 @@ const comparisonData = [
   { country: "Ukraine", rank: 6, height: 5, region: "Eastern Europe" },
   { country: "Russia", rank: 7, height: 4, region: "Eastern Europe" },
   { country: "Philippines", rank: 8, height: 3, region: "Central & Southern Asia and Oceania" },
-  { country: "", rank: 9, height: 2, region: "" },
-  { country: "", rank: 10, height: 1, region: "" },
+  { country: "United Kingdom", rank: 12, height: 1, region: "Western Europe" },
 ];
 
 const countryColors = [
@@ -24,6 +23,7 @@ const countryColors = [
   "hsl(48, 96%, 53%)",   // Ukraine - Yellow
   "hsl(173, 58%, 39%)",  // Russia - Teal
   "hsl(142, 71%, 45%)",  // Philippines - Emerald
+  "hsl(0, 72%, 51%)",    // United Kingdom - Red
 ];
 
 interface GlobalComparisonProps {
