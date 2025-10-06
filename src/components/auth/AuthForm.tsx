@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import susumiLogo from "@/assets/susumi-corporate-logo.png";
 
 export const AuthForm = () => {
   const [email, setEmail] = useState("");
@@ -93,7 +94,7 @@ export const AuthForm = () => {
     <div className="w-full max-w-md space-y-6">
       <div className="space-y-4 text-center">
         <img 
-          src="/src/assets/susumi-corporate-logo.png" 
+          src={susumiLogo} 
           alt="Susumi Logo" 
           className="h-20 mx-auto"
         />
