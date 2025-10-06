@@ -15,7 +15,7 @@ const meetingRequestSchema = z.object({
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   cheque_size: z.string().min(1, "Please select a cheque size"),
   timing: z.string().optional(),
-  message: z.string().trim().max(1000, "Message must be less than 1000 characters").optional(),
+  message: z.string().trim().max(1000, "Message must be less than 1000 characters").optional()
 });
 
 const MeetingRequest = () => {
