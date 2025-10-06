@@ -67,19 +67,19 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="p-8 bg-card">
             <h3 className="text-2xl font-semibold mb-6">Top 8 Countries by Crypto Adoption</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={comparisonData}>
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={comparisonData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
-                <XAxis dataKey="country" />
-                <YAxis domain={[0, 10]} ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} reversed={true} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
+                <XAxis type="number" domain={[0, 10]} />
+                <YAxis type="category" dataKey="country" width={100} />
                 <Tooltip
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
                     border: '1px solid hsl(var(--border))' 
                   }}
-                  formatter={(value: any, name: any, props: any) => [props.payload.rank, 'Rank']}
+                  formatter={(value: any, name: any, props: any) => [`Rank #${props.payload.rank}`, 'Global Rank']}
                 />
-                <Bar dataKey="height" radius={[4, 4, 0, 0]}>
+                <Bar dataKey="height" radius={[0, 4, 4, 0]}>
                   {comparisonData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={countryColors[index]} />
                   ))}
