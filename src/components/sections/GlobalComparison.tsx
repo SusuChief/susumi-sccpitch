@@ -71,7 +71,7 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
               <BarChart data={comparisonData}>
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                 <XAxis dataKey="country" />
-                <YAxis domain={[0, 10]} ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
+                <YAxis domain={[0, 10]} ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} reversed={true} label={{ value: 'Rank', angle: -90, position: 'insideLeft' }} />
                 <Tooltip
                   contentStyle={{ 
                     backgroundColor: 'hsl(var(--card))', 
