@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import MeetingRequest from "./pages/MeetingRequest";
 import DataRoomRequest from "./pages/DataRoomRequest";
 import NotFound from "./pages/NotFound";
+import TeamExport from "./pages/TeamExport";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/auth" element={<Auth />} />
+          <Route path="/team-export" element={<TeamExport />} />
           <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/meeting" element={<ProtectedRoute><MeetingRequest /></ProtectedRoute>} />
           <Route path="/request-access" element={<ProtectedRoute><DataRoomRequest /></ProtectedRoute>} />
