@@ -22,9 +22,9 @@ const App = () => (
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/team-export" element={<TeamExport />} />
-          <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/meeting" element={<ProtectedRoute><MeetingRequest /></ProtectedRoute>} />
-          <Route path="/request-access" element={<ProtectedRoute><DataRoomRequest /></ProtectedRoute>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/meeting" element={<MeetingRequest />} />
+          <Route path="/request-access" element={<DataRoomRequest />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
