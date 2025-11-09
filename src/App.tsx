@@ -11,6 +11,7 @@ import DataRoomRequest from "./pages/DataRoomRequest";
 import NotFound from "./pages/NotFound";
 import TeamExport from "./pages/TeamExport";
 import ProductsExport from "./pages/ProductsExport";
+import TokenomicsExport from "./pages/TokenomicsExport";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/team-export" element={<TeamExport />} />
           <Route path="/products-export" element={<ProductsExport />} />
+          <Route path="/tokenomics-export" element={<TokenomicsExport />} />
           <Route path="/" element={<Home />} />
           <Route path="/meeting" element={<MeetingRequest />} />
           <Route path="/request-access" element={<DataRoomRequest />} />
