@@ -20,11 +20,13 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const [sessionId, setSessionId] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const initSession = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
+        setIsLoggedIn(true);
         const { data } = await supabase.from("viewer_sessions").insert({
           user_id: user.id,
           email: user.email || ""
@@ -69,15 +71,17 @@ const Home = () => {
 
   return (
     <div className="relative">
-      <Button
-        variant="ghost"
-        size="sm"
-        className="fixed top-4 right-4 z-50"
-        onClick={handleSignOut}
-      >
-        <LogOut className="h-4 w-4 mr-2" />
-        Sign Out
-      </Button>
+      {isLoggedIn && (
+        <Button
+          variant="ghost"
+          size="sm"
+          className="fixed top-4 right-4 z-50"
+          onClick={handleSignOut}
+        >
+          <LogOut className="h-4 w-4 mr-2" />
+          Sign Out
+        </Button>
+      )}
 
       <Hero onCTAClick={handleCTAClick} />
       <MarketMetrics onView={() => handleSectionView("market")} />
