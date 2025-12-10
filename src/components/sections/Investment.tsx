@@ -55,7 +55,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
         <div className="max-w-4xl mx-auto space-y-8">
           <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
             <div className="text-center mb-8">
-              <div className="text-6xl font-bold gradient-text mb-2">$1.2M</div>
+              <div className="text-6xl font-bold gradient-text mb-2">$1.5M</div>
               <div className="text-2xl font-semibold mb-4">Capital Raise</div>
               <div className="text-muted-foreground">
                 For global commercial launch starting in Nigeria by December 2025
@@ -95,15 +95,15 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
             <div className="space-y-4">
               <div className="flex justify-between items-center pb-3 border-b border-border">
                 <span>Tech Development & Security Audits</span>
-                <span className="font-semibold">$180,000</span>
+                <span className="font-semibold">$200,000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-border">
-                <span>Local & International Marketing</span>
-                <span className="font-semibold">$400,000</span>
+                <span>Local and International Marketing</span>
+                <span className="font-semibold">$500,000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-border">
-                <span>Exchange Listing Operations</span>
-                <span className="font-semibold">$120,000</span>
+                <span>Exchange Listing and Operations</span>
+                <span className="font-semibold">$300,000</span>
               </div>
               <div className="flex justify-between items-center pb-3">
                 <span>Operations & Administration</span>
