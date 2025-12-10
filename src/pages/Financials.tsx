@@ -306,7 +306,7 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($140,000 Bridge @ 5%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return ($200,000 Bridge @ 5%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
