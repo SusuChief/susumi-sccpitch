@@ -70,11 +70,11 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
             </Button>
             <Button 
               size="lg" 
-              variant="secondary"
+              variant="outline"
               className="text-lg px-8 py-6"
               asChild
             >
-              <Link to="/financials">
+              <Link to="/financials" onClick={() => window.scrollTo(0, 0)}>
                 <BarChart3 className="mr-2 h-5 w-5" />
                 View Financials
               </Link>
