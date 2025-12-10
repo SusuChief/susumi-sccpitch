@@ -57,7 +57,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$1.2M</div>
+              <div className="text-4xl font-bold gradient-text">$1.5M</div>
               <div className="text-sm text-muted-foreground">Capital Raise</div>
             </div>
             <div className="space-y-2">
