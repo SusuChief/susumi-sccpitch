@@ -1,4 +1,4 @@
-import { ArrowLeft, TrendingUp, Shield, Users, Coins, Calendar, CheckCircle, DollarSign, BarChart3, Zap } from "lucide-react";
+import { ArrowLeft, TrendingUp, Shield, Users, Coins, Calendar, CheckCircle, DollarSign, BarChart3, Zap, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -389,6 +389,35 @@ const Financials = () => {
               <Link to="/request-access">Request Data Room Access</Link>
             </Button>
           </div>
+        </section>
+
+        {/* Contact CTA */}
+        <section className="py-16 border-t border-border/50">
+          <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 text-center space-y-6">
+            <h2 className="text-2xl md:text-3xl font-bold">
+              Have Questions About Our <span className="gradient-text">Financial Projections</span>?
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our team is ready to discuss the investment opportunity in detail. Reach out directly via WhatsApp for a quick response.
+            </p>
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white text-lg px-8 py-6"
+            >
+              <a 
+                href="https://wa.me/447501785599?text=Hi%2C%20I%27m%20interested%20in%20learning%20more%20about%20Susumi%27s%20investment%20opportunity." 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Contact Us on WhatsApp
+              </a>
+            </Button>
+            <p className="text-sm text-muted-foreground">
+              +44 7501 785599 • Typically replies within hours
+            </p>
+          </Card>
         </section>
       </main>
     </div>

@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone, BarChart3 } from "lucide-react";
 import dashboardImg from "@/assets/dashboard-screenshot.png";
 
 interface ClosingProps {
@@ -66,6 +67,17 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
               onClick={() => onCTAClick("Request DDR - Final CTA")}
             >
               Request Data Room
+            </Button>
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="text-lg px-8 py-6"
+              asChild
+            >
+              <Link to="/financials">
+                <BarChart3 className="mr-2 h-5 w-5" />
+                View Financials
+              </Link>
             </Button>
           </div>
 
