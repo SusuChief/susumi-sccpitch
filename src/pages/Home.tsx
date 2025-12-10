@@ -14,8 +14,8 @@ import { Team } from "@/components/sections/Team";
 import { Risks } from "@/components/sections/Risks";
 import { Closing } from "@/components/sections/Closing";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { LogOut, BarChart3 } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -71,17 +71,28 @@ const Home = () => {
 
   return (
     <div className="relative">
-      {isLoggedIn && (
+      <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
         <Button
-          variant="ghost"
+          variant="outline"
           size="sm"
-          className="fixed top-4 right-4 z-50"
-          onClick={handleSignOut}
+          asChild
         >
-          <LogOut className="h-4 w-4 mr-2" />
-          Sign Out
+          <Link to="/financials">
+            <BarChart3 className="h-4 w-4 mr-2" />
+            Financials
+          </Link>
         </Button>
-      )}
+        {isLoggedIn && (
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleSignOut}
+          >
+            <LogOut className="h-4 w-4 mr-2" />
+            Sign Out
+          </Button>
+        )}
+      </div>
 
       <Hero onCTAClick={handleCTAClick} />
       <MarketMetrics onView={() => handleSectionView("market")} />
