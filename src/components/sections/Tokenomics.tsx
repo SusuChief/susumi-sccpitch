@@ -134,15 +134,15 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
           <h3 className="text-2xl font-bold mb-4">Investor Token Benefits</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-semibold mb-2 text-primary">500M SUSU+ Tokens</h4>
+              <h4 className="font-semibold mb-2 text-primary">200M SUSU+ Tokens</h4>
               <p className="text-sm text-muted-foreground">
-                0.5% of total supply locked for 24 months in Validator Panel. Current internal valuation: $0.0015/token = $750k value
+                0.2% of total supply locked for 24 months in Validator Panel. Current internal valuation: $0.0015/token = $300k value
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-2 text-primary">Projected Unlock Value</h4>
               <p className="text-sm text-muted-foreground">
-                If marketing targets met: $0.015-$0.02/token = $7.5M-$10M (10-13x in 2 years)
+                At target price of $0.015/token = $3,000,000 (20x return in 2 years)
               </p>
             </div>
             <div>
