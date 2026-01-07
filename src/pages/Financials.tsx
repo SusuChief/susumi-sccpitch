@@ -306,7 +306,7 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($200,000 Bridge @ 5%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return ($150,000 Bridge @ 5%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
@@ -327,11 +327,11 @@ const Financials = () => {
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">Bridge investor receives:</p>
-                  <p className="text-2xl font-bold">50,000,000 SUSU+ Tokens</p>
+                  <p className="text-2xl font-bold">200,000,000 SUSU+ Tokens</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">At projected price ($0.005–$0.02):</p>
-                  <p className="text-3xl font-bold gradient-text">$250,000 → $1,000,000</p>
+                  <p className="text-sm text-muted-foreground">At target price ($0.015):</p>
+                  <p className="text-3xl font-bold gradient-text">$3,000,000 (20x ROI)</p>
                 </div>
               </CardContent>
             </Card>

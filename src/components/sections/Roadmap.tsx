@@ -17,13 +17,13 @@ const milestones = [
   },
   {
     title: "Token Launch",
-    period: "Dec 2025",
+    period: "Feb 2026",
     status: "upcoming",
     description: "SUSU+ Token listed on 2 leading crypto exchanges. Initial circulating supply: 1 Billion tokens (1% of total). Planned 2 weeks before app launch."
   },
   {
     title: "Nigeria Launch",
-    period: "Dec 2025",
+    period: "March 2026",
     status: "upcoming",
     description: "Commercial launch in Nigeria with existing 20,000+ community followers and 1,400 registered users as first adopters."
   },
