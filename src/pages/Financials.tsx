@@ -75,7 +75,7 @@ const Financials = () => {
     { milestone: "Mainnet Migration", timeline: "Dec 2025", activities: "Smart contract deployment & integration" },
     { milestone: "Security Audits", timeline: "Dec–Jan 2026", activities: "Third-party contract validation" },
     { milestone: "Nationwide Pre-Launch Campaign", timeline: "Dec 2025–Feb 2026", activities: "PR, influencers, diaspora activation" },
-    { milestone: "Commercial Launch", timeline: "March 2026", activities: "Full platform go-live in Nigeria" },
+    { milestone: "Commercial Launch", timeline: "April 2026", activities: "Full platform go-live in Nigeria" },
     { milestone: "International Expansion", timeline: "Q4 2026+", activities: "Global deployment" },
   ];
 
@@ -306,7 +306,7 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($150,000 Bridge @ 5%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return ($200,000 Bridge @ 5%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
