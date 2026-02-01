@@ -106,7 +106,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
                 <span className="font-semibold">$60,000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-border">
-                <span>Token Liquidity Pool</span>
+                <span>Token Listing</span>
                 <span className="font-semibold">$30,000</span>
               </div>
               <div className="flex justify-between items-center pb-3">
