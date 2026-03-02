@@ -73,21 +73,25 @@ export const RevenueAnalysis = ({ onView }: RevenueAnalysisProps) => {
               preload="metadata"
               className="w-full h-full object-contain bg-black"
             />
-            {/* Play overlay when not yet interacted */}
+            {/* Play/Unmute overlay */}
             {!hasInteracted && (
               <button
                 onClick={() => {
                   if (videoRef.current) {
+                    videoRef.current.muted = false;
                     videoRef.current.play().catch(() => {});
                     setHasInteracted(true);
                   }
                 }}
-                className="absolute inset-0 flex items-center justify-center bg-background/40 group cursor-pointer"
-                aria-label="Play revenue analysis video"
+                className="absolute inset-0 flex flex-col items-center justify-center bg-background/60 cursor-pointer group"
+                aria-label="Play and unmute revenue analysis video"
               >
-                <div className="rounded-full bg-primary/90 p-6 hover:scale-110 transition-transform shadow-lg">
-                  <Play className="h-10 w-10 text-primary-foreground fill-primary-foreground" />
+                <div className="rounded-full bg-primary p-6 group-hover:scale-110 transition-transform shadow-xl mb-4">
+                  <Play className="h-12 w-12 text-primary-foreground fill-primary-foreground" />
                 </div>
+                <span className="text-lg md:text-2xl font-bold text-foreground tracking-wide animate-pulse">
+                  Click To Play &amp; Unmute
+                </span>
               </button>
             )}
           </div>
