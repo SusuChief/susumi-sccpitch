@@ -4,11 +4,13 @@ import { Hero } from "@/components/sections/Hero";
 import { MarketMetrics } from "@/components/sections/MarketMetrics";
 import { GlobalComparison } from "@/components/sections/GlobalComparison";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { DeepDiveAnalysis } from "@/components/sections/DeepDiveAnalysis";
 import { Products } from "@/components/sections/Products";
 import { Tokenomics } from "@/components/sections/Tokenomics";
 import { Investment } from "@/components/sections/Investment";
 import { Growth } from "@/components/sections/Growth";
 import { Competitive } from "@/components/sections/Competitive";
+import { RevenueAnalysis } from "@/components/sections/RevenueAnalysis";
 import { Roadmap } from "@/components/sections/Roadmap";
 import { Team } from "@/components/sections/Team";
 import { Risks } from "@/components/sections/Risks";
@@ -98,11 +100,13 @@ const Home = () => {
       <MarketMetrics onView={() => handleSectionView("market")} />
       <GlobalComparison onView={() => handleSectionView("global-comparison")} />
       <HowItWorks onView={() => handleSectionView("how-it-works")} />
+      <DeepDiveAnalysis onView={() => handleSectionView("deep-dive")} />
       <Products onView={() => handleSectionView("products")} />
       <Tokenomics onView={() => handleSectionView("tokenomics")} />
       <Investment onView={() => handleSectionView("investment")} onCTAClick={handleCTAClick} />
       <Growth onView={() => handleSectionView("growth")} />
       <Competitive onView={() => handleSectionView("competitive")} />
+      <RevenueAnalysis onView={() => handleSectionView("revenue-analysis")} />
       <Roadmap onView={() => handleSectionView("roadmap")} />
       <Team onView={() => handleSectionView("team")} />
       <Risks onView={() => handleSectionView("risks")} />
