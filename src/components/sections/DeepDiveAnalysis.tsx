@@ -6,7 +6,7 @@ interface DeepDiveAnalysisProps {
   onView: () => void;
 }
 
-const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/2boE8cdRmZ0?autoplay=1";
+const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/U_MVw-JFgCA?autoplay=1";
 
 export const DeepDiveAnalysis = ({ onView }: DeepDiveAnalysisProps) => {
   const sectionRef = useRef<HTMLElement>(null);
