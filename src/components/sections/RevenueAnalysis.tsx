@@ -14,12 +14,12 @@ export const RevenueAnalysis = ({ onView }: RevenueAnalysisProps) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+          if (entry.isIntersecting) {
           onView();
-          // Autoplay muted when in viewport
-          if (videoRef.current) {
+          // Autoplay muted when in viewport (don't set hasInteracted so overlay stays)
+          if (videoRef.current && !hasInteracted) {
+            videoRef.current.muted = true;
             videoRef.current.play().catch(() => {});
-            setHasInteracted(true);
           }
         } else {
           // Pause when out of viewport
@@ -36,7 +36,7 @@ export const RevenueAnalysis = ({ onView }: RevenueAnalysisProps) => {
     }
 
     return () => observer.disconnect();
-  }, [onView]);
+  }, [onView, hasInteracted]);
 
   const handleMouseEnter = () => {
     if (videoRef.current && videoRef.current.paused) {
