@@ -6,7 +6,7 @@ interface DeepDiveAnalysisProps {
   onView: () => void;
 }
 
-const YOUTUBE_EMBED_URL = "YOUTUBE_URL_PLACEHOLDER"; // Replace with actual YouTube embed URL
+const YOUTUBE_EMBED_URL = "https://www.youtube.com/embed/2boE8cdRmZ0?autoplay=1";
 
 export const DeepDiveAnalysis = ({ onView }: DeepDiveAnalysisProps) => {
   const sectionRef = useRef<HTMLElement>(null);
