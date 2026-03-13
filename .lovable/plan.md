@@ -1,14 +1,21 @@
 
 
-## Update YouTube Embed URL
+## Fix Valuation Math in Investment Section
 
-Replace the placeholder `YOUTUBE_URL_PLACEHOLDER` in `src/components/sections/DeepDiveAnalysis.tsx` (line 9) with the actual embed URL:
+**File:** `src/components/sections/Investment.tsx`
 
+Update line 7 in the `benefits` array:
+
+Change:
 ```
-https://www.youtube.com/embed/2boE8cdRmZ0?autoplay=1
+"5% equity in Susumi Capital Corp (pre-money valuation $4M)"
+```
+To:
+```
+"5% equity in Susumi Capital Corp (pre-money valuation $3.8M)"
 ```
 
-The `?autoplay=1` parameter ensures the audio starts playing immediately when the user clicks "Click To Play" and the iframe loads.
+This makes the math consistent: $3.8M pre-money + $200K investment = $4.0M post-money valuation, with the investor holding exactly 5%.
 
 Single line change in one file.
 
