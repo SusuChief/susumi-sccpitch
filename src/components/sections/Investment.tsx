@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
 const benefits = [
-  "5% equity in Susumi Capital Corp (pre-money valuation $4M)",
+  "5% equity in Susumi Capital Corp (pre-money valuation $3.8M)",
   "200 Million SUSU+ Tokens with 2-year vesting",
   "Board membership on Susumi Capital Corp",
   "Early entry into high-growth Crypto Finance Market",
