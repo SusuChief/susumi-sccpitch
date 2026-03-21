@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { ArrowLeft, TrendingUp, Shield, Users, Coins, Calendar, CheckCircle, DollarSign, BarChart3, Zap, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
 const Financials = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("susumi_access") !== "granted") {
+      navigate("/", { replace: true });
+    }
+  }, [navigate]);
   const revenueData = [
     { metric: "Monthly Active Susu Funds", y2025: "0 (Beta)", y2026: "4,000", y2027: "12,000", y2028: "20,000+" },
     { metric: "Average Value per Fund", y2025: "—", y2026: "$1,850", y2027: "$1,850", y2028: "$1,850–$2,100" },
