@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      access_codes: {
+        Row: {
+          assigned_email: string | null
+          assigned_name: string | null
+          code: string
+          created_at: string | null
+          id: string
+          is_used: boolean
+          used_at: string | null
+        }
+        Insert: {
+          assigned_email?: string | null
+          assigned_name?: string | null
+          code: string
+          created_at?: string | null
+          id?: string
+          is_used?: boolean
+          used_at?: string | null
+        }
+        Update: {
+          assigned_email?: string | null
+          assigned_name?: string | null
+          code?: string
+          created_at?: string | null
+          id?: string
+          is_used?: boolean
+          used_at?: string | null
+        }
+        Relationships: []
+      }
+      access_requests: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
       cta_clicks: {
         Row: {
           clicked_at: string | null
