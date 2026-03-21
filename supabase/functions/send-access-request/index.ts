@@ -33,7 +33,7 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Susumi Pitch Deck <onboarding@resend.dev>",
+        from: "Susumi Pitch Deck <info@susumicapital.com>",
         to: ["samigwe@icloud.com"],
         subject: `New Access Code Request: ${name}`,
         html: `
