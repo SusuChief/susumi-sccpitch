@@ -15,6 +15,8 @@ import { Roadmap } from "@/components/sections/Roadmap";
 import { Team } from "@/components/sections/Team";
 import { Risks } from "@/components/sections/Risks";
 import { Closing } from "@/components/sections/Closing";
+import { AccessGate } from "@/components/AccessGate";
+import { AccessRequestModal } from "@/components/AccessRequestModal";
 import { Button } from "@/components/ui/button";
 import { LogOut, BarChart3 } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
@@ -23,6 +25,15 @@ const Home = () => {
   const navigate = useNavigate();
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [hasAccess, setHasAccess] = useState(false);
+  const [showRequestModal, setShowRequestModal] = useState(false);
+
+  useEffect(() => {
+    // Check if access was previously granted
+    if (localStorage.getItem("susumi_access") === "granted") {
+      setHasAccess(true);
+    }
+  }, []);
 
   useEffect(() => {
     const initSession = async () => {
@@ -61,6 +72,8 @@ const Home = () => {
     
     if (label.includes("Meeting")) {
       navigate("/meeting");
+    } else if (label.includes("Request Access Code")) {
+      setShowRequestModal(true);
     } else if (label.includes("Data Room") || label.includes("DDR")) {
       navigate("/request-access");
     }
@@ -79,7 +92,7 @@ const Home = () => {
           size="sm"
           asChild
         >
-          <Link to="/financials">
+          <Link to="/financials" onClick={() => window.scrollTo(0, 0)}>
             <BarChart3 className="h-4 w-4 mr-2" />
             Financials
           </Link>
@@ -97,20 +110,29 @@ const Home = () => {
       </div>
 
       <Hero onCTAClick={handleCTAClick} />
-      <MarketMetrics onView={() => handleSectionView("market")} />
-      <GlobalComparison onView={() => handleSectionView("global-comparison")} />
-      <HowItWorks onView={() => handleSectionView("how-it-works")} />
-      <DeepDiveAnalysis onView={() => handleSectionView("deep-dive")} />
-      <Products onView={() => handleSectionView("products")} />
-      <Tokenomics onView={() => handleSectionView("tokenomics")} />
-      <Investment onView={() => handleSectionView("investment")} onCTAClick={handleCTAClick} />
-      <Growth onView={() => handleSectionView("growth")} />
-      <Competitive onView={() => handleSectionView("competitive")} />
-      <RevenueAnalysis onView={() => handleSectionView("revenue-analysis")} />
-      <Roadmap onView={() => handleSectionView("roadmap")} />
-      <Team onView={() => handleSectionView("team")} />
-      <Risks onView={() => handleSectionView("risks")} />
-      <Closing onView={() => handleSectionView("closing")} onCTAClick={handleCTAClick} />
+
+      {!hasAccess ? (
+        <AccessGate onAccessGranted={() => setHasAccess(true)} />
+      ) : (
+        <>
+          <MarketMetrics onView={() => handleSectionView("market")} />
+          <GlobalComparison onView={() => handleSectionView("global-comparison")} />
+          <HowItWorks onView={() => handleSectionView("how-it-works")} />
+          <DeepDiveAnalysis onView={() => handleSectionView("deep-dive")} />
+          <Products onView={() => handleSectionView("products")} />
+          <Tokenomics onView={() => handleSectionView("tokenomics")} />
+          <Investment onView={() => handleSectionView("investment")} onCTAClick={handleCTAClick} />
+          <Growth onView={() => handleSectionView("growth")} />
+          <Competitive onView={() => handleSectionView("competitive")} />
+          <RevenueAnalysis onView={() => handleSectionView("revenue-analysis")} />
+          <Roadmap onView={() => handleSectionView("roadmap")} />
+          <Team onView={() => handleSectionView("team")} />
+          <Risks onView={() => handleSectionView("risks")} />
+          <Closing onView={() => handleSectionView("closing")} onCTAClick={handleCTAClick} />
+        </>
+      )}
+
+      <AccessRequestModal open={showRequestModal} onOpenChange={setShowRequestModal} />
     </div>
   );
 };

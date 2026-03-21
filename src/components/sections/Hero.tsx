@@ -48,10 +48,10 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             <Button 
               size="lg" 
               variant="outline"
-              className="text-lg px-8 py-6 bg-secondary/50 backdrop-blur-sm"
-              onClick={() => onCTAClick("Request Data Room Access")}
+              className="text-lg px-8 py-6 bg-secondary/50 backdrop-blur-sm hover:bg-primary/20 hover:border-primary/50 transition-all"
+              onClick={() => onCTAClick("Request Access Code")}
             >
-              Request Data Room Access
+              Request Access Code
             </Button>
           </div>
 
