@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
 const benefits = [
-  "5% equity in Susumi Capital Corp (pre-money valuation $3.8M)",
+  "6.25% equity in Susumi Capital Corp (pre-money valuation $3.75M)",
   "200 Million SUSU+ Tokens with 2-year vesting",
   "Board membership on Susumi Capital Corp",
   "Early entry into high-growth Crypto Finance Market",
@@ -55,7 +55,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
         <div className="max-w-4xl mx-auto space-y-8">
           <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
             <div className="text-center mb-8">
-              <div className="text-6xl font-bold gradient-text mb-2">$200K</div>
+              <div className="text-6xl font-bold gradient-text mb-2">$250K</div>
               <div className="text-2xl font-semibold mb-4">Capital Raise</div>
               <div className="text-muted-foreground">
                 Bridging capital for the global commercial launch starting in Nigeria by April 2026
@@ -64,7 +64,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
 
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">5%</div>
+                <div className="text-3xl font-bold text-primary mb-2">6.25%</div>
                 <div className="text-sm text-muted-foreground">Equity Stake</div>
               </div>
               <div>
@@ -98,20 +98,28 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
                 <span className="font-semibold">$30,000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-border">
+                <span>Technical Development</span>
+                <span className="font-semibold">$30,000</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-border">
                 <span>Marketing and User Acquisition</span>
                 <span className="font-semibold">$30,000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-border">
-                <span>Legal, Compliance and Staffing</span>
-                <span className="font-semibold">$60,000</span>
+                <span>Legal, Compliance, Staffing &amp; Administration</span>
+                <span className="font-semibold">$80,000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-border">
                 <span>Token Listing</span>
                 <span className="font-semibold">$30,000</span>
               </div>
-              <div className="flex justify-between items-center pb-3">
+              <div className="flex justify-between items-center pb-3 border-b border-border">
                 <span>Mainnet Migration</span>
                 <span className="font-semibold">$50,000</span>
+              </div>
+              <div className="flex justify-between items-center pt-2">
+                <span className="font-semibold">Total</span>
+                <span className="font-bold gradient-text">$250,000</span>
               </div>
             </div>
           </Card>
