@@ -1,23 +1,26 @@
-## Site-wide Update — $250K / 6.25% and Nigeria 2026 Market Data
+## Temporarily Bypass Access Gate in Preview
 
-### 1. `src/components/sections/Hero.tsx`
-- Tagline (line 35-36): change to
-  "Blockchain-powered crowdfunding revolutionizing access to capital. Launching in Nigeria's **$96B** crypto market with SEC approval."
-- Stats grid: "$200K" → **"$250K"** and "5%" → **"6.25%"**
+Detect the Lovable preview host and auto-grant access so you can browse `/financials` and all gated sections without entering a code. Published and custom-domain visitors are unaffected.
 
-### 2. `src/components/sections/MarketMetrics.tsx`
-- Nigeria card: value `$56.7B` → **`$96B`**, description → "Cryptocurrency transactions in Nigeria in **2025** (Chainalysis 2026 Geography of Crypto Report)"
+### Change
 
-### 3. `src/components/sections/GlobalComparison.tsx`
-- Reference to "2024 Chainalysis Global Crypto Adoption Index" (lines 64 & 128): update to **"2025 Chainalysis Global Crypto Adoption Index"** (latest available; Nigeria still ranks #2). Source caption updated to match.
+Add a small helper that runs at app startup:
 
-### 4. `src/pages/Financials.tsx` — Investment Return Outlook card
-- Title: "Equity Return ($200,000 Bridge @ 5%)" → **"Equity Return ($250,000 Bridge @ 6.25%)"**
-- "5% equity value potential" → **"6.25% equity value potential"**
-- Value `$17.5M–$25M+` (5% of $350M–$500M) → **`$21.9M–$31.3M+`** (6.25% of $350M–$500M)
-- Token Return card: unchanged (200M tokens, $3M @ $0.015, 20x ROI)
+**`src/main.tsx`** — before `createRoot(...)`:
+```ts
+if (typeof window !== "undefined" && window.location.hostname.includes("lovable.app")) {
+  localStorage.setItem("susumi_access", "granted");
+}
+```
 
-### Out of scope
-- TokenomicsExport.tsx ($750k validator-panel valuation is unrelated)
-- Investment.tsx (already updated last turn)
-- No copy changes beyond the figures above
+This sets the same flag the `AccessGate` and `Financials` page already check.
+
+### Scope
+
+- Only the `*.lovable.app` preview host auto-grants (matches both `id-preview--…lovable.app` and `susumi-sccpitch.lovable.app`).
+- Custom domains (`pitch.susumicapital.com`, `susumicapital.com`) keep the gate.
+- No DB or RLS changes.
+
+### If you want the published `lovable.app` URL gated too
+
+Tell me and I'll narrow the match to `id-preview--` only, leaving the published `.lovable.app` link gated.
