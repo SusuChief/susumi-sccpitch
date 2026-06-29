@@ -61,7 +61,7 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
           Nigeria's <span className="gradient-text">Global Leadership</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Nigeria ranks #2 globally in the 2024 Chainalysis Global Crypto Adoption Index
+          Nigeria ranks #2 globally in the 2025 Chainalysis Global Crypto Adoption Index
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -125,7 +125,7 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            Source: Chainalysis 2024 Global Crypto Adoption Index
+            Source: Chainalysis 2025 Global Crypto Adoption Index
           </p>
         </div>
       </div>

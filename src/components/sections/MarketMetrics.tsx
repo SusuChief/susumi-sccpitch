@@ -89,9 +89,9 @@ export const MarketMetrics = ({ onView }: MarketMetricsProps) => {
             description="Global cryptocurrency transaction volume in 2023"
           />
           <MetricCard
-            value="$56.7B"
+            value="$96B"
             label="Nigerian Crypto Value"
-            description="Cryptocurrency transactions in Nigeria in 2023"
+            description="Cryptocurrency transactions in Nigeria in 2025 (Chainalysis 2026 Geography of Crypto Report)"
           />
           <MetricCard
             value="$43B"
