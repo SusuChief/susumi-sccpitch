@@ -44,12 +44,15 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
           
           <blockquote className="text-lg text-center italic text-muted-foreground mb-8 leading-relaxed">
             "Investing in Susumi is a chance to pioneer the future of cryptocurrency in one of the world's most dynamic economies. 
+            Nigeria's new VASP framework, with its ₦1 Billion minimum capital requirement, has opened a narrow window in which only 
+            well-capitalized, compliant operators can participate — and this round capitalizes Susumi to be one of them. 
             By launching a regulated DeFi App in Nigeria, we establish ourselves as a trusted player in a market ready for innovation 
             and inclusive growth, but Nigeria is only the beginning. Your investment today not only fuels our immediate launch but also 
             supports our mission to democratize access to capital, empowering individuals, strengthening communities, and stimulating 
             local economies in Nigeria and beyond. Together, we can seize this unique moment, maintain momentum, and replicate this model 
             globally to unlock opportunities for millions who have been excluded from traditional finance."
           </blockquote>
+
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button 
