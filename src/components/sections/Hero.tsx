@@ -32,9 +32,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Blockchain-powered crowdfunding revolutionizing access to capital.
-            Launching in Nigeria's $96B crypto market under the SEC's new VASP licensing regime,
-            which requires a ₦1 Billion (~$750K) minimum paid-up capital.
+            Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a $96B crypto market.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
