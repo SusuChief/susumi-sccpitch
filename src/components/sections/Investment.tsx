@@ -4,14 +4,41 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
 const benefits = [
-  "6.25% equity in Susumi Capital Corp (pre-money valuation $3.75M)",
-  "200 Million SUSU+ Tokens with 2-year vesting",
-  "Board membership on Susumi Capital Corp",
-  "Early entry into high-growth Crypto Finance Market",
-  "Access to Nigerian and international revenue streams in USDT",
-  "SEC-licensed platform ready for market launch",
-  "Ongoing revenue generation during 24-month lock-up period"
+  "13.58% equity ownership in Susumi Capital Corp (pre-money valuation $7M)",
+  "200 Million SUSU+ Tokens issued under an agreed vesting schedule",
+  "Participation in the growth of a regulated blockchain financial institution",
+  "Exposure to Nigerian and international revenue streams in USDT",
+  "Potential Board representation on Susumi Capital Corp",
+  "Participation in future expansion across Africa and global diaspora markets",
+  "Early positioning within one of Africa's most significant emerging digital finance opportunities"
 ];
+
+const objectives = [
+  "Satisfy the Nigerian VASP minimum share capital requirement",
+  "Complete all remaining regulatory licensing, audit and compliance obligations",
+  "Complete commercial launch of the Susumi Platform",
+  "Expand operations across Nigeria before international rollout",
+  "Establish one of Africa's leading regulated blockchain crowdfunding ecosystems"
+];
+
+const differentiators = [
+  "Proprietary intellectual property",
+  "A real revenue-generating business model",
+  "Full regulatory compliance under the SEC/VASP framework",
+  "A proven cultural financial model (Esusu/Susu cooperative finance)",
+  "Significant first-mover advantage",
+  "Substantially reduced future competition due to higher capital requirements"
+];
+
+const useOfFunds = [
+  { label: "Regulatory Share Capital (VASP Requirement)", amount: "$750,000" },
+  { label: "Technology Completion & Security Audits", amount: "$100,000" },
+  { label: "Regulatory, Legal & Financial Audits", amount: "$75,000" },
+  { label: "Marketing & Customer Acquisition", amount: "$85,000" },
+  { label: "Operations & Key Personnel", amount: "$60,000" },
+  { label: "Working Capital & Administrative Costs", amount: "$30,000" }
+];
+
 
 interface InvestmentProps {
   onView: () => void;
