@@ -140,21 +140,22 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
             <div>
               <h4 className="font-semibold mb-2 text-primary">500M SUSU+ Tokens</h4>
               <p className="text-sm text-muted-foreground">
-                0.5% of total supply locked for 24 months in Validator Panel. Current internal valuation: $0.0015/token = $750k value
+                0.5% of total supply allocated to the investor, issued under an agreed vesting schedule designed for long-term strategic alignment.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-2 text-primary">Projected Unlock Value</h4>
+              <h4 className="font-semibold mb-2 text-primary">Vesting Schedule</h4>
               <p className="text-sm text-muted-foreground">
-                If marketing targets met: $0.015-$0.02/token = $7.5M-$10M (10-13x in 2 years)
+                Tokens are released progressively over the agreed vesting period, aligning investor participation with the Company's growth objectives.
               </p>
             </div>
             <div>
               <h4 className="font-semibold mb-2 text-primary">Revenue While Locked</h4>
               <p className="text-sm text-muted-foreground">
-                Earn share of 40% platform fees monthly during 24-month vesting. Estimated earnings: $4M+ over 2 years
+                Locked tokens participate in the Validator Panel, sharing in 40% of platform fees throughout the vesting period.
               </p>
             </div>
+
             <div>
               <h4 className="font-semibold mb-2 text-primary">Exit Options</h4>
               <p className="text-sm text-muted-foreground">

@@ -314,7 +314,7 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($250,000 Bridge @ 6.25%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return ($1.1M Series Seed @ 13.58%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
@@ -322,27 +322,28 @@ const Financials = () => {
                   <p className="text-2xl font-bold">$350M–$500M</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">6.25% equity value potential:</p>
-                  <p className="text-3xl font-bold gradient-text">$21.9M–$31.3M+</p>
+                  <p className="text-sm text-muted-foreground">13.58% equity value potential:</p>
+                  <p className="text-3xl font-bold gradient-text">$47.5M–$67.9M+</p>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Token Return</CardTitle>
+                <CardTitle className="text-lg">Token Allocation</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Bridge investor receives:</p>
+                  <p className="text-sm text-muted-foreground">Series Seed investor receives:</p>
                   <p className="text-2xl font-bold">200,000,000 SUSU+ Tokens</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">At target price ($0.015):</p>
-                  <p className="text-3xl font-bold gradient-text">$3,000,000 (20x ROI)</p>
+                  <p className="text-sm text-muted-foreground">Issued under an agreed vesting schedule:</p>
+                  <p className="text-base text-muted-foreground">Progressive release over the vesting period, with Validator Panel revenue participation while locked.</p>
                 </div>
               </CardContent>
             </Card>
+
           </div>
         </section>
 

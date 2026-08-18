@@ -32,8 +32,9 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Blockchain-powered crowdfunding revolutionizing access to capital. 
-            Launching in Nigeria's $96B crypto market with SEC approval.
+            Blockchain-powered crowdfunding revolutionizing access to capital.
+            Launching in Nigeria's $96B crypto market under the SEC's new VASP licensing regime,
+            which requires a ₦1 Billion (~$750K) minimum paid-up capital.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -57,11 +58,11 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$250K</div>
-              <div className="text-sm text-muted-foreground">Capital Raise</div>
+              <div className="text-4xl font-bold gradient-text">$1.1M</div>
+              <div className="text-sm text-muted-foreground">Series Seed Round</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">6.25%</div>
+              <div className="text-4xl font-bold gradient-text">13.58%</div>
               <div className="text-sm text-muted-foreground">Equity Offered</div>
             </div>
             <div className="space-y-2">
@@ -69,10 +70,11 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
               <div className="text-sm text-muted-foreground">SUSU+ Tokens</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$3.1B</div>
-              <div className="text-sm text-muted-foreground">Y3 Gross Volume</div>
+              <div className="text-4xl font-bold gradient-text">$7M</div>
+              <div className="text-sm text-muted-foreground">Pre-Money Valuation</div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
