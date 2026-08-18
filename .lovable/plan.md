@@ -13,7 +13,7 @@ which requires a ₦1 Billion (~$750K) minimum paid-up capital.
 
 **New text:**
 ```
-Build one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a $96B crypto market.
+Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a $96B crypto market.
 ```
 
 This is a single copy change in the Hero section. No other sections or logic are affected.
