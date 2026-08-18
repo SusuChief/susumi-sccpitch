@@ -16,20 +16,14 @@ const milestones = [
     description: "First blockchain crowdfunding platform licensed by Nigerian SEC. LLG1 Crowdfunding License effective from August 18, 2025."
   },
   {
-    title: "Token Launch",
-    period: "March 2026",
-    status: "upcoming",
-    description: "SUSU+ Token listed on 2 leading crypto exchanges. Initial circulating supply: 1 Billion tokens (1% of total). Planned 2 weeks before app launch."
-  },
-  {
-    title: "Nigeria Launch",
-    period: "April 2026",
+    title: "Platform Launch",
+    period: "October 2026",
     status: "upcoming",
     description: "Commercial launch in Nigeria with existing 20,000+ community followers and 1,400 registered users as first adopters."
   },
   {
     title: "Global Expansion",
-    period: "Jun 2026",
+    period: "December 2026",
     status: "upcoming",
     description: "Launch in Kenya, Ghana, Venezuela, Brazil, and Mexico. Introduce Susumi P2P App for off-chain crypto transfers via NFC."
   }

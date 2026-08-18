@@ -9,6 +9,7 @@ import { Products } from "@/components/sections/Products";
 import { Tokenomics } from "@/components/sections/Tokenomics";
 import { Investment } from "@/components/sections/Investment";
 import { Growth } from "@/components/sections/Growth";
+import { Valuation } from "@/components/sections/Valuation";
 import { Competitive } from "@/components/sections/Competitive";
 import { RevenueAnalysis } from "@/components/sections/RevenueAnalysis";
 import { Roadmap } from "@/components/sections/Roadmap";
@@ -123,6 +124,7 @@ const Home = () => {
           <Tokenomics onView={() => handleSectionView("tokenomics")} />
           <Investment onView={() => handleSectionView("investment")} onCTAClick={handleCTAClick} />
           <Growth onView={() => handleSectionView("growth")} />
+          <Valuation onView={() => handleSectionView("valuation")} />
           <Competitive onView={() => handleSectionView("competitive")} />
           <RevenueAnalysis onView={() => handleSectionView("revenue-analysis")} />
           <Roadmap onView={() => handleSectionView("roadmap")} />
