@@ -123,6 +123,7 @@ const Home = () => {
           <Tokenomics onView={() => handleSectionView("tokenomics")} />
           <Investment onView={() => handleSectionView("investment")} onCTAClick={handleCTAClick} />
           <Growth onView={() => handleSectionView("growth")} />
+          <Valuation onView={() => handleSectionView("valuation")} />
           <Competitive onView={() => handleSectionView("competitive")} />
           <RevenueAnalysis onView={() => handleSectionView("revenue-analysis")} />
           <Roadmap onView={() => handleSectionView("roadmap")} />
