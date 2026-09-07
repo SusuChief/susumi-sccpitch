@@ -137,9 +137,7 @@ const MeetingRequest = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="$100K-$250K">$100K-$250K</SelectItem>
-                  <SelectItem value="$250K-$500K">$250K-$500K</SelectItem>
-                  <SelectItem value="$500K-$1M">$500K-$1M</SelectItem>
-                  <SelectItem value="$1M-$1.5M">$1M-$1.5M</SelectItem>
+                  <SelectItem value="$250K+">$250K+</SelectItem>
                 </SelectContent>
               </Select>
             </div>
