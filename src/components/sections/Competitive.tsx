@@ -8,7 +8,7 @@ const advantages = [
     title: "First-Mover Advantage",
     points: [
       "First SEC-licensed blockchain crowdfunding platform in Nigeria",
-      "New VASP framework requires ₦1 Billion (~$750K) paid-up capital — a structural moat against new entrants",
+      "SEC licensing is a slow, demanding barrier that later entrants must still clear",
       "Over 20,000 followers and 1,400 registered users pre-launch",
       "Global community footprint established"
     ]

@@ -4,7 +4,7 @@ import { Cpu, ShieldCheck, Flag, TrendingUp, Repeat, BarChart3, Hammer } from "l
 
 const supports = [
   { icon: Cpu, title: "Proprietary Blockchain IP", description: "Purpose-built crowdfunding protocol and app stack owned outright." },
-  { icon: ShieldCheck, title: "Regulatory Positioning", description: "SEC-licensed and structured for the new VASP regime." },
+  { icon: ShieldCheck, title: "Regulatory Positioning", description: "SEC-licensed and structured for Nigeria's virtual assets regime." },
   { icon: Flag, title: "First-Mover Advantage", description: "First blockchain-powered crowdfunding platform licensed in Nigeria." },
   { icon: TrendingUp, title: "High-Growth Market", description: "Operating in Nigeria's $96B crypto transaction market." },
   { icon: Repeat, title: "Scalable Recurring Revenue", description: "Platform fees compound with every fund cycle created." },
@@ -43,14 +43,18 @@ export const Valuation = ({ onView }: ValuationProps) => {
           <span className="gradient-text">Valuation</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Pre-Money Valuation: US$7 Million
+          Pre-Money Valuation: US$1.75 Million
         </p>
 
         <div className="max-w-6xl mx-auto">
           <Card className="p-8 bg-card mb-8 text-center bg-gradient-to-br from-primary/10 to-accent/5 border-primary/20">
             <div className="text-sm text-muted-foreground mb-2">Pre-Money Valuation</div>
-            <div className="text-5xl md:text-6xl font-bold gradient-text">US$7M</div>
+            <div className="text-5xl md:text-6xl font-bold gradient-text">US$1.75M</div>
+            <div className="text-sm text-muted-foreground mt-3">
+              US$2.0M post-money following the US$250,000 seed round (12.5% equity)
+            </div>
           </Card>
+
 
           <h3 className="text-xl font-semibold mb-6 text-center">Supported by</h3>
 

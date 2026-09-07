@@ -136,7 +136,7 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
             <div>
               <h4 className="font-semibold mb-2 text-primary">200M SUSU+ Tokens</h4>
               <p className="text-sm text-muted-foreground">
-                0.2% of total supply allocated to the Series Seed investor, issued under an agreed vesting schedule designed for long-term strategic alignment.
+                0.2% of total supply allocated to the seed investor, issued under an agreed vesting schedule designed for long-term strategic alignment.
               </p>
             </div>
             <div>

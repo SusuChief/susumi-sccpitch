@@ -56,11 +56,11 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$1.1M</div>
-              <div className="text-sm text-muted-foreground">Series Seed Round</div>
+              <div className="text-4xl font-bold gradient-text">$250K</div>
+              <div className="text-sm text-muted-foreground">Seed Round</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">13.58%</div>
+              <div className="text-4xl font-bold gradient-text">12.5%</div>
               <div className="text-sm text-muted-foreground">Equity Offered</div>
             </div>
             <div className="space-y-2">
@@ -68,10 +68,11 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
               <div className="text-sm text-muted-foreground">SUSU+ Tokens</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$7M</div>
+              <div className="text-4xl font-bold gradient-text">$1.75M</div>
               <div className="text-sm text-muted-foreground">Pre-Money Valuation</div>
             </div>
           </div>
+
 
         </div>
       </div>

@@ -215,11 +215,41 @@ const Financials = () => {
             </Card>
           </div>
 
+          <Card className="border-primary/20">
+            <CardHeader>
+              <CardTitle className="text-lg">Capital Deployment & Break-Even</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              {[
+                { label: "Capital raised", value: "$250,000" },
+                { label: "Pre-launch monthly burn", value: "~$28,000" },
+                { label: "Runway to launch", value: "~9 months (to Oct 2026 platform launch)" },
+                { label: "Break-even month", value: "Month 4 after commercial launch" },
+                { label: "Total capital required to reach break-even", value: "$250,000 (no further raise required)" },
+                { label: "Year 1 net profit (2026)", value: "+$3.45M EBITDA", highlight: true },
+              ].map((row, idx) => (
+                <div
+                  key={idx}
+                  className={`flex flex-wrap justify-between items-center gap-2 p-3 rounded-lg ${row.highlight ? "bg-primary/10 font-semibold" : "bg-muted/30"}`}
+                >
+                  <span className="text-sm">{row.label}</span>
+                  <span className={row.highlight ? "gradient-text font-bold" : "font-medium"}>{row.value}</span>
+                </div>
+              ))}
+              <p className="text-xs text-muted-foreground pt-2">
+                Assumptions: the $250,000 seed funds the pre-revenue period through to the October 2026 platform launch at an average
+                burn of ~$28,000 per month. From launch, 2026 revenue of $8.9M against $5.45M operating costs turns monthly
+                contribution positive by the fourth month of trading, so no further capital is required to reach break-even.
+              </p>
+            </CardContent>
+          </Card>
+
           <div className="bg-muted/30 rounded-lg p-4 space-y-2">
             <p className="text-sm text-muted-foreground">
               <strong>Notes:</strong> Susumi's model is low-CAPEX and low-cost to scale because funds are handled by smart contracts, not by the company. Regulatory status in Nigeria dramatically increases valuation and revenue capture potential.
             </p>
           </div>
+
         </section>
 
         {/* Token Economics */}
@@ -314,7 +344,7 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($1.1M Series Seed @ 13.58%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return ($250K Seed @ 12.5%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
@@ -322,8 +352,9 @@ const Financials = () => {
                   <p className="text-2xl font-bold">$350M–$500M</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">13.58% equity value potential:</p>
-                  <p className="text-3xl font-bold gradient-text">$47.5M–$67.9M+</p>
+                  <p className="text-sm text-muted-foreground">12.5% equity value potential:</p>
+                  <p className="text-3xl font-bold gradient-text">$43.8M–$62.5M+</p>
+
                 </div>
               </CardContent>
             </Card>
@@ -334,7 +365,7 @@ const Financials = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Series Seed investor receives:</p>
+                  <p className="text-sm text-muted-foreground">Seed investor receives:</p>
                   <p className="text-2xl font-bold">200,000,000 SUSU+ Tokens</p>
                 </div>
                 <div className="space-y-2">
