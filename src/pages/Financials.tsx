@@ -335,7 +335,7 @@ const Financials = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Series Seed investor receives:</p>
+                  <p className="text-sm text-muted-foreground">Seed investor receives:</p>
                   <p className="text-2xl font-bold">200,000,000 SUSU+ Tokens</p>
                 </div>
                 <div className="space-y-2">
