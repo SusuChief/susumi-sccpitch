@@ -314,7 +314,7 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($1.1M Series Seed @ 13.58%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return ($250K Seed @ 12.5%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
@@ -322,8 +322,9 @@ const Financials = () => {
                   <p className="text-2xl font-bold">$350M–$500M</p>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">13.58% equity value potential:</p>
-                  <p className="text-3xl font-bold gradient-text">$47.5M–$67.9M+</p>
+                  <p className="text-sm text-muted-foreground">12.5% equity value potential:</p>
+                  <p className="text-3xl font-bold gradient-text">$43.8M–$62.5M+</p>
+
                 </div>
               </CardContent>
             </Card>
