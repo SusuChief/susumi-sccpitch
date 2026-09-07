@@ -75,22 +75,22 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
           Investment <span className="gradient-text">Proposition</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Strategic Series Seed Round — capitalizing Nigeria's first blockchain-powered crowdfunding virtual assets platform
+          Seed Round — funding the completion and commercial launch of Nigeria's first blockchain-powered crowdfunding virtual assets platform
         </p>
 
         <div className="max-w-4xl mx-auto space-y-8">
           <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
             <div className="text-center mb-8">
-              <div className="text-6xl font-bold gradient-text mb-2">$1.1M</div>
-              <div className="text-2xl font-semibold mb-4">Strategic Series Seed Round</div>
+              <div className="text-6xl font-bold gradient-text mb-2">$250K</div>
+              <div className="text-2xl font-semibold mb-4">Seed Round</div>
               <div className="text-muted-foreground">
-                Capitalizing a regulated digital financial institution for commercial launch in Nigeria and expansion across Africa and the global diaspora
+                Completing technology, licensing and compliance to bring the Susumi Platform to commercial launch in Nigeria, ahead of expansion across Africa and the global diaspora
               </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">13.58%</div>
+                <div className="text-3xl font-bold text-primary mb-2">12.5%</div>
                 <div className="text-sm text-muted-foreground">Equity Ownership</div>
               </div>
               <div>
@@ -98,23 +98,13 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
                 <div className="text-sm text-muted-foreground">SUSU+ Tokens (vested)</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-gold mb-2">$7M</div>
+                <div className="text-3xl font-bold text-gold mb-2">$1.75M</div>
                 <div className="text-sm text-muted-foreground">Pre-Money Valuation</div>
               </div>
             </div>
           </Card>
 
-          <Card className="p-8 bg-card">
-            <h3 className="text-2xl font-semibold mb-4">A New Regulatory Landscape</h3>
-            <p className="text-muted-foreground mb-3">
-              Following the SEC's Virtual Assets Service Provider (VASP) framework, every licensed provider in Nigeria must
-              maintain a minimum paid-up share capital of ₦1 Billion (approximately US$750,000).
-            </p>
-            <p className="text-muted-foreground">
-              This raises the barrier to entry for competitors while substantially increasing the long-term value of licensed
-              operators capable of meeting the requirement. This round capitalizes Susumi to meet it in full.
-            </p>
-          </Card>
+
 
           <Card className="p-8 bg-card">
             <h3 className="text-2xl font-semibold mb-6">Investment Objective</h3>
