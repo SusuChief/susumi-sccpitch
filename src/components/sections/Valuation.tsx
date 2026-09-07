@@ -4,7 +4,7 @@ import { Cpu, ShieldCheck, Flag, TrendingUp, Repeat, BarChart3, Hammer } from "l
 
 const supports = [
   { icon: Cpu, title: "Proprietary Blockchain IP", description: "Purpose-built crowdfunding protocol and app stack owned outright." },
-  { icon: ShieldCheck, title: "Regulatory Positioning", description: "SEC-licensed and structured for the new VASP regime." },
+  { icon: ShieldCheck, title: "Regulatory Positioning", description: "SEC-licensed and structured for Nigeria's virtual assets regime." },
   { icon: Flag, title: "First-Mover Advantage", description: "First blockchain-powered crowdfunding platform licensed in Nigeria." },
   { icon: TrendingUp, title: "High-Growth Market", description: "Operating in Nigeria's $96B crypto transaction market." },
   { icon: Repeat, title: "Scalable Recurring Revenue", description: "Platform fees compound with every fund cycle created." },
