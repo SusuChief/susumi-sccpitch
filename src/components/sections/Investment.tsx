@@ -141,7 +141,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
               ))}
               <div className="flex justify-between items-center pt-2">
                 <span className="font-semibold">Total Capital Raise</span>
-                <span className="font-bold gradient-text">$1,100,000</span>
+                <span className="font-bold gradient-text">$250,000</span>
               </div>
             </div>
           </Card>
