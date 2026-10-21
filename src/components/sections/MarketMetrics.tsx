@@ -84,19 +84,19 @@ export const MarketMetrics = ({ onView }: MarketMetricsProps) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <MetricCard
-            value="£4.02948T"
-            label="Global Crypto Transactions"
-            description="Global cryptocurrency transaction volume in 2023"
+            value="£152.97B+"
+            label="Sub-Saharan Africa Crypto Value"
+            description="On-chain value received, July 2024–June 2025 (Chainalysis 2025 report)"
           />
           <MetricCard
-            value="£71.6352B"
+            value="£68.72B+"
             label="Nigerian Crypto Value"
-            description="Cryptocurrency transactions in Nigeria in 2025 (Chainalysis 2026 Geography of Crypto Report)"
+            description="Over £68.72B in on-chain value received, July 2024–June 2025 (Chainalysis 2025 report)"
           />
           <MetricCard
-            value="£32.0866B"
+            value="£1.60B"
             label="Global Crowdfunding"
-            description="Expected crowdfunding market size by 2028"
+            description="2024 market-size estimate; £4.13B forecast for 2030 (Grand View Research). Not total campaign funding."
           />
           <MetricCard
             value="2B"
@@ -114,6 +114,7 @@ export const MarketMetrics = ({ onView }: MarketMetricsProps) => {
             description="Of Nigerians aged 18-64 have used cryptocurrency"
           />
         </div>
+        <p className="text-xs text-muted-foreground mt-8 text-center">Sources: <a className="text-primary underline" href="https://www.chainalysis.com/blog/subsaharan-africa-crypto-adoption-2025/" target="_blank" rel="noopener noreferrer">Chainalysis 2025</a> • <a className="text-primary underline" href="https://www.grandviewresearch.com/industry-analysis/crowdfunding-market" target="_blank" rel="noopener noreferrer">Grand View Research</a>. GBP at £0.7462 per US$1, 21 October 2026. Non-monetary audience figures remain management references.</p>
       </div>
     </section>
   );

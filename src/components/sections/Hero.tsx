@@ -32,7 +32,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a £71.6352B crypto market.
+            Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a market that received over £68.72B in on-chain crypto value (July 2024–June 2025, Chainalysis).
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">

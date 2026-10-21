@@ -6,7 +6,7 @@ const supports = [
   { icon: Cpu, title: "Proprietary Blockchain IP", description: "Purpose-built crowdfunding protocol and app stack owned outright." },
   { icon: ShieldCheck, title: "Regulatory Positioning", description: "SEC-licensed and structured for Nigeria's virtual assets regime." },
   { icon: Flag, title: "First-Mover Advantage", description: "First blockchain-powered crowdfunding platform licensed in Nigeria." },
-  { icon: TrendingUp, title: "High-Growth Market", description: "Operating in Nigeria's £71.6352B crypto transaction market." },
+  { icon: TrendingUp, title: "High-Growth Market", description: "Nigeria received over £68.72B in on-chain crypto value, July 2024–June 2025 (Chainalysis)." },
   { icon: Repeat, title: "Scalable Recurring Revenue", description: "Platform fees compound with every fund cycle created." },
   { icon: BarChart3, title: "Comparable Fintech Valuations", description: "In line with regional fintech and digital asset benchmarks." },
   { icon: Hammer, title: "Founder Investment & Build", description: "Significant founder capital and completed development to date." },
