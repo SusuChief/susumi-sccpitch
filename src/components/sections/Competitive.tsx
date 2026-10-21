@@ -108,15 +108,15 @@ export const Competitive = ({ onView }: CompetitiveProps) => {
           <h3 className="text-2xl font-bold mb-4 text-center">Market Positioning</h3>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div>
-              <div className="text-4xl font-bold gradient-text mb-2">$4.4T+</div>
+              <div className="text-4xl font-bold gradient-text mb-2">£3.28328T+</div>
               <div className="text-sm text-muted-foreground">Total Addressable Market (crypto)</div>
             </div>
             <div>
-              <div className="text-4xl font-bold gradient-text mb-2">$500B</div>
+              <div className="text-4xl font-bold gradient-text mb-2">£373.1B</div>
               <div className="text-sm text-muted-foreground">Serviceable Market (cooperative finance)</div>
             </div>
             <div>
-              <div className="text-4xl font-bold gradient-text mb-2">$560M</div>
+              <div className="text-4xl font-bold gradient-text mb-2">£417.872M</div>
               <div className="text-sm text-muted-foreground">Target (1% of Nigeria in 2 years)</div>
             </div>
           </div>

@@ -84,17 +84,17 @@ export const MarketMetrics = ({ onView }: MarketMetricsProps) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <MetricCard
-            value="$5.4T"
+            value="£4.02948T"
             label="Global Crypto Transactions"
             description="Global cryptocurrency transaction volume in 2023"
           />
           <MetricCard
-            value="$96B"
+            value="£71.6352B"
             label="Nigerian Crypto Value"
             description="Cryptocurrency transactions in Nigeria in 2025 (Chainalysis 2026 Geography of Crypto Report)"
           />
           <MetricCard
-            value="$43B"
+            value="£32.0866B"
             label="Global Crowdfunding"
             description="Expected crowdfunding market size by 2028"
           />

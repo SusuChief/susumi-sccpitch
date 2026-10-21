@@ -1,3 +1,4 @@
+import { toGbp, currencyNote } from "@/lib/financial-reference";
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,22 +9,22 @@ const scenarios = {
     year1: {
       users: "50,000",
       fundsPerMonth: "3,200",
-      avgFundSize: "$1,650",
-      annualRevenue: "$1.4M",
+      avgFundSize: "£1,231.23",
+      annualRevenue: "£1.04468M",
       roi: "1.2x"
     },
     year2: {
       users: "1.2M",
       fundsPerMonth: "55,000",
-      avgFundSize: "$1,750",
-      annualRevenue: "$198M",
+      avgFundSize: "£1,305.85",
+      annualRevenue: "£147.7476M",
       roi: "165x"
     },
     year3: {
       users: "8.5M",
       fundsPerMonth: "650,000",
-      avgFundSize: "$1,850",
-      annualRevenue: "$2.0B",
+      avgFundSize: "£1,380.47",
+      annualRevenue: "£1.4924B",
       roi: "1,667x"
     }
   },
@@ -31,22 +32,22 @@ const scenarios = {
     year1: {
       users: "74,327",
       fundsPerMonth: "4,751",
-      avgFundSize: "$1,850",
-      annualRevenue: "$2.1M",
+      avgFundSize: "£1,380.47",
+      annualRevenue: "£1.56702M",
       roi: "1.8x"
     },
     year2: {
       users: "1.7M",
       fundsPerMonth: "83,300",
-      avgFundSize: "$1,850",
-      annualRevenue: "$298M",
+      avgFundSize: "£1,380.47",
+      annualRevenue: "£222.3676M",
       roi: "248x"
     },
     year3: {
       users: "12.8M",
       fundsPerMonth: "993,978",
-      avgFundSize: "$1,850",
-      annualRevenue: "$3.03B",
+      avgFundSize: "£1,380.47",
+      annualRevenue: "£2.26099B",
       roi: "2,526x"
     }
   },
@@ -54,22 +55,22 @@ const scenarios = {
     year1: {
       users: "100,000",
       fundsPerMonth: "7,000",
-      avgFundSize: "$2,500",
-      annualRevenue: "$5.2M",
+      avgFundSize: "£1,865.5",
+      annualRevenue: "£3.88024M",
       roi: "4.3x"
     },
     year2: {
       users: "3M",
       fundsPerMonth: "150,000",
-      avgFundSize: "$2,200",
-      annualRevenue: "$580M",
+      avgFundSize: "£1,641.64",
+      annualRevenue: "£432.796M",
       roi: "483x"
     },
     year3: {
       users: "20M",
       fundsPerMonth: "1.5M",
-      avgFundSize: "$2,500",
-      annualRevenue: "$5.6B",
+      avgFundSize: "£1,865.5",
+      annualRevenue: "£4.17872B",
       roi: "4,667x"
     }
   }
@@ -90,7 +91,7 @@ const monthlyRevenueData = [
   { month: "M12", revenue: 839.52, expenses: 34.50 }
 ];
 
-const cumulativeData = [
+const cumulativeDataUsd = [
   { month: "M1", cumRevenue: 2.76, cumExpenses: 46.85, cumProfit: -44.09 },
   { month: "M2", cumRevenue: 11.97, cumExpenses: 85.20, cumProfit: -73.23 },
   { month: "M3", cumRevenue: 39.61, cumExpenses: 134.12, cumProfit: -94.51 },
@@ -105,11 +106,14 @@ const cumulativeData = [
   { month: "M12", cumRevenue: 2113.75, cumExpenses: 652.99, cumProfit: 1460.76 }
 ];
 
-const yearlyProjections = [
+const yearlyProjectionsUsd = [
   { year: "Year 1", revenue: 2.1, expenses: 0.65, profit: 1.45 },
   { year: "Year 2", revenue: 298, expenses: 11, profit: 287 },
   { year: "Year 3", revenue: 3031, expenses: 20, profit: 3011 }
 ];
+
+const cumulativeData = cumulativeDataUsd.map(({ month, cumRevenue, cumExpenses, cumProfit }) => ({ month, cumRevenue: toGbp(cumRevenue), cumExpenses: toGbp(cumExpenses), cumProfit: toGbp(cumProfit) }));
+const yearlyProjections = yearlyProjectionsUsd.map(({ year, revenue, expenses, profit }) => ({ year, revenue: toGbp(revenue), expenses: toGbp(expenses), profit: toGbp(profit) }));
 
 interface GrowthProps {
   onView: () => void;
@@ -146,9 +150,10 @@ export const Growth = ({ onView }: GrowthProps) => {
           Growth Models & <span className="gradient-text">Projections</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Conservative financial projections showing clear path to profitability
+          Management growth scenarios — separate from the Financials forecast
         </p>
 
+        <p className="text-xs text-muted-foreground text-center mb-8">{currencyNote}</p>
         <div className="max-w-6xl mx-auto space-y-8">
           {/* Revenue Drivers */}
           <Card className="p-8 bg-card">
@@ -160,7 +165,7 @@ export const Growth = ({ onView }: GrowthProps) => {
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">NFT Sales</div>
-                <div className="text-muted-foreground">$250 avg • 16 characters × 10,000 units</div>
+                <div className="text-muted-foreground">£186.55 avg • 16 characters × 10,000 units</div>
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">Token Utility</div>
@@ -172,7 +177,7 @@ export const Growth = ({ onView }: GrowthProps) => {
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">Fund Volume</div>
-                <div className="text-muted-foreground">$1,850 avg basic fund size</div>
+                <div className="text-muted-foreground">£1,380.47 avg basic fund size</div>
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">Market Expansion</div>
@@ -283,8 +288,8 @@ export const Growth = ({ onView }: GrowthProps) => {
 
           {/* Break-Even Analysis */}
           <Card className="p-8 bg-card">
-            <h3 className="text-2xl font-semibold mb-6">Year 1 Break-Even Analysis</h3>
-            <p className="text-sm text-muted-foreground mb-6">Based on Base Model assumptions</p>
+            <h3 className="text-2xl font-semibold mb-6">Growth Scenario Cash Flow Analysis</h3>
+            <p className="text-sm text-muted-foreground mb-6">Growth scenario assumptions; not the separate Financials forecast</p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h4 className="text-lg font-semibold mb-4">Cumulative Cash Flow</h4>
@@ -299,7 +304,7 @@ export const Growth = ({ onView }: GrowthProps) => {
                         border: '1px solid hsl(var(--border))',
                         borderRadius: '8px'
                       }}
-                      formatter={(value: number) => `$${value.toFixed(1)}K`}
+                      formatter={(value: number) => `£${value.toFixed(1)}K`}
                     />
                     <Legend />
                     <Line type="monotone" dataKey="cumRevenue" stroke="hsl(var(--primary))" strokeWidth={2} name="Revenue" />
@@ -313,18 +318,18 @@ export const Growth = ({ onView }: GrowthProps) => {
                 <div className="p-6 bg-gradient-to-br from-accent/20 to-accent/5 rounded-lg border border-accent/30">
                   <div className="text-sm text-muted-foreground mb-1">Break-Even Month</div>
                   <div className="text-4xl font-bold text-accent mb-2">Month 9</div>
-                  <div className="text-sm">Positive cash flow achieved</div>
+                  <div className="text-sm">Monthly operating cash flow turns positive; cumulative break-even is Month 10</div>
                 </div>
                 
                 <div className="p-6 bg-secondary/30 rounded-lg">
-                  <div className="text-sm text-muted-foreground mb-1">Total Capital Required</div>
-                  <div className="text-3xl font-bold mb-2">$548K</div>
-                  <div className="text-sm">Peak cash requirement through break-even</div>
+                  <div className="text-sm text-muted-foreground mb-1">Gross Expenses Through Month 9</div>
+                  <div className="text-3xl font-bold mb-2">£408.9176K</div>
+                  <div className="text-sm">Scenario peak cumulative deficit: £159.36793K; cumulative cash flow positive in Month 10</div>
                 </div>
                 
                 <div className="p-6 bg-primary/10 rounded-lg border border-primary/20">
                   <div className="text-sm text-muted-foreground mb-1">Year 1 Net Profit</div>
-                  <div className="text-3xl font-bold text-primary mb-2">$1.46M</div>
+                  <div className="text-3xl font-bold text-primary mb-2">£1.08945M</div>
                   <div className="text-sm">After all expenses</div>
                 </div>
               </div>
@@ -334,7 +339,7 @@ export const Growth = ({ onView }: GrowthProps) => {
           {/* 3-Year Financial Overview */}
           <Card className="p-8 bg-card">
             <h3 className="text-2xl font-semibold mb-6">3-Year Financial Overview</h3>
-            <p className="text-sm text-muted-foreground mb-6">Based on Base Model assumptions</p>
+            <p className="text-sm text-muted-foreground mb-6">Growth scenario assumptions; not the separate Financials forecast</p>
             <div className="mb-8">
               <ResponsiveContainer width="100%" height={350}>
                 <BarChart data={yearlyProjections}>
@@ -347,7 +352,7 @@ export const Growth = ({ onView }: GrowthProps) => {
                       border: '1px solid hsl(var(--border))',
                       borderRadius: '8px'
                     }}
-                    formatter={(value: number) => `$${value}M`}
+                    formatter={(value: number) => `£${value.toFixed(2)}M`}
                   />
                   <Legend />
                   <Bar dataKey="revenue" fill="hsl(var(--primary))" radius={[8, 8, 0, 0]} name="Revenue" />
@@ -360,22 +365,22 @@ export const Growth = ({ onView }: GrowthProps) => {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 1</div>
-                <div className="text-3xl font-bold mb-1">$2.1M</div>
-                <div className="text-sm text-accent font-semibold">+$1.46M profit</div>
+                <div className="text-3xl font-bold mb-1">£1.56702M</div>
+                <div className="text-sm text-accent font-semibold">+£1.08945M profit</div>
                 <div className="text-xs text-muted-foreground mt-2">74K users • Break-even M9</div>
               </div>
               
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 2</div>
-                <div className="text-3xl font-bold mb-1">$298M</div>
-                <div className="text-sm text-accent font-semibold">+$287M profit</div>
+                <div className="text-3xl font-bold mb-1">£222.3676M</div>
+                <div className="text-sm text-accent font-semibold">+£214.1594M profit</div>
                 <div className="text-xs text-muted-foreground mt-2">1.7M users • 96% margin</div>
               </div>
               
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 3</div>
-                <div className="text-3xl font-bold mb-1">$3.03B</div>
-                <div className="text-sm text-accent font-semibold">+$3.01B profit</div>
+                <div className="text-3xl font-bold mb-1">£2.26099B</div>
+                <div className="text-sm text-accent font-semibold">+£2.24606B profit</div>
                 <div className="text-xs text-muted-foreground mt-2">12.8M users • 99% margin</div>
                 <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded text-xs text-muted-foreground">
                   <strong className="text-primary">Exponential Growth:</strong> Susumi's viral nature drives exponential growth—each successful fund generates at least 12 potential new funds. These projections assume 50% of potential new funds are actually created.

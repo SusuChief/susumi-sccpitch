@@ -1,10 +1,11 @@
+import { currencyNote } from "@/lib/financial-reference";
 import { useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
 
 const benefits = [
-  "12.5% equity ownership in Susumi Capital Corp (pre-money valuation $1.75M)",
+  "12.5% equity ownership in Susumi Capital Corp (pre-money valuation £1,305,850)",
   "200 Million SUSU+ Tokens issued under an agreed vesting schedule",
   "Participation in the growth of a regulated blockchain financial institution",
   "Exposure to Nigerian and international revenue streams in USDT",
@@ -30,11 +31,11 @@ const differentiators = [
 ];
 
 const useOfFunds = [
-  { label: "Technology Completion & Security Audits", amount: "$60,000" },
-  { label: "Regulatory, Legal & Financial Audits", amount: "$45,000" },
-  { label: "Marketing & Customer Acquisition", amount: "$75,000" },
-  { label: "Operations & Key Personnel", amount: "$40,000" },
-  { label: "Working Capital & Administrative Costs", amount: "$30,000" }
+  { label: "Technology Completion & Security Audits", amount: "£44,772" },
+  { label: "Regulatory, Legal & Financial Audits", amount: "£33,579" },
+  { label: "Marketing & Customer Acquisition", amount: "£55,965" },
+  { label: "Operations & Key Personnel", amount: "£29,848" },
+  { label: "Working Capital & Administrative Costs", amount: "£22,386" }
 ];
 
 
@@ -81,7 +82,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
         <div className="max-w-4xl mx-auto space-y-8">
           <Card className="p-8 md:p-12 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
             <div className="text-center mb-8">
-              <div className="text-6xl font-bold gradient-text mb-2">$250K</div>
+              <div className="text-6xl font-bold gradient-text mb-2">£186,550</div>
               <div className="text-2xl font-semibold mb-4">Seed Round</div>
               <div className="text-muted-foreground">
                 Completing technology, licensing and compliance to bring the Susumi Platform to commercial launch in Nigeria, ahead of expansion across Africa and the global diaspora
@@ -98,7 +99,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
                 <div className="text-sm text-muted-foreground">SUSU+ Tokens (vested)</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-gold mb-2">$1.75M</div>
+                <div className="text-3xl font-bold text-gold mb-2">£1,305,850</div>
                 <div className="text-sm text-muted-foreground">Pre-Money Valuation</div>
               </div>
             </div>
@@ -141,7 +142,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
               ))}
               <div className="flex justify-between items-center pt-2">
                 <span className="font-semibold">Total Capital Raise</span>
-                <span className="font-bold gradient-text">$250,000</span>
+                <span className="font-bold gradient-text">£186,550</span>
               </div>
             </div>
           </Card>
@@ -167,16 +168,17 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
             <h3 className="text-xl font-semibold mb-4">Projected ROI</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <div className="text-3xl font-bold gradient-text mb-2">$16.8M</div>
+                <div className="text-3xl font-bold gradient-text mb-2">£12.53616M</div>
                 <div className="text-sm text-muted-foreground">Year 2 Revenue Projection</div>
               </div>
               <div>
-                <div className="text-3xl font-bold gradient-text mb-2">$3.1B</div>
+                <div className="text-3xl font-bold gradient-text mb-2">£2.31322B</div>
                 <div className="text-sm text-muted-foreground">Year 3 Gross Transaction Volume</div>
               </div>
             </div>
           </Card>
 
+          <p className="text-xs text-muted-foreground text-center">{currencyNote}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <Button 
               size="lg" 

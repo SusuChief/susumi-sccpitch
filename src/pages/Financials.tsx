@@ -1,3 +1,4 @@
+import { currencyNote } from "@/lib/financial-reference";
 import { useEffect } from "react";
 import { ArrowLeft, TrendingUp, Shield, Users, Coins, Calendar, CheckCircle, DollarSign, BarChart3, Zap, MessageCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -15,25 +16,25 @@ const Financials = () => {
   }, [navigate]);
   const revenueData = [
     { metric: "Monthly Active Susu Funds", y2025: "0 (Beta)", y2026: "4,000", y2027: "12,000", y2028: "20,000+" },
-    { metric: "Average Value per Fund", y2025: "—", y2026: "$1,850", y2027: "$1,850", y2028: "$1,850–$2,100" },
-    { metric: "Annual Fund Volume (TVL)", y2025: "—", y2026: "$88.8M", y2027: "$266.4M", y2028: "$450–$520M" },
-    { metric: "Platform Fee Revenue", y2025: "—", y2026: "$7.36M", y2027: "$22.1M", y2028: "$37–$44M" },
-    { metric: "NFT Revenue", y2025: "—", y2026: "$1.5M", y2027: "$167M", y2028: "$240M" },
-    { metric: "Total Revenue", y2025: "—", y2026: "$8.9M", y2027: "$189.1M", y2028: "$280–$320M", highlight: true },
+    { metric: "Average Value per Fund", y2025: "—", y2026: "£1,380.47", y2027: "£1,380.47", y2028: "£1,380.47–£1,567.02" },
+    { metric: "Annual Fund Volume (TVL)", y2025: "—", y2026: "£66.26256M", y2027: "£198.78768M", y2028: "£335.79M–£388.024M" },
+    { metric: "Platform Fee Revenue", y2025: "—", y2026: "£5.49203M", y2027: "£16.49102M", y2028: "£27.6094M–£32.8328M" },
+    { metric: "NFT Revenue", y2025: "—", y2026: "£1.1193M", y2027: "£124.6154M", y2028: "£179.088M" },
+    { metric: "Total Revenue", y2025: "—", y2026: "£6.64118M", y2027: "£141.10642M", y2028: "£208.936M–£238.784M", highlight: true },
   ];
 
   const costData = [
-    { category: "Technical Development & Maintenance", y2026: "$1.2M", y2027: "$1.5M", y2028: "$1.8M" },
-    { category: "Licensing & Regulatory Compliance", y2026: "$0.35M", y2027: "$0.40M", y2028: "$0.45M" },
-    { category: "Marketing & User Acquisition", y2026: "$2.4M", y2027: "$5.0M", y2028: "$7.0M" },
-    { category: "Operations & Staffing", y2026: "$1.5M", y2027: "$2.2M", y2028: "$3.0M" },
-    { category: "Total Operating Costs", y2026: "$5.45M", y2027: "$9.1M", y2028: "$12.3M", highlight: true },
+    { category: "Technical Development & Maintenance", y2026: "£0.89544M", y2027: "£1.1193M", y2028: "£1.34316M" },
+    { category: "Licensing & Regulatory Compliance", y2026: "£0.26117M", y2027: "£0.29848M", y2028: "£0.33579M" },
+    { category: "Marketing & User Acquisition", y2026: "£1.79088M", y2027: "£3.731M", y2028: "£5.2234M" },
+    { category: "Operations & Staffing", y2026: "£1.1193M", y2027: "£1.64164M", y2028: "£2.2386M" },
+    { category: "Total Operating Costs", y2026: "£4.06679M", y2027: "£6.79042M", y2028: "£9.17826M", highlight: true },
   ];
 
   const ebitdaData = [
-    { year: "2026", ebitda: "+$3.45M" },
-    { year: "2027", ebitda: "+$180.0M" },
-    { year: "2028", ebitda: "+$270M+" },
+    { year: "2026", ebitda: "+£2.57439M" },
+    { year: "2027", ebitda: "+£134.316M" },
+    { year: "2028", ebitda: "+£201.474M+" },
   ];
 
   const tokenDrivers = [
@@ -83,8 +84,8 @@ const Financials = () => {
     { milestone: "Mainnet Migration", timeline: "Dec 2025", activities: "Smart contract deployment & integration" },
     { milestone: "Security Audits", timeline: "Dec–Jan 2026", activities: "Third-party contract validation" },
     { milestone: "Nationwide Pre-Launch Campaign", timeline: "Dec 2025–Feb 2026", activities: "PR, influencers, diaspora activation" },
-    { milestone: "Commercial Launch", timeline: "April 2026", activities: "Full platform go-live in Nigeria" },
-    { milestone: "International Expansion", timeline: "Q4 2026+", activities: "Global deployment" },
+    { milestone: "Commercial Launch", timeline: "October 2026", activities: "Full platform go-live in Nigeria" },
+    { milestone: "International Expansion", timeline: "December 2026", activities: "Global deployment" },
   ];
 
   return (
@@ -117,6 +118,7 @@ const Financials = () => {
           </p>
         </section>
 
+        <p className="text-xs text-muted-foreground text-center">{currencyNote}</p>
         {/* Revenue Forecast */}
         <section className="space-y-6">
           <div className="flex items-center gap-3">
@@ -154,7 +156,7 @@ const Financials = () => {
             </CardContent>
           </Card>
           <p className="text-sm text-muted-foreground">
-            Sources: Business Plan Synopsis (3-year revenue: $3.14B); Pitch Deck Revenue Model & NFT economics.
+            Sources: Business Plan Synopsis (3-year revenue: £2.34307B); Pitch Deck Revenue Model & NFT economics.
           </p>
         </section>
 
@@ -221,12 +223,12 @@ const Financials = () => {
             </CardHeader>
             <CardContent className="space-y-3">
               {[
-                { label: "Capital raised", value: "$250,000" },
-                { label: "Pre-launch monthly burn", value: "~$28,000" },
-                { label: "Runway to launch", value: "~9 months (to Oct 2026 platform launch)" },
-                { label: "Break-even month", value: "Month 4 after commercial launch" },
-                { label: "Total capital required to reach break-even", value: "$250,000 (no further raise required)" },
-                { label: "Year 1 net profit (2026)", value: "+$3.45M EBITDA", highlight: true },
+                { label: "Capital raised", value: "£186,550" },
+                { label: "Pre-launch monthly burn", value: "~£20,893.6" },
+                { label: "Runway to launch", value: "~8.9 months at stated burn (deployment estimate)" },
+                { label: "Break-even month", value: "Month 4 after launch (management assumption)" },
+                { label: "Total capital required to reach break-even", value: "£186,550 (management funding assumption)" },
+                { label: "Year 1 EBITDA (2026)", value: "+£2.57439M EBITDA", highlight: true },
               ].map((row, idx) => (
                 <div
                   key={idx}
@@ -237,9 +239,7 @@ const Financials = () => {
                 </div>
               ))}
               <p className="text-xs text-muted-foreground pt-2">
-                Assumptions: the $250,000 seed funds the pre-revenue period through to the October 2026 platform launch at an average
-                burn of ~$28,000 per month. From launch, 2026 revenue of $8.9M against $5.45M operating costs turns monthly
-                contribution positive by the fourth month of trading, so no further capital is required to reach break-even.
+                Management assumptions: approximately 8.9 months at the stated monthly burn; this is a deployment-period estimate, not remaining runway from today. Month 4 break-even and the seed sufficiency require a monthly cash-flow plan and are not proven by annual revenue and cost totals. EBITDA is not net profit. Growth scenarios elsewhere use different assumptions.
               </p>
             </CardContent>
           </Card>
@@ -283,9 +283,9 @@ const Financials = () => {
               <CardContent className="space-y-6">
                 <div className="text-center space-y-2">
                   <div className="text-4xl font-bold">
-                    <span className="text-muted-foreground">$0.0015</span>
+                    <span className="text-muted-foreground">£0.001119</span>
                     <span className="mx-3">→</span>
-                    <span className="gradient-text">$0.01+</span>
+                    <span className="gradient-text">£0.007462+</span>
                   </div>
                   <p className="text-sm text-muted-foreground">within 12–18 months</p>
                 </div>
@@ -344,16 +344,16 @@ const Financials = () => {
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
               <CardHeader>
-                <CardTitle className="text-lg">Equity Return ($250K Seed @ 12.5%)</CardTitle>
+                <CardTitle className="text-lg">Equity Return (£186.55K Seed @ 12.5%)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">Forecast enterprise value by 2028:</p>
-                  <p className="text-2xl font-bold">$350M–$500M</p>
+                  <p className="text-2xl font-bold">£261.17M–£373.1M</p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-sm text-muted-foreground">12.5% equity value potential:</p>
-                  <p className="text-3xl font-bold gradient-text">$43.8M–$62.5M+</p>
+                  <p className="text-3xl font-bold gradient-text">£32.64625M–£46.6375M+</p>
 
                 </div>
               </CardContent>

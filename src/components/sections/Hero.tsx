@@ -32,7 +32,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a $96B crypto market.
+            Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a £71.6352B crypto market.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -56,19 +56,19 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$250K</div>
+              <div className="text-3xl font-bold gradient-text">£186,550</div>
               <div className="text-sm text-muted-foreground">Seed Round</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">12.5%</div>
+              <div className="text-3xl font-bold gradient-text">12.5%</div>
               <div className="text-sm text-muted-foreground">Equity Offered</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">200M</div>
+              <div className="text-3xl font-bold gradient-text">200M</div>
               <div className="text-sm text-muted-foreground">SUSU+ Tokens</div>
             </div>
             <div className="space-y-2">
-              <div className="text-4xl font-bold gradient-text">$1.75M</div>
+              <div className="text-3xl font-bold gradient-text">£1,305,850</div>
               <div className="text-sm text-muted-foreground">Pre-Money Valuation</div>
             </div>
           </div>

@@ -6,7 +6,7 @@ const supports = [
   { icon: Cpu, title: "Proprietary Blockchain IP", description: "Purpose-built crowdfunding protocol and app stack owned outright." },
   { icon: ShieldCheck, title: "Regulatory Positioning", description: "SEC-licensed and structured for Nigeria's virtual assets regime." },
   { icon: Flag, title: "First-Mover Advantage", description: "First blockchain-powered crowdfunding platform licensed in Nigeria." },
-  { icon: TrendingUp, title: "High-Growth Market", description: "Operating in Nigeria's $96B crypto transaction market." },
+  { icon: TrendingUp, title: "High-Growth Market", description: "Operating in Nigeria's £71.6352B crypto transaction market." },
   { icon: Repeat, title: "Scalable Recurring Revenue", description: "Platform fees compound with every fund cycle created." },
   { icon: BarChart3, title: "Comparable Fintech Valuations", description: "In line with regional fintech and digital asset benchmarks." },
   { icon: Hammer, title: "Founder Investment & Build", description: "Significant founder capital and completed development to date." },
@@ -43,15 +43,15 @@ export const Valuation = ({ onView }: ValuationProps) => {
           <span className="gradient-text">Valuation</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Pre-Money Valuation: US$1.75 Million
+          Pre-Money Valuation: £1,305,850
         </p>
 
         <div className="max-w-6xl mx-auto">
           <Card className="p-8 bg-card mb-8 text-center bg-gradient-to-br from-primary/10 to-accent/5 border-primary/20">
             <div className="text-sm text-muted-foreground mb-2">Pre-Money Valuation</div>
-            <div className="text-5xl md:text-6xl font-bold gradient-text">US$1.75M</div>
+            <div className="text-5xl md:text-6xl font-bold gradient-text">£1,305,850</div>
             <div className="text-sm text-muted-foreground mt-3">
-              US$2.0M post-money following the US$250,000 seed round (12.5% equity)
+              £1,492,400 post-money following the £186,550 seed round (12.5% equity)
             </div>
           </Card>
 
