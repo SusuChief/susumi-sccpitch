@@ -76,7 +76,7 @@ const scenarios = {
   }
 };
 
-const monthlyRevenueData = [
+const monthlyRevenueDataUsd = [
   { month: "M1", revenue: 2.76, expenses: 46.85 },
   { month: "M2", revenue: 9.21, expenses: 38.35 },
   { month: "M3", revenue: 27.64, expenses: 48.92 },
@@ -113,6 +113,7 @@ const yearlyProjectionsUsd = [
 ];
 
 const cumulativeData = cumulativeDataUsd.map(({ month, cumRevenue, cumExpenses, cumProfit }) => ({ month, cumRevenue: toGbp(cumRevenue), cumExpenses: toGbp(cumExpenses), cumProfit: toGbp(cumProfit) }));
+const monthlyRevenueData = monthlyRevenueDataUsd.map(({ month, revenue, expenses }) => ({ month, revenue: toGbp(revenue), expenses: toGbp(expenses) }));
 const yearlyProjections = yearlyProjectionsUsd.map(({ year, revenue, expenses, profit }) => ({ year, revenue: toGbp(revenue), expenses: toGbp(expenses), profit: toGbp(profit) }));
 
 interface GrowthProps {
@@ -316,7 +317,7 @@ export const Growth = ({ onView }: GrowthProps) => {
               
               <div className="space-y-6">
                 <div className="p-6 bg-gradient-to-br from-accent/20 to-accent/5 rounded-lg border border-accent/30">
-                  <div className="text-sm text-muted-foreground mb-1">Break-Even Month</div>
+                  <div className="text-sm text-muted-foreground mb-1">Monthly Operating Break-Even</div>
                   <div className="text-4xl font-bold text-accent mb-2">Month 9</div>
                   <div className="text-sm">Monthly operating cash flow turns positive; cumulative break-even is Month 10</div>
                 </div>
@@ -367,7 +368,7 @@ export const Growth = ({ onView }: GrowthProps) => {
                 <div className="text-sm text-muted-foreground mb-2">Year 1</div>
                 <div className="text-3xl font-bold mb-1">£1.56702M</div>
                 <div className="text-sm text-accent font-semibold">+£1.08945M profit</div>
-                <div className="text-xs text-muted-foreground mt-2">74K users • Break-even M9</div>
+                <div className="text-xs text-muted-foreground mt-2">74K users • Operating break-even M9 / cumulative M10</div>
               </div>
               
               <div className="p-6 bg-secondary/30 rounded-lg">

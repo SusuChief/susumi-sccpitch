@@ -156,7 +156,7 @@ const Financials = () => {
             </CardContent>
           </Card>
           <p className="text-sm text-muted-foreground">
-            Sources: Business Plan Synopsis (3-year revenue: £2.34307B); Pitch Deck Revenue Model & NFT economics.
+            Sources: management Business Plan Synopsis; Pitch Deck Revenue Model & NFT economics. Forecasts are not audited results; totals and components retain the original model's rounding differences.
           </p>
         </section>
 

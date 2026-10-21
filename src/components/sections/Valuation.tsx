@@ -49,7 +49,7 @@ export const Valuation = ({ onView }: ValuationProps) => {
         <div className="max-w-6xl mx-auto">
           <Card className="p-8 bg-card mb-8 text-center bg-gradient-to-br from-primary/10 to-accent/5 border-primary/20">
             <div className="text-sm text-muted-foreground mb-2">Pre-Money Valuation</div>
-            <div className="text-5xl md:text-6xl font-bold gradient-text">£1,305,850</div>
+            <div className="text-4xl md:text-6xl font-bold gradient-text">£1,305,850</div>
             <div className="text-sm text-muted-foreground mt-3">
               £1,492,400 post-money following the £186,550 seed round (12.5% equity)
             </div>
