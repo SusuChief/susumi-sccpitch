@@ -3,15 +3,15 @@ import { Card } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from "recharts";
 
 const comparisonData = [
-  { country: "India", rank: 1, height: 10, region: "Central & Southern Asia and Oceania" },
-  { country: "Nigeria", rank: 2, height: 9, region: "Sub-Saharan Africa" },
-  { country: "Indonesia", rank: 3, height: 8, region: "Central & Southern Asia and Oceania" },
-  { country: "United States", rank: 4, height: 7, region: "North America" },
-  { country: "Vietnam", rank: 5, height: 6, region: "Central & Southern Asia and Oceania" },
-  { country: "Ukraine", rank: 6, height: 5, region: "Eastern Europe" },
-  { country: "Russia", rank: 7, height: 4, region: "Eastern Europe" },
-  { country: "Philippines", rank: 8, height: 3, region: "Central & Southern Asia and Oceania" },
-  { country: "United Kingdom", rank: 12, height: 1, region: "Western Europe" },
+  { country: "India", rank: 1, height: 10 },
+  { country: "United States", rank: 2, height: 9 },
+  { country: "Pakistan", rank: 3, height: 8 },
+  { country: "Vietnam", rank: 4, height: 7 },
+  { country: "Brazil", rank: 5, height: 6 },
+  { country: "Nigeria", rank: 6, height: 5 },
+  { country: "Indonesia", rank: 7, height: 4 },
+  { country: "Ukraine", rank: 8, height: 3 },
+  { country: "United Kingdom", rank: 11, height: 1 },
 ];
 
 const countryColors = [
@@ -61,12 +61,12 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
           Nigeria's <span className="gradient-text">Global Leadership</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Nigeria ranks #2 globally in the 2025 Chainalysis Global Crypto Adoption Index
+          Nigeria ranks #6 globally in the 2025 Chainalysis Global Crypto Adoption Index
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
           <Card className="p-8 bg-card">
-            <h3 className="text-2xl font-semibold mb-6">Top 8 Countries by Crypto Adoption</h3>
+            <h3 className="text-2xl font-semibold mb-6">Leading Countries by Crypto Adoption</h3>
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={comparisonData} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
@@ -95,14 +95,14 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
                 <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                 <div>
                   <p className="font-semibold">Highest in Sub-Saharan Africa</p>
-                  <p className="text-sm text-muted-foreground">Nigeria dominates crypto adoption across the entire African continent, and is number two globally.</p>
+                  <p className="text-sm text-muted-foreground">Nigeria dominates crypto adoption across the entire African continent, and ranks sixth globally.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                 <div>
-                  <p className="font-semibold">Top 5 Globally Across All Metrics</p>
-                  <p className="text-sm text-muted-foreground">Ranks highly in centralized services, retail trading, and DeFi adoption</p>
+                  <p className="font-semibold">Strong Grassroots Adoption</p>
+                  <p className="text-sm text-muted-foreground">Ranks sixth in the overall 2025 index, which covers July 2024–June 2025 activity</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -125,7 +125,7 @@ export const GlobalComparison = ({ onView }: GlobalComparisonProps) => {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            Source: Chainalysis 2025 Global Crypto Adoption Index
+            Source: Chainalysis 2025 Global Crypto Adoption Index (July 2024–June 2025). Bar lengths indicate ranking, not transaction volume.
           </p>
         </div>
       </div>
