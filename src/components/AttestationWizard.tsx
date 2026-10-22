@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { jurisdictionDenial, type DenialReason } from "@/lib/attestation-rules";
+import { jurisdictionDenial, ATTESTATION_VERSION, ATTESTATION_STORAGE_KEY, validAttestation, type DenialReason } from "@/lib/attestation-rules";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 export { ATTESTATION_VERSION, ATTESTATION_STORAGE_KEY } from "@/lib/attestation-rules";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -211,9 +213,30 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
 
   const handleSubmit = async () => {
     if (!detailsValid || !categoryValid || !allChecked || !signValid || jurisdictionDenial(form.country, form.isUsPerson)) return;
-    // Fail closed until the sender domain and server verification flow are ready.
-    // Never certify an unverified email or consume this visitor's access code.
-    setError("Email verification is not available yet. Your form has not been submitted and your access code has not been used. Please contact Susumi to arrange access.");
+    const fields = z.object({
+      fullName: z.string().trim().min(1).max(500),
+      email: z.string().trim().email().max(255),
+      categoryExplanation: z.string().trim().min(1).max(2000),
+      declarationName: z.string().trim().min(1).max(500),
+    }).safeParse(form);
+    if (!fields.success || Object.values(form).some(value => value.length > (value === form.categoryExplanation ? 2000 : 500))) {
+      setError("Please check your details and shorten any overly long answers.");
+      return;
+    }
+    setSubmitting(true);
+    setError(null);
+    try {
+      const { data, error: saveError } = await supabase.functions.invoke("submit-attestation", {
+        body: { ...form, ...fields.data, accessCode, version: ATTESTATION_VERSION, acknowledgements: checked },
+      });
+      if (saveError || !validAttestation(data)) throw new Error("Your form could not be saved. Please try again or contact Susumi.");
+      localStorage.setItem(ATTESTATION_STORAGE_KEY, JSON.stringify(data));
+      onComplete();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Unable to save your form. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (denied) {
@@ -266,7 +289,6 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
             the law of your country of residence.
           </p>
         </div>
-        <p className="text-center text-sm text-muted-foreground">Email verification is currently unavailable. New presentation access cannot be completed yet.</p>
 
         {/* Progress */}
         <div className="flex items-center justify-center gap-2">
@@ -372,7 +394,6 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                     onChange={(e) => set("email", e.target.value)}
                     className="bg-secondary"
                   />
-                  <p className="text-xs text-muted-foreground">Your email must be verified by link before access is granted.</p>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone (optional)</Label>

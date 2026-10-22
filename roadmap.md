@@ -7,5 +7,5 @@
 # Revised investor attestation
 - [x] Apply the revised PDF wizard and named jurisdiction restrictions.
 - [x] Add a draft privacy notice and require renewed attestation for changed terms.
-- [ ] Set up verified sender domain (awaiting user setup).
-- [ ] Implement and verify email-link confirmation, emailed copy and server-controlled IP/timestamp audit after sender setup.
+- [ ] Save completed attestations privately with server timestamp and IP audit, without email verification or emailed copies.
+- [ ] Verify eligible completion and restricted-country denial end to end.
