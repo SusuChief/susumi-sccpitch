@@ -381,7 +381,7 @@ export const Growth = ({ onView }: GrowthProps) => {
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 3</div>
                 <div className="text-3xl font-bold mb-1">£2.26bn</div>
-                <div className="text-sm text-accent font-semibold">+£2.24606B profit</div>
+                <div className="text-sm text-accent font-semibold">+£2.25bn profit</div>
                 <div className="text-xs text-muted-foreground mt-2">12.8M users • 99% margin</div>
                 <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded text-xs text-muted-foreground">
                   <strong className="text-primary">Exponential Growth:</strong> Susumi's viral nature drives exponential growth—each successful fund generates at least 12 potential new funds. These projections assume 50% of potential new funds are actually created.
