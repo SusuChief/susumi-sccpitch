@@ -40,7 +40,7 @@ const Financials = () => {
   const tokenDrivers = [
     { driver: "SUSU+ required to open new Susu Funds", effect: "Drives continuous token demand" },
     { driver: "Token minted only after real donations", effect: "Minimizes inflation, aligns value with platform usage" },
-    { driver: "Investor Panel locks tokens for yield", effect: "Supports stable price growth" },
+    { driver: "Validator Panel locks tokens for fee share", effect: "Links token demand to platform activity" },
     { driver: "Projected open-circulation supply < 2.5%", effect: "Strong scarcity and long-term value appreciation" },
   ];
 
@@ -112,10 +112,10 @@ const Financials = () => {
           <h1 className="text-4xl md:text-6xl font-bold">
             <span className="gradient-text">Financial Forecasts</span>
             <br />
-            <span className="text-foreground">2025–2028</span>
+            <span className="text-foreground">Years 1–3 From Launch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A regulated platform, a proven cultural financial model, and a scalable blockchain architecture—positioning Susumi as one of Africa's most valuable Web3 financial infrastructure companies.
+            The management business-plan forecast, a separate model from the growth scenarios. Years are counted from launch. Forecasts are not audited; totals keep the original model's rounding.
           </p>
         </section>
 
@@ -247,7 +247,7 @@ const Financials = () => {
 
           <div className="bg-muted/30 rounded-lg p-4 space-y-2">
             <p className="text-sm text-muted-foreground">
-              <strong>Notes:</strong> Susumi's model is low-CAPEX and low-cost to scale because funds are handled by smart contracts, not by the company. Regulatory status in Nigeria dramatically increases valuation and revenue capture potential.
+              <strong>Notes:</strong> Susumi's model is low-CAPEX and low-cost to scale because funds are handled by smart contracts, not by the company. Susumi is the first blockchain-based crowdfunding operator registered by SEC Nigeria.
             </p>
           </div>
 
@@ -262,10 +262,10 @@ const Financials = () => {
             <h2 className="text-2xl md:text-3xl font-bold">Token Economics Impact (SUSU+ Token)</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6">
             <Card className="border-primary/20">
               <CardHeader>
-                <CardTitle className="text-lg">Token Drivers</CardTitle>
+                <CardTitle className="text-lg">Token Drivers (no tokens are offered in this equity round; token value is not projected)</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {tokenDrivers.map((item, idx) => (
