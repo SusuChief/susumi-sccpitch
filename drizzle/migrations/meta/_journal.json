@@ -8,6 +8,13 @@
       "when": 1792676443287,
       "tag": "0000_create_investor_attestations",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792678851547,
+      "tag": "0001_save_signed_attestations_privately",
+      "breakpoints": true
     }
   ]
 }
