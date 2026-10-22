@@ -217,10 +217,6 @@ export const Growth = ({ onView }: GrowthProps) => {
                           <div className="text-xl font-semibold text-primary">{data.year1.annualRevenue}</div>
                           <div className="text-muted-foreground">Revenue</div>
                         </div>
-                        <div>
-                          <div className="text-xl font-semibold text-accent">{data.year1.roi}</div>
-                          <div className="text-muted-foreground">ROI</div>
-                        </div>
                       </div>
                     </Card>
                   ))}
@@ -246,10 +242,6 @@ export const Growth = ({ onView }: GrowthProps) => {
                           <div className="text-xl font-semibold text-primary">{data.year2.annualRevenue}</div>
                           <div className="text-muted-foreground">Revenue</div>
                         </div>
-                        <div>
-                          <div className="text-xl font-semibold text-accent">{data.year2.roi}</div>
-                          <div className="text-muted-foreground">ROI</div>
-                        </div>
                       </div>
                     </Card>
                   ))}
@@ -274,10 +266,6 @@ export const Growth = ({ onView }: GrowthProps) => {
                         <div>
                           <div className="text-xl font-semibold text-primary">{data.year3.annualRevenue}</div>
                           <div className="text-muted-foreground">Revenue</div>
-                        </div>
-                        <div>
-                          <div className="text-xl font-semibold text-accent">{data.year3.roi}</div>
-                          <div className="text-muted-foreground">ROI</div>
                         </div>
                       </div>
                     </Card>
