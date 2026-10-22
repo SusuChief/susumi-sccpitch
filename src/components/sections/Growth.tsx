@@ -9,22 +9,22 @@ const scenarios = {
     year1: {
       users: "50,000",
       fundsPerMonth: "3,200",
-      avgFundSize: "£1,231.23",
-      annualRevenue: "£1.04468M",
+      avgFundSize: "£1,231",
+      annualRevenue: "£1.04m",
       roi: "1.2x"
     },
     year2: {
       users: "1.2M",
       fundsPerMonth: "55,000",
-      avgFundSize: "£1,305.85",
-      annualRevenue: "£147.7476M",
+      avgFundSize: "£1,306",
+      annualRevenue: "£147.75m",
       roi: "165x"
     },
     year3: {
       users: "8.5M",
       fundsPerMonth: "650,000",
-      avgFundSize: "£1,380.47",
-      annualRevenue: "£1.4924B",
+      avgFundSize: "£1,380",
+      annualRevenue: "£1.49bn",
       roi: "1,667x"
     }
   },
@@ -32,22 +32,22 @@ const scenarios = {
     year1: {
       users: "74,327",
       fundsPerMonth: "4,751",
-      avgFundSize: "£1,380.47",
-      annualRevenue: "£1.56702M",
+      avgFundSize: "£1,380",
+      annualRevenue: "£1.57m",
       roi: "1.8x"
     },
     year2: {
       users: "1.7M",
       fundsPerMonth: "83,300",
-      avgFundSize: "£1,380.47",
-      annualRevenue: "£222.3676M",
+      avgFundSize: "£1,380",
+      annualRevenue: "£222.37m",
       roi: "248x"
     },
     year3: {
       users: "12.8M",
       fundsPerMonth: "993,978",
-      avgFundSize: "£1,380.47",
-      annualRevenue: "£2.26099B",
+      avgFundSize: "£1,380",
+      annualRevenue: "£2.26bn",
       roi: "2,526x"
     }
   },
@@ -55,22 +55,22 @@ const scenarios = {
     year1: {
       users: "100,000",
       fundsPerMonth: "7,000",
-      avgFundSize: "£1,865.5",
-      annualRevenue: "£3.88024M",
+      avgFundSize: "£1,866",
+      annualRevenue: "£3.88m",
       roi: "4.3x"
     },
     year2: {
       users: "3M",
       fundsPerMonth: "150,000",
-      avgFundSize: "£1,641.64",
-      annualRevenue: "£432.796M",
+      avgFundSize: "£1,642",
+      annualRevenue: "£432.80m",
       roi: "483x"
     },
     year3: {
       users: "20M",
       fundsPerMonth: "1.5M",
-      avgFundSize: "£1,865.5",
-      annualRevenue: "£4.17872B",
+      avgFundSize: "£1,866",
+      annualRevenue: "£4.18bn",
       roi: "4,667x"
     }
   }
@@ -178,7 +178,7 @@ export const Growth = ({ onView }: GrowthProps) => {
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">Fund Volume</div>
-                <div className="text-muted-foreground">£1,380.47 avg basic fund size</div>
+                <div className="text-muted-foreground">£1,380 avg basic fund size</div>
               </div>
               <div className="p-4 bg-secondary/50 rounded-lg">
                 <div className="font-semibold mb-1">Market Expansion</div>
@@ -324,13 +324,13 @@ export const Growth = ({ onView }: GrowthProps) => {
                 
                 <div className="p-6 bg-secondary/30 rounded-lg">
                   <div className="text-sm text-muted-foreground mb-1">Gross Expenses Through Month 9</div>
-                  <div className="text-3xl font-bold mb-2">£408.9176K</div>
-                  <div className="text-sm">Scenario peak cumulative deficit: £159.36793K; cumulative cash flow positive in Month 10</div>
+                  <div className="text-3xl font-bold mb-2">~£408,918</div>
+                  <div className="text-sm">Scenario peak cumulative deficit: ~£159,368; cumulative cash flow positive in Month 10</div>
                 </div>
                 
                 <div className="p-6 bg-primary/10 rounded-lg border border-primary/20">
                   <div className="text-sm text-muted-foreground mb-1">Year 1 Net Profit</div>
-                  <div className="text-3xl font-bold text-primary mb-2">£1.08945M</div>
+                  <div className="text-3xl font-bold text-primary mb-2">£1.08m</div>
                   <div className="text-sm">After all expenses</div>
                 </div>
               </div>
@@ -366,21 +366,21 @@ export const Growth = ({ onView }: GrowthProps) => {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 1</div>
-                <div className="text-3xl font-bold mb-1">£1.56702M</div>
-                <div className="text-sm text-accent font-semibold">+£1.08945M profit</div>
+                <div className="text-3xl font-bold mb-1">£1.57m</div>
+                <div className="text-sm text-accent font-semibold">+£1.08m profit</div>
                 <div className="text-xs text-muted-foreground mt-2">74K users • Operating break-even M9 / cumulative M10</div>
               </div>
               
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 2</div>
-                <div className="text-3xl font-bold mb-1">£222.3676M</div>
-                <div className="text-sm text-accent font-semibold">+£214.1594M profit</div>
+                <div className="text-3xl font-bold mb-1">£222.37m</div>
+                <div className="text-sm text-accent font-semibold">+£214.16m profit</div>
                 <div className="text-xs text-muted-foreground mt-2">1.7M users • 96% margin</div>
               </div>
               
               <div className="p-6 bg-secondary/30 rounded-lg">
                 <div className="text-sm text-muted-foreground mb-2">Year 3</div>
-                <div className="text-3xl font-bold mb-1">£2.26099B</div>
+                <div className="text-3xl font-bold mb-1">£2.26bn</div>
                 <div className="text-sm text-accent font-semibold">+£2.24606B profit</div>
                 <div className="text-xs text-muted-foreground mt-2">12.8M users • 99% margin</div>
                 <div className="mt-3 p-3 bg-primary/10 border border-primary/20 rounded text-xs text-muted-foreground">

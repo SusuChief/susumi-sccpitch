@@ -135,7 +135,6 @@ const Financials = () => {
                   <TableHeader>
                     <TableRow className="bg-muted/50">
                       <TableHead className="font-semibold">Metric</TableHead>
-                      <TableHead className="text-center font-semibold">2025 (Pre-Launch)</TableHead>
                       <TableHead className="text-center font-semibold">Year 1</TableHead>
                       <TableHead className="text-center font-semibold">Year 2</TableHead>
                       <TableHead className="text-center font-semibold">Year 3</TableHead>
@@ -145,7 +144,6 @@ const Financials = () => {
                     {revenueData.map((row, idx) => (
                       <TableRow key={idx} className={row.highlight ? "bg-primary/10 font-semibold" : ""}>
                         <TableCell className="font-medium">{row.metric}</TableCell>
-                        <TableCell className="text-center text-muted-foreground">{row.y2025}</TableCell>
                         <TableCell className="text-center">{row.y2026}</TableCell>
                         <TableCell className="text-center">{row.y2027}</TableCell>
                         <TableCell className={`text-center ${row.highlight ? "gradient-text" : ""}`}>{row.y2028}</TableCell>
