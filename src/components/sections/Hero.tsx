@@ -26,13 +26,13 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           />
           
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            A Groundbreaking Opportunity in the
+            Funding the launch of
             <br />
-            <span className="text-primary">African</span> <span className="gradient-text">Cryptocurrency Market</span>
+            <span className="gradient-text">Susumi in Nigeria</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            Susumi is building one of Nigeria's first fully capitalized and regulated blockchain financial service providers in a market that received over £68.72B in on-chain crypto value (July 2024–June 2025, Chainalysis).
+            A £200,000 equity round in Susumi Capital Corp, the company that owns the Susumi technology and licenses it to local operators, starting with our SEC-licensed partner in Nigeria.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
@@ -56,7 +56,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
             <div className="space-y-2">
-              <div className="text-3xl font-bold gradient-text">£186,550</div>
+              <div className="text-3xl font-bold gradient-text">£200,000</div>
               <div className="text-sm text-muted-foreground">Seed Round</div>
             </div>
             <div className="space-y-2">
@@ -64,16 +64,15 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
               <div className="text-sm text-muted-foreground">Equity Offered</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold gradient-text">200M</div>
-              <div className="text-sm text-muted-foreground">SUSU+ Tokens</div>
+              <div className="text-3xl font-bold gradient-text">£1.6M</div>
+              <div className="text-sm text-muted-foreground">Post-Money Valuation</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold gradient-text">£1,305,850</div>
+              <div className="text-3xl font-bold gradient-text">£1.4M</div>
               <div className="text-sm text-muted-foreground">Pre-Money Valuation</div>
             </div>
           </div>
-
-
+          <p className="text-sm text-muted-foreground">Seed investment presentation · October 2026 · Ordinary shares, equity only: no SUSU+ tokens are offered in this round.</p>
         </div>
       </div>
     </section>
