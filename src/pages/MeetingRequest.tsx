@@ -136,8 +136,8 @@ const MeetingRequest = () => {
                   <SelectValue placeholder="Select cheque size" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="£74.62K–£186.55K">£74.62K–£186.55K</SelectItem>
-                  <SelectItem value="£186.55K+">£186.55K+</SelectItem>
+                  <SelectItem value="£50K–£200K">£50K–£200K</SelectItem>
+                  <SelectItem value="£200K+">£200K+</SelectItem>
                 </SelectContent>
               </Select>
             </div>
