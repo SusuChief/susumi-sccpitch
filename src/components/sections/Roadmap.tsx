@@ -3,30 +3,24 @@ import { Card } from "@/components/ui/card";
 import { CheckCircle, Circle } from "lucide-react";
 
 const milestones = [
-  {
-    title: "Testnet Complete",
-    period: "Apr-Jul 2025",
-    status: "completed",
-    description: "Susumi App Testnet successfully completed with 1,400 registered users. Technical adjustments made before mainnet migration."
-  },
-  {
-    title: "SEC License Secured",
-    period: "Aug 2025",
-    status: "completed",
-    description: "First blockchain crowdfunding platform licensed by Nigerian SEC. LLG1 Crowdfunding License effective from August 18, 2025."
-  },
-  {
-    title: "Platform Launch",
-    period: "October 2026",
-    status: "upcoming",
-    description: "Commercial launch in Nigeria with existing 20,000+ community followers and 1,400 registered users as first adopters."
-  },
-  {
-    title: "Global Expansion",
-    period: "December 2026",
-    status: "upcoming",
-    description: "Launch in Kenya, Ghana, Venezuela, Brazil, and Mexico. Introduce Susumi P2P App for off-chain crypto transfers via NFC."
-  }
+  { title: "Round closed", period: "Month 1", status: "upcoming", description: "Funds received, audit scoped, filings started." },
+  { title: "Audit complete", period: "Months 2–3", status: "upcoming", description: "Findings fixed and re-checked." },
+  { title: "Regulatory sign-off", period: "Month 4", status: "upcoming", description: "SEC launch filings accepted." },
+  { title: "Mainnet launch", period: "Months 4–5", status: "upcoming", description: "Basic Susu Fund live in Nigeria." },
+  { title: "First traction", period: "Month 6", status: "upcoming", description: "First funds and Subscribers, targets set at close." }
+];
+
+const completed = [
+  "Testnet with 1,400 registered users (April–July 2025)",
+  "SEC Nigeria crowdfunding licence, effective 18 August 2025",
+  "Migration to NEAR Protocol with NEAR Auth onboarding",
+  "Basic Susu Fund demonstrated end to end, through to NFTs"
+];
+
+const afterLaunch = [
+  "Enterprise, Community and Advanced fund types on the same contracts",
+  "New African markets through local licence holders under franchise",
+  "Latin America and diaspora markets, then the P2P NFC payments app"
 ];
 
 interface RoadmapProps {
@@ -61,10 +55,10 @@ export const Roadmap = ({ onView }: RoadmapProps) => {
     >
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-          Product <span className="gradient-text">Roadmap</span>
+          Roadmap & <span className="gradient-text">Milestones</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Phased rollout from Nigeria first, then expansion into Africa, LatAm, and diaspora markets
+          Timed from the close of this round. Each milestone is a reporting point for investors, and spending is released against them.
         </p>
 
         <div className="max-w-4xl mx-auto space-y-6">
@@ -102,6 +96,21 @@ export const Roadmap = ({ onView }: RoadmapProps) => {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mt-8">
+          <Card className="p-6 bg-primary/5 border-primary/20">
+            <h3 className="text-lg font-semibold mb-3">Completed</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {completed.map((c) => (<li key={c} className="flex gap-2"><CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />{c}</li>))}
+            </ul>
+          </Card>
+          <Card className="p-6 bg-card">
+            <h3 className="text-lg font-semibold mb-3">After launch</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {afterLaunch.map((c) => (<li key={c} className="flex gap-2"><Circle className="h-4 w-4 text-muted-foreground mt-0.5 flex-shrink-0" />{c}</li>))}
+            </ul>
+          </Card>
         </div>
       </div>
     </section>

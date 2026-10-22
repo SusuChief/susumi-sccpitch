@@ -3,47 +3,22 @@ import { Card } from "@/components/ui/card";
 import { Shield, Target, Zap, TrendingUp } from "lucide-react";
 
 const advantages = [
-  {
-    icon: Shield,
-    title: "First-Mover Advantage",
-    points: [
-      "First SEC-licensed blockchain crowdfunding platform in Nigeria",
-      "SEC licensing is a slow, demanding barrier that later entrants must still clear",
-      "Over 20,000 followers and 1,400 registered users pre-launch",
-      "Global community footprint established"
-    ]
-  },
-
-  {
-    icon: Target,
-    title: "Deep Cultural Market Fit",
-    points: [
-      "Esusu/Susu cooperative finance trusted by millions across Africa, LatAm, Asia",
-      "47% of Nigerian adults already use cryptocurrency",
-      "Modernizes traditional model with blockchain rewards",
-      "Viral, community-based adoption ensures low-cost, organic growth"
-    ]
-  },
-  {
-    icon: Zap,
-    title: "Unique Product Offering",
-    points: [
-      "DeFi product differentiated from any other market solution",
-      "Decentralized: no human or third-party intervention required",
-      "Users raise money that's not a loan or investment",
-      "Heavily incentivized and viral participation model"
-    ]
-  },
-  {
-    icon: TrendingUp,
-    title: "Technology & Ecosystem",
-    points: [
-      "Smart contracts: automated, transparent, low-cost",
-      "Integration with NFTs and DeFi revenue panels",
-      "Flexible architecture for investments and financial services",
-      "Revolutionary P2P via RFC technology for local fund transfers"
-    ]
-  }
+  { icon: Shield, title: "First-Mover Advantage", points: [
+    "First SEC-licensed blockchain crowdfunding platform in Nigeria",
+    "SEC licensing is a slow, demanding barrier for later entrants",
+    "About 18,000 followers and 1,400 registered testnet users"] },
+  { icon: Target, title: "Market Fit", points: [
+    "Community fundraising and group giving are familiar across Africa, Latin America and Asia",
+    "47% of Nigerian adults have used cryptocurrency",
+    "Reward-driven, community-based growth keeps acquisition costs low"] },
+  { icon: Zap, title: "Unique Product", points: [
+    "Users raise money that is neither a loan nor an investment",
+    "Decentralised: no human or third-party intervention needed",
+    "Rewards give every Subscriber a reason to take part"] },
+  { icon: TrendingUp, title: "Technology", points: [
+    "Smart contracts on NEAR: automated, transparent, low cost",
+    "Integrated NFTs and Validator Panel revenue sharing",
+    "P2P transfers by NFC for local payments (planned)"] }
 ];
 
 interface CompetitiveProps {
@@ -81,7 +56,7 @@ export const Competitive = ({ onView }: CompetitiveProps) => {
           Why <span className="gradient-text font-goldman">Susumi</span> Wins
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Competitors may build apps, but cannot easily replicate our license, network effects, and incentive-driven ecosystem
+          Competitors can build an app. They cannot easily copy a licence, a community and an incentive-driven network.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
@@ -103,24 +78,6 @@ export const Competitive = ({ onView }: CompetitiveProps) => {
             </Card>
           ))}
         </div>
-
-        <Card className="mt-12 p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold mb-4 text-center">Market Positioning</h3>
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-4xl font-bold gradient-text mb-2">£68.72B+</div>
-              <div className="text-sm text-muted-foreground">Nigeria on-chain value received (2024–25)</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold gradient-text mb-2">£373.1B</div>
-              <div className="text-sm text-muted-foreground">Cooperative finance (management estimate)</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold gradient-text mb-2">£687.25M</div>
-              <div className="text-sm text-muted-foreground">Illustrative 1% of Nigeria volume (not revenue)</div>
-            </div>
-          </div>
-        </Card>
       </div>
     </section>
   );

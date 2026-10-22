@@ -16,6 +16,9 @@ import { Roadmap } from "@/components/sections/Roadmap";
 import { Team } from "@/components/sections/Team";
 import { Risks } from "@/components/sections/Risks";
 import { Closing } from "@/components/sections/Closing";
+import { ReadingNotes } from "@/components/sections/ReadingNotes";
+import { WhereWeAre } from "@/components/sections/WhereWeAre";
+import { Structure } from "@/components/sections/Structure";
 import { AccessGate } from "@/components/AccessGate";
 import { AccessRequestModal } from "@/components/AccessRequestModal";
 import { Button } from "@/components/ui/button";
@@ -116,13 +119,16 @@ const Home = () => {
         <AccessGate onAccessGranted={() => setHasAccess(true)} />
       ) : (
         <>
+          <ReadingNotes onView={() => handleSectionView("reading-notes")} />
           <MarketMetrics onView={() => handleSectionView("market")} />
           <GlobalComparison onView={() => handleSectionView("global-comparison")} />
           <HowItWorks onView={() => handleSectionView("how-it-works")} />
           <DeepDiveAnalysis onView={() => handleSectionView("deep-dive")} />
           <Products onView={() => handleSectionView("products")} />
           <Tokenomics onView={() => handleSectionView("tokenomics")} />
+          <WhereWeAre onView={() => handleSectionView("where-we-are")} />
           <Investment onView={() => handleSectionView("investment")} onCTAClick={handleCTAClick} />
+          <Structure onView={() => handleSectionView("structure")} />
           <Growth onView={() => handleSectionView("growth")} />
           <Valuation onView={() => handleSectionView("valuation")} />
           <Competitive onView={() => handleSectionView("competitive")} />

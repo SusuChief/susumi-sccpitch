@@ -42,7 +42,7 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
           SUSU+ <span className="gradient-text">Tokenomics</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Maximum supply: 100 Billion SUSU+ tokens • Utility-based scarcity model
+          Token supply grows only with real platform activity. Maximum supply: 100 billion SUSU+.
         </p>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -107,7 +107,7 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
             <Card className="p-6 bg-card hover-glow">
               <h3 className="text-xl font-semibold mb-2 gradient-text">4 Billion (4%)</h3>
               <p className="text-sm text-muted-foreground">
-                Pre-minted and time-locked for 24 months. Allocated to founders, investors, and team. Locked tokens earn revenue share from Validator Panel.
+                Pre-minted and time-locked for 24 months. For founders, early backers and team. Locked tokens earn revenue share from Validator Panel.
               </p>
             </Card>
 
@@ -121,44 +121,19 @@ export const Tokenomics = ({ onView }: TokenomicsProps) => {
             <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20">
               <h3 className="text-lg font-semibold mb-2">Utility & Monetization</h3>
               <ul className="text-sm space-y-2 text-muted-foreground">
-                <li>• <strong>Activate Funds:</strong> SUSU+ required to raise funds on platform</li>
-                <li>• <strong>Donor Rewards:</strong> Earn tokens for contributing to funds. Each Donor earns the right to become a Fund beneficiary too.</li>
+                <li>• <strong>Activate Funds:</strong> SUSU+ is required to open a fund, driving steady demand</li>
+                <li>• <strong>Reward Subscribers:</strong> Every Subscriber earns the right to become a Fund beneficiary too.</li>
                 <li>• <strong>Purchase NFTs:</strong> Buy revenue-generating ecosystem NFTs</li>
-                <li>• <strong>Stake & Earn:</strong> Lock in Validator Panel for 40% revenue share</li>
+                <li>• <strong>Stake & Earn:</strong> Locked tokens share 40% of platform fees</li>
               </ul>
             </Card>
           </div>
         </div>
 
-        <Card className="mt-12 p-8 bg-card">
-          <h3 className="text-2xl font-bold mb-4">Investor Token Benefits</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-semibold mb-2 text-primary">200M SUSU+ Tokens</h4>
-              <p className="text-sm text-muted-foreground">
-                0.2% of total supply allocated to the seed investor, issued under an agreed vesting schedule designed for long-term strategic alignment.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2 text-primary">Vesting Schedule</h4>
-              <p className="text-sm text-muted-foreground">
-                Tokens are released progressively over the agreed vesting period, aligning investor participation with the Company's growth objectives.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2 text-primary">Revenue While Locked</h4>
-              <p className="text-sm text-muted-foreground">
-                Locked tokens participate in the Validator Panel, sharing in 40% of platform fees throughout the vesting period.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-2 text-primary">Exit Options</h4>
-              <p className="text-sm text-muted-foreground">
-                Sell on secondary exchanges post lock-up, hold for passive income, or exchange within ecosystem
-              </p>
-            </div>
-          </div>
+        <Card className="mt-12 p-6 bg-card">
+          <p className="text-sm text-muted-foreground">
+            Minting tied to matured funds keeps open-circulation supply low (projected under 2.5%) and links token supply to platform usage. <span className="font-semibold text-foreground">No SUSU+ tokens are offered to investors in this equity round.</span> Token value is not projected in this edition.
+          </p>
         </Card>
       </div>
     </section>

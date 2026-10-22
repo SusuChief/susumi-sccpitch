@@ -13,50 +13,50 @@ import felixAchibiriImg from "@/assets/team/felix-achibiri.jpg";
 const team = [
   {
     name: "Sam Igwe",
-    role: "Founder & CEO",
-    bio: "Experienced Tech Consultant with a passion for social finance.",
+    role: "Founder and CEO",
+    bio: "Experienced technology consultant with a passion for social finance",
     image: samIgweImg,
     linkedin: "https://www.linkedin.com/in/samigwe-susumi/"
   },
   {
     name: "Dr John Oti",
-    role: "Founder & CTO",
-    bio: "DSc in Electrophysics, Computer Science & System Science",
+    role: "Founder and CTO",
+    bio: "DSc in Electrophysics, Computer Science and System Science",
     image: johnOtiImg,
     linkedin: "https://www.linkedin.com/in/john-oti-3117621"
   },
   {
     name: "Emmanuel Igwe",
-    role: "Founder & CMO",
+    role: "Founder and CMO",
     bio: "Founded and exited multiple digital media businesses",
     image: okeyIgweImg,
     linkedin: "https://www.linkedin.com/in/emmanuel-igwe/"
   },
   {
     name: "Keith Benson",
-    role: "Advisor",
-    bio: "Holds International Patent and IP NFC to IoT blockchain protocols",
+    role: "Adviser",
+    bio: "International patents and IP, NFC-to-IoT blockchain protocols",
     image: keithBensonImg,
     linkedin: "https://www.linkedin.com/in/keith-benson-a61aaa12/"
   },
   {
     name: "John Ondoma",
-    role: "CFO - Nigeria",
-    bio: "Pioneer of the Mobile Money industry in Nigeria",
+    role: "CFO, Nigeria",
+    bio: "Pioneer of the mobile money industry in Nigeria",
     image: johnOndomaImg,
     linkedin: "https://www.linkedin.com/in/john-o-ondoma/"
   },
   {
     name: "Uche Anyanwu",
-    role: "Head of Legal - Nigeria",
-    bio: "Experienced Nigerian Attorney with over 30yrs expertise in corporate law",
+    role: "Head of Legal, Nigeria",
+    bio: "Over 30 years' expertise in corporate law",
     image: ucheAnyanwuImg,
     linkedin: "https://www.linkedin.com/in/uchenna-anyanwu-cmc-fimc-94b24937/"
   },
   {
     name: "Felix Achibiri",
-    role: "Advisor",
-    bio: "Harvard Alum and ex-Chairman Fortis Microfinance Bank",
+    role: "Adviser",
+    bio: "Harvard alumnus and former Chairman, Fortis Microfinance Bank",
     image: felixAchibiriImg,
     linkedin: "https://www.linkedin.com/in/felixachibiri/"
   }
