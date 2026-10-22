@@ -24,7 +24,7 @@ export const ReadingNotes = ({ onView }: { onView: () => void }) => {
           Investor <span className="gradient-text">Reading Notes</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12">
-          This presentation replaces the 2025 edition. Please read these notes before the figures that follow.
+          Please read these notes before the figures that follow.
         </p>
         <div className="grid md:grid-cols-2 gap-6">
           {notes.map((n) => (
