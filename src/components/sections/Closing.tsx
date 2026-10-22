@@ -43,13 +43,7 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
           </h2>
           
           <blockquote className="text-lg text-center italic text-muted-foreground mb-8 leading-relaxed">
-            "Investing in Susumi is a chance to pioneer the future of cryptocurrency in one of the world's most dynamic economies. 
-            By launching a regulated DeFi App in Nigeria, we establish ourselves as a trusted player in a market ready for innovation 
-
-            and inclusive growth, but Nigeria is only the beginning. Your investment today not only fuels our immediate launch but also 
-            supports our mission to democratize access to capital, empowering individuals, strengthening communities, and stimulating 
-            local economies in Nigeria and beyond. Together, we can seize this unique moment, maintain momentum, and replicate this model 
-            globally to unlock opportunities for millions who have been excluded from traditional finance."
+            "Launching a regulated decentralised crowdfunding platform in Nigeria makes Susumi a trusted player in a market ready for innovation, and Nigeria is only the beginning. This round funds our launch and our mission: to widen access to capital, strengthen communities and replicate the model for millions excluded from traditional finance."
           </blockquote>
 
 
@@ -114,9 +108,12 @@ export const Closing = ({ onView, onCTAClick }: ClosingProps) => {
                 <Phone className="h-4 w-4" />
                 +44 7501 785599
               </a>
+              <a href="https://wa.me/447501785599" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary-glow transition-colors">
+                WhatsApp
+              </a>
             </div>
             <div className="text-sm text-muted-foreground">
-              www.susumicapital.com • App Testnet: www.stage.susumi.io
+              Sam Igwe, Founder and CEO • www.susumicapital.com • pitch.susumicapital.com
             </div>
           </div>
         </Card>

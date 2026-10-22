@@ -13,49 +13,49 @@ import felixAchibiriImg from "@/assets/team/felix-achibiri.jpg";
 const team = [
   {
     name: "Sam Igwe",
-    role: "Founder & CEO",
+    role: "Founder and CEO",
     bio: "Experienced Tech Consultant with a passion for social finance.",
     image: samIgweImg,
     linkedin: "https://www.linkedin.com/in/samigwe-susumi/"
   },
   {
     name: "Dr John Oti",
-    role: "Founder & CTO",
+    role: "Founder and CTO",
     bio: "DSc in Electrophysics, Computer Science & System Science",
     image: johnOtiImg,
     linkedin: "https://www.linkedin.com/in/john-oti-3117621"
   },
   {
     name: "Emmanuel Igwe",
-    role: "Founder & CMO",
+    role: "Founder and CMO",
     bio: "Founded and exited multiple digital media businesses",
     image: okeyIgweImg,
     linkedin: "https://www.linkedin.com/in/emmanuel-igwe/"
   },
   {
     name: "Keith Benson",
-    role: "Advisor",
+    role: "Adviser",
     bio: "Holds International Patent and IP NFC to IoT blockchain protocols",
     image: keithBensonImg,
     linkedin: "https://www.linkedin.com/in/keith-benson-a61aaa12/"
   },
   {
     name: "John Ondoma",
-    role: "CFO - Nigeria",
+    role: "CFO, Nigeria",
     bio: "Pioneer of the Mobile Money industry in Nigeria",
     image: johnOndomaImg,
     linkedin: "https://www.linkedin.com/in/john-o-ondoma/"
   },
   {
     name: "Uche Anyanwu",
-    role: "Head of Legal - Nigeria",
+    role: "Head of Legal, Nigeria",
     bio: "Experienced Nigerian Attorney with over 30yrs expertise in corporate law",
     image: ucheAnyanwuImg,
     linkedin: "https://www.linkedin.com/in/uchenna-anyanwu-cmc-fimc-94b24937/"
   },
   {
     name: "Felix Achibiri",
-    role: "Advisor",
+    role: "Adviser",
     bio: "Harvard Alum and ex-Chairman Fortis Microfinance Bank",
     image: felixAchibiriImg,
     linkedin: "https://www.linkedin.com/in/felixachibiri/"

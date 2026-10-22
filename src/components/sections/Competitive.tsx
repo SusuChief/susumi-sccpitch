@@ -3,47 +3,22 @@ import { Card } from "@/components/ui/card";
 import { Shield, Target, Zap, TrendingUp } from "lucide-react";
 
 const advantages = [
-  {
-    icon: Shield,
-    title: "First-Mover Advantage",
-    points: [
-      "First SEC-licensed blockchain crowdfunding platform in Nigeria",
-      "SEC licensing is a slow, demanding barrier that later entrants must still clear",
-      "Over 20,000 followers and 1,400 registered users pre-launch",
-      "Global community footprint established"
-    ]
-  },
-
-  {
-    icon: Target,
-    title: "Deep Cultural Market Fit",
-    points: [
-      "Esusu/Susu cooperative finance trusted by millions across Africa, LatAm, Asia",
-      "47% of Nigerian adults already use cryptocurrency",
-      "Modernizes traditional model with blockchain rewards",
-      "Viral, community-based adoption ensures low-cost, organic growth"
-    ]
-  },
-  {
-    icon: Zap,
-    title: "Unique Product Offering",
-    points: [
-      "DeFi product differentiated from any other market solution",
-      "Decentralized: no human or third-party intervention required",
-      "Users raise money that's not a loan or investment",
-      "Heavily incentivized and viral participation model"
-    ]
-  },
-  {
-    icon: TrendingUp,
-    title: "Technology & Ecosystem",
-    points: [
-      "Smart contracts: automated, transparent, low-cost",
-      "Integration with NFTs and DeFi revenue panels",
-      "Flexible architecture for investments and financial services",
-      "Revolutionary P2P via RFC technology for local fund transfers"
-    ]
-  }
+  { icon: Shield, title: "First-Mover Advantage", points: [
+    "First SEC-licensed blockchain crowdfunding platform in Nigeria",
+    "SEC licensing is a slow, demanding barrier for later entrants",
+    "About 18,000 followers and 1,400 registered testnet users"] },
+  { icon: Target, title: "Market Fit", points: [
+    "Community fundraising and group giving are familiar across Africa, Latin America and Asia",
+    "47% of Nigerian adults have used cryptocurrency",
+    "Reward-driven, community-based growth keeps acquisition costs low"] },
+  { icon: Zap, title: "Unique Product", points: [
+    "Users raise money that is neither a loan nor an investment",
+    "Decentralised: no human or third-party intervention needed",
+    "Rewards give every Subscriber a reason to take part"] },
+  { icon: TrendingUp, title: "Technology", points: [
+    "Smart contracts on NEAR: automated, transparent, low cost",
+    "Integrated NFTs and Validator Panel revenue sharing",
+    "P2P transfers by NFC for local payments (planned)"] }
 ];
 
 interface CompetitiveProps {

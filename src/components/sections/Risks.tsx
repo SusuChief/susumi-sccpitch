@@ -3,31 +3,12 @@ import { Card } from "@/components/ui/card";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const risks = [
-  {
-    title: "Regulatory Risk",
-    likelihood: "Low",
-    mitigation: "Already licensed by Nigerian SEC (first blockchain crowdfunding platform). Changing crypto/crowdfunding regulations could restrict operations, but first-mover licensing provides strong foundation."
-  },
-  {
-    title: "Cybersecurity & Smart Contract Risk",
-    likelihood: "Medium",
-    mitigation: "Military Grade Hard Disk Firewall at app server level. Independent security audits on Smart Contract code, ongoing monitoring, and Fund isolation architecture to protect assets."
-  },
-  {
-    title: "Adoption Risk",
-    likelihood: "Low",
-    mitigation: "Leverage existing Esusu/Cooperative Finance culture for fast grassroots adoption. Backed by 20,000+ online community followers, targeted digital + community marketing campaigns, and partnerships with existing communities."
-  },
-  {
-    title: "Liquidity & Token Value Risk",
-    likelihood: "Medium",
-    mitigation: "Utility-based tokenomics with SUSU+ minted only with donations (Proof of Giving Protocol). Oracle integrated to Smart Contract design. Exchange listings and Validator Panel link token value directly to platform transaction value."
-  },
-  {
-    title: "Execution Risk",
-    likelihood: "Low",
-    mitigation: "Phased rollout strategy—Nigeria first with SEC license secured, then expansion into Africa, LatAm, and diaspora markets with franchise/local partners. Experienced team with proven track record."
-  }
+  { title: "Smart Contract & Cybersecurity", likelihood: "Medium", mitigation: "Independent audit before mainnet, funded by this round; ongoing monitoring; fund isolation architecture; non-custodial design." },
+  { title: "Regulatory", likelihood: "Low", mitigation: "Already licensed by SEC Nigeria; formal legal opinion on SUSU+; active in CfAN policy work as digital asset rules are finalised." },
+  { title: "Adoption", likelihood: "Low", mitigation: "Existing community of about 18,000; targeted digital and community campaigns; partnerships with existing communities." },
+  { title: "Liquidity & Token Value", likelihood: "Medium", mitigation: "SUSU+ minted only against real donations; oracle pricing in the contracts; Validator Panel links token value to platform activity." },
+  { title: "FX Exposure", likelihood: "Low", mitigation: "Funds settle in stablecoins (USDT, USDC, cNGN)." },
+  { title: "Execution", likelihood: "Low", mitigation: "Narrow launch scope, one fund type first; spending released against milestones; local licence partners for each new market." }
 ];
 
 interface RisksProps {
@@ -66,7 +47,7 @@ export const Risks = ({ onView }: RisksProps) => {
           Risks & <span className="gradient-text">Mitigation</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12">
-          Comprehensive risk management strategy with proven mitigation measures
+          The main risks, as management assesses them, and how we manage each.
         </p>
 
         <div className="space-y-4">
@@ -98,7 +79,7 @@ export const Risks = ({ onView }: RisksProps) => {
               
               {expandedIndex === index && (
                 <div className="px-6 pb-6 pt-2 border-t border-border">
-                  <p className="text-sm font-semibold text-primary mb-2">Mitigation Strategy:</p>
+                  <p className="text-sm font-semibold text-primary mb-2">How we manage it:</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {risk.mitigation}
                   </p>
