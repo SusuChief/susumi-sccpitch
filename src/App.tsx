@@ -13,6 +13,7 @@ import TeamExport from "./pages/TeamExport";
 import ProductsExport from "./pages/ProductsExport";
 import TokenomicsExport from "./pages/TokenomicsExport";
 import Financials from "./pages/Financials";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/auth" element={<Auth />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/team-export" element={<TeamExport />} />
           <Route path="/products-export" element={<ProductsExport />} />
           <Route path="/tokenomics-export" element={<TokenomicsExport />} />

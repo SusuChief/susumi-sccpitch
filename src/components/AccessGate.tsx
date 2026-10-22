@@ -6,29 +6,12 @@ import { Lock, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import {
   AttestationWizard,
-  ATTESTATION_STORAGE_KEY,
-  ATTESTATION_VERSION,
 } from "@/components/AttestationWizard";
+import { hasCurrentAttestation } from "@/lib/attestation-rules";
 
 interface AccessGateProps {
   onAccessGranted: () => void;
 }
-
-const TWELVE_MONTHS_MS = 365 * 24 * 60 * 60 * 1000;
-
-const hasValidAttestation = (): boolean => {
-  try {
-    const raw = localStorage.getItem(ATTESTATION_STORAGE_KEY);
-    if (!raw) return false;
-    const record = JSON.parse(raw);
-    if (record.version !== ATTESTATION_VERSION) return false;
-    const passedAt = new Date(record.passedAt).getTime();
-    if (Number.isNaN(passedAt)) return false;
-    return Date.now() - passedAt < TWELVE_MONTHS_MS;
-  } catch {
-    return false;
-  }
-};
 
 export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
   const [code, setCode] = useState("");
@@ -36,6 +19,7 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
   const [pendingCode, setPendingCode] = useState<{ id: string; code: string } | null>(null);
 
   const grantAccess = async () => {
+    if (!hasCurrentAttestation()) return;
     if (pendingCode) {
       await supabase
         .from("access_codes")
@@ -73,7 +57,7 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
     setLoading(false);
 
     // Valid code — returning investors who already attested go straight in.
-    if (hasValidAttestation()) {
+    if (hasCurrentAttestation()) {
       setPendingCode({ id: data.id, code: code.trim().toUpperCase() });
       await grantAccess();
       return;
