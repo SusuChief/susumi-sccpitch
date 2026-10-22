@@ -20,12 +20,6 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
 
   const grantAccess = async () => {
     if (!hasCurrentAttestation()) return;
-    if (pendingCode) {
-      await supabase
-        .from("access_codes")
-        .update({ is_used: true, used_at: new Date().toISOString() })
-        .eq("id", pendingCode.id);
-    }
     localStorage.setItem("susumi_access", "granted");
     toast.success("Access granted! Welcome to the full presentation.");
     onAccessGranted();
@@ -58,7 +52,8 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
 
     // Valid code — returning investors who already attested go straight in.
     if (hasCurrentAttestation()) {
-      setPendingCode({ id: data.id, code: code.trim().toUpperCase() });
+      const { error: useError } = await supabase.from("access_codes").update({ is_used: true, used_at: new Date().toISOString() }).eq("id", data.id).eq("is_used", false);
+      if (useError) { toast.error("Unable to use this access code. Please try again."); return; }
       await grantAccess();
       return;
     }

@@ -133,6 +133,7 @@ export type Database = {
       investor_attestations: {
         Row: {
           access_code: string | null
+          acknowledgements: Json | null
           category: string
           category_explanation: string
           country: string
@@ -146,6 +147,7 @@ export type Database = {
           id: string
           indicative_investment: string | null
           investing_as: string
+          ip_address: string | null
           is_us_person: boolean
           nationality: string | null
           phone: string | null
@@ -154,6 +156,7 @@ export type Database = {
         }
         Insert: {
           access_code?: string | null
+          acknowledgements?: Json | null
           category: string
           category_explanation: string
           country: string
@@ -167,6 +170,7 @@ export type Database = {
           id?: string
           indicative_investment?: string | null
           investing_as: string
+          ip_address?: string | null
           is_us_person?: boolean
           nationality?: string | null
           phone?: string | null
@@ -175,6 +179,7 @@ export type Database = {
         }
         Update: {
           access_code?: string | null
+          acknowledgements?: Json | null
           category?: string
           category_explanation?: string
           country?: string
@@ -188,6 +193,7 @@ export type Database = {
           id?: string
           indicative_investment?: string | null
           investing_as?: string
+          ip_address?: string | null
           is_us_person?: boolean
           nationality?: string | null
           phone?: string | null
@@ -359,6 +365,10 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      save_signed_attestation: {
+        Args: { p_form: Json; p_ip: string }
+        Returns: Json
       }
     }
     Enums: {

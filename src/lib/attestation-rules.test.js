@@ -11,10 +11,11 @@ describe("revised attestation access rules", () => {
   }
   test("EU residents remain eligible", () => expect(jurisdictionDenial("France", "no")).toBeNull());
   const now = Date.parse("2026-10-22T13:55:00Z");
-  const record = { version: ATTESTATION_VERSION, emailVerified: true, passedAt: new Date(now).toISOString() };
-  test("verified current attestation is valid", () => expect(validAttestation(record, now)).toBe(true));
+  const record = { version: ATTESTATION_VERSION, id: "12345678-1234-1234-1234-123456789abc", passedAt: new Date(now).toISOString() };
+  test("saved current attestation is valid without email verification", () => expect(validAttestation(record, now)).toBe(true));
   test("access expires after 365 days", () => expect(validAttestation(record, now + ACCESS_DURATION_MS)).toBe(false));
   test("changed terms require new attestation", () => expect(validAttestation({ ...record, version: "scc-attestation-v1" }, now)).toBe(false));
-  test("unverified email does not unlock access", () => expect(validAttestation({ ...record, emailVerified: false }, now)).toBe(false));
+  test("email verification is not required for a saved form", () => expect(validAttestation({ ...record, emailVerified: false }, now)).toBe(true));
+  test("unsaved form does not unlock access", () => expect(validAttestation({ ...record, id: undefined }, now)).toBe(false));
   test("future dates do not unlock access", () => expect(validAttestation(record, now - 1)).toBe(false));
 });
