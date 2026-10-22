@@ -1,22 +1,24 @@
 import { test, expect } from "bun:test";
 import { seedRound, toGbp } from "./financial-reference";
 
-test("Option B converts the existing 250,000 USD raise, not a nominal GBP raise", () => {
-  expect(seedRound.raise).toBe(186550);
-});
-test("converted pre-money plus raise equals post-money and preserves 12.5% equity", () => {
-  expect(seedRound.preMoney).toBe(1305850);
-  expect(seedRound.postMoney).toBe(1492400);
+test("seed round is £200,000 for 12.5% at £1.4m pre / £1.6m post", () => {
+  expect(seedRound.raise).toBe(200000);
+  expect(seedRound.preMoney).toBe(1400000);
+  expect(seedRound.postMoney).toBe(1600000);
   expect(seedRound.preMoney + seedRound.raise).toBe(seedRound.postMoney);
   expect(seedRound.raise / seedRound.postMoney * 100).toBe(12.5);
 });
-test("all five GBP allocations sum to the converted raise", () => {
-  expect(seedRound.funds).toEqual([44772, 33579, 55965, 29848, 22386]);
-  expect(seedRound.funds.reduce((sum, value) => sum + value, 0)).toBe(seedRound.raise);
+test("six use-of-funds lines sum to £200,000, including £13,450 legal and raise costs", () => {
+  expect(seedRound.funds.map((f) => f.amount)).toEqual([44772, 33579, 55965, 29848, 22386, 13450]);
+  expect(seedRound.funds.reduce((s, f) => s + f.amount, 0)).toBe(200000);
 });
-test("token allocation stays at 200 million", () => {
-  expect(seedRound.tokens).toBe(200000000);
+test("round is equity only: no SUSU+ tokens offered", () => {
+  expect(seedRound.tokens).toBe(0);
 });
-test("three-year underlying revenue forecasts are converted without reforecasting", () => {
-  expect([8900000, 189100000, 280000000, 320000000].map(toGbp)).toEqual([6641180, 141106420, 208936000, 238784000]);
+test("runway is about 8.9 months of operating spend at £20,894 a month", () => {
+  const operating = seedRound.raise - 13450;
+  expect(Math.round(operating / seedRound.monthlyBurn * 10) / 10).toBe(8.9);
+});
+test("USD market references still convert at the dated rate", () => {
+  expect(toGbp(92_100_000_000)).toBe(68725020000);
 });
