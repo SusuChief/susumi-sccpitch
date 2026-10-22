@@ -78,23 +78,6 @@ export const Competitive = ({ onView }: CompetitiveProps) => {
             </Card>
           ))}
         </div>
-
-        <Card className="mt-12 p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/20 max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold mb-4 text-center">Market Positioning</h3>
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div>
-              <div className="text-4xl font-bold gradient-text mb-2">£68.72B+</div>
-              <div className="text-sm text-muted-foreground">Nigeria on-chain value received (2024–25)</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold gradient-text mb-2">£373.1B</div>
-              <div className="text-sm text-muted-foreground">Cooperative finance (management estimate)</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold gradient-text mb-2">£687.25M</div>
-              <div className="text-sm text-muted-foreground">Illustrative 1% of Nigeria volume (not revenue)</div>
-            </div>
-          </div>
         </Card>
       </div>
     </section>
