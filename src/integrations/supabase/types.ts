@@ -130,6 +130,72 @@ export type Database = {
         }
         Relationships: []
       }
+      investor_attestations: {
+        Row: {
+          access_code: string | null
+          category: string
+          category_explanation: string
+          country: string
+          created_at: string
+          declaration_name: string
+          email: string
+          entity_name: string | null
+          entity_registration: string | null
+          form_version: string
+          full_name: string
+          id: string
+          indicative_investment: string | null
+          investing_as: string
+          is_us_person: boolean
+          nationality: string | null
+          phone: string | null
+          referral: string | null
+          signatory_role: string | null
+        }
+        Insert: {
+          access_code?: string | null
+          category: string
+          category_explanation: string
+          country: string
+          created_at?: string
+          declaration_name: string
+          email: string
+          entity_name?: string | null
+          entity_registration?: string | null
+          form_version?: string
+          full_name: string
+          id?: string
+          indicative_investment?: string | null
+          investing_as: string
+          is_us_person?: boolean
+          nationality?: string | null
+          phone?: string | null
+          referral?: string | null
+          signatory_role?: string | null
+        }
+        Update: {
+          access_code?: string | null
+          category?: string
+          category_explanation?: string
+          country?: string
+          created_at?: string
+          declaration_name?: string
+          email?: string
+          entity_name?: string | null
+          entity_registration?: string | null
+          form_version?: string
+          full_name?: string
+          id?: string
+          indicative_investment?: string | null
+          investing_as?: string
+          is_us_person?: boolean
+          nationality?: string | null
+          phone?: string | null
+          referral?: string | null
+          signatory_role?: string | null
+        }
+        Relationships: []
+      }
       meeting_requests: {
         Row: {
           aum: string | null

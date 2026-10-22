@@ -4,14 +4,48 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Lock, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import {
+  AttestationWizard,
+  ATTESTATION_STORAGE_KEY,
+  ATTESTATION_VERSION,
+} from "@/components/AttestationWizard";
 
 interface AccessGateProps {
   onAccessGranted: () => void;
 }
 
+const TWELVE_MONTHS_MS = 365 * 24 * 60 * 60 * 1000;
+
+const hasValidAttestation = (): boolean => {
+  try {
+    const raw = localStorage.getItem(ATTESTATION_STORAGE_KEY);
+    if (!raw) return false;
+    const record = JSON.parse(raw);
+    if (record.version !== ATTESTATION_VERSION) return false;
+    const passedAt = new Date(record.passedAt).getTime();
+    if (Number.isNaN(passedAt)) return false;
+    return Date.now() - passedAt < TWELVE_MONTHS_MS;
+  } catch {
+    return false;
+  }
+};
+
 export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pendingCode, setPendingCode] = useState<{ id: string; code: string } | null>(null);
+
+  const grantAccess = async () => {
+    if (pendingCode) {
+      await supabase
+        .from("access_codes")
+        .update({ is_used: true, used_at: new Date().toISOString() })
+        .eq("id", pendingCode.id);
+    }
+    localStorage.setItem("susumi_access", "granted");
+    toast.success("Access granted! Welcome to the full presentation.");
+    onAccessGranted();
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,17 +70,27 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
       return;
     }
 
-    // Mark code as used
-    await supabase
-      .from("access_codes")
-      .update({ is_used: true, used_at: new Date().toISOString() })
-      .eq("id", data.id);
-
-    localStorage.setItem("susumi_access", "granted");
-    toast.success("Access granted! Welcome to the full presentation.");
-    onAccessGranted();
     setLoading(false);
+
+    // Valid code — returning investors who already attested go straight in.
+    if (hasValidAttestation()) {
+      setPendingCode({ id: data.id, code: code.trim().toUpperCase() });
+      await grantAccess();
+      return;
+    }
+
+    // New investor: complete the attestation wizard before access is granted.
+    setPendingCode({ id: data.id, code: code.trim().toUpperCase() });
   };
+
+  if (pendingCode) {
+    return (
+      <AttestationWizard
+        accessCode={pendingCode.code}
+        onComplete={grantAccess}
+      />
+    );
+  }
 
   return (
     <div className="py-20 px-4 bg-gradient-to-b from-secondary/50 to-background">
@@ -54,7 +98,7 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/20 mb-4">
           <Lock className="h-8 w-8 text-primary" />
         </div>
-        
+
         <h2 className="text-3xl font-bold">
           Enter <span className="gradient-text">Access Code</span>
         </h2>
