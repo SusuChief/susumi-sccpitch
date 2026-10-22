@@ -16,25 +16,25 @@ const Financials = () => {
   }, [navigate]);
   const revenueData = [
     { metric: "Monthly Active Susu Funds", y2025: "0 (Beta)", y2026: "4,000", y2027: "12,000", y2028: "20,000+" },
-    { metric: "Average Value per Fund", y2025: "—", y2026: "£1,380.47", y2027: "£1,380.47", y2028: "£1,380.47–£1,567.02" },
-    { metric: "Annual Fund Volume (TVL)", y2025: "—", y2026: "£66.26256M", y2027: "£198.78768M", y2028: "£335.79M–£388.024M" },
-    { metric: "Platform Fee Revenue", y2025: "—", y2026: "£5.49203M", y2027: "£16.49102M", y2028: "£27.6094M–£32.8328M" },
-    { metric: "NFT Revenue", y2025: "—", y2026: "£1.1193M", y2027: "£124.6154M", y2028: "£179.088M" },
-    { metric: "Total Revenue", y2025: "—", y2026: "£6.64118M", y2027: "£141.10642M", y2028: "£208.936M–£238.784M", highlight: true },
+    { metric: "Average Value per Fund", y2025: "—", y2026: "£1,380", y2027: "£1,380", y2028: "£1,380–£1,567" },
+    { metric: "Annual Fund Volume (TVL)", y2025: "—", y2026: "£66.26m", y2027: "£198.79m", y2028: "£335.79m–£388.02m" },
+    { metric: "Platform Fee Revenue", y2025: "—", y2026: "£5.49m", y2027: "£16.49m", y2028: "£27.61m–£32.83m" },
+    { metric: "NFT Revenue", y2025: "—", y2026: "£1.12m", y2027: "£124.62m", y2028: "£179.09m" },
+    { metric: "Total Revenue", y2025: "—", y2026: "£6.64m", y2027: "£141.11m", y2028: "£208.94m–£238.78m", highlight: true },
   ];
 
   const costData = [
-    { category: "Technical Development & Maintenance", y2026: "£0.89544M", y2027: "£1.1193M", y2028: "£1.34316M" },
-    { category: "Licensing & Regulatory Compliance", y2026: "£0.26117M", y2027: "£0.29848M", y2028: "£0.33579M" },
-    { category: "Marketing & User Acquisition", y2026: "£1.79088M", y2027: "£3.731M", y2028: "£5.2234M" },
-    { category: "Operations & Staffing", y2026: "£1.1193M", y2027: "£1.64164M", y2028: "£2.2386M" },
-    { category: "Total Operating Costs", y2026: "£4.06679M", y2027: "£6.79042M", y2028: "£9.17826M", highlight: true },
+    { category: "Technical Development & Maintenance", y2026: "£0.90m", y2027: "£1.12m", y2028: "£1.34m" },
+    { category: "Licensing & Regulatory Compliance", y2026: "£0.26m", y2027: "£0.30m", y2028: "£0.34m" },
+    { category: "Marketing & User Acquisition", y2026: "£1.79m", y2027: "£3.73m", y2028: "£5.22m" },
+    { category: "Operations & Staffing", y2026: "£1.12m", y2027: "£1.64m", y2028: "£2.24m" },
+    { category: "Total Operating Costs", y2026: "£4.07m", y2027: "£6.79m", y2028: "£9.18m", highlight: true },
   ];
 
   const ebitdaData = [
-    { year: "2026", ebitda: "+£2.57439M" },
-    { year: "2027", ebitda: "+£134.316M" },
-    { year: "2028", ebitda: "+£201.474M+" },
+    { year: "Year 1", ebitda: "+£2.57m" },
+    { year: "Year 2", ebitda: "+£134.32m" },
+    { year: "Year 3", ebitda: "+£201.47m+" },
   ];
 
   const tokenDrivers = [
@@ -82,10 +82,11 @@ const Financials = () => {
 
   const milestones = [
     { milestone: "Mainnet Migration", timeline: "Dec 2025", activities: "Smart contract deployment & integration" },
-    { milestone: "Security Audits", timeline: "Dec–Jan 2026", activities: "Third-party contract validation" },
-    { milestone: "Nationwide Pre-Launch Campaign", timeline: "Dec 2025–Feb 2026", activities: "PR, influencers, diaspora activation" },
-    { milestone: "Commercial Launch", timeline: "October 2026", activities: "Full platform go-live in Nigeria" },
-    { milestone: "International Expansion", timeline: "December 2026", activities: "Global deployment" },
+    { milestone: "Round closed", timeline: "Month 1", activities: "Funds received, audit scoped, filings started" },
+    { milestone: "Security audit", timeline: "Months 2–3", activities: "Independent audit; findings fixed and re-checked" },
+    { milestone: "Regulatory sign-off", timeline: "Month 4", activities: "SEC launch filings accepted" },
+    { milestone: "Mainnet launch", timeline: "Months 4–5", activities: "Basic Susu Fund live in Nigeria" },
+    { milestone: "First traction", timeline: "Month 6", activities: "First funds and Subscribers, targets set at close" },
   ];
 
   return (
@@ -135,9 +136,9 @@ const Financials = () => {
                     <TableRow className="bg-muted/50">
                       <TableHead className="font-semibold">Metric</TableHead>
                       <TableHead className="text-center font-semibold">2025 (Pre-Launch)</TableHead>
-                      <TableHead className="text-center font-semibold">2026 (Year 1)</TableHead>
-                      <TableHead className="text-center font-semibold">2027 (Year 2)</TableHead>
-                      <TableHead className="text-center font-semibold">2028 (Year 3)</TableHead>
+                      <TableHead className="text-center font-semibold">Year 1</TableHead>
+                      <TableHead className="text-center font-semibold">Year 2</TableHead>
+                      <TableHead className="text-center font-semibold">Year 3</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -181,9 +182,9 @@ const Financials = () => {
                     <TableHeader>
                       <TableRow className="bg-muted/50">
                         <TableHead className="font-semibold">Cost Category</TableHead>
-                        <TableHead className="text-center font-semibold">2026</TableHead>
-                        <TableHead className="text-center font-semibold">2027</TableHead>
-                        <TableHead className="text-center font-semibold">2028</TableHead>
+                        <TableHead className="text-center font-semibold">Year 1</TableHead>
+                        <TableHead className="text-center font-semibold">Year 2</TableHead>
+                        <TableHead className="text-center font-semibold">Year 3</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -223,12 +224,12 @@ const Financials = () => {
             </CardHeader>
             <CardContent className="space-y-3">
               {[
-                { label: "Capital raised", value: "£186,550" },
-                { label: "Pre-launch monthly burn", value: "~£20,893.6" },
-                { label: "Runway to launch", value: "~8.9 months at stated burn (deployment estimate)" },
-                { label: "Break-even month", value: "Month 4 after launch (management assumption)" },
-                { label: "Total capital required to reach break-even", value: "£186,550 (management funding assumption)" },
-                { label: "Year 1 EBITDA (2026)", value: "+£2.57439M EBITDA", highlight: true },
+                { label: "Capital raised", value: "£200,000 (incl. £13,450 one-off legal and raise costs)" },
+                { label: "Pre-launch monthly burn", value: "~£20,894" },
+                { label: "Runway to launch", value: "~8.9 months of operating spend at the stated burn, from close" },
+                { label: "Break-even month", value: "Month 4 after launch (financial forecast); Month 9 in the growth scenario" },
+                { label: "Total capital required to reach break-even", value: "£200,000 (management assumption)" },
+                { label: "Year 1 EBITDA", value: "+£2.57m EBITDA", highlight: true },
               ].map((row, idx) => (
                 <div
                   key={idx}
@@ -239,7 +240,7 @@ const Financials = () => {
                 </div>
               ))}
               <p className="text-xs text-muted-foreground pt-2">
-                Management assumptions: approximately 8.9 months at the stated monthly burn; this is a deployment-period estimate, not remaining runway from today. Month 4 break-even and the seed sufficiency require a monthly cash-flow plan and are not proven by annual revenue and cost totals. EBITDA is not net profit. Growth scenarios elsewhere use different assumptions.
+                Month 4 break-even and seed sufficiency are management assumptions. They need a monthly cash-flow plan and are not proven by annual totals. The model is low-capex because funds are held by smart contracts, not by the company. EBITDA is not net profit.
               </p>
             </CardContent>
           </Card>
@@ -276,24 +277,6 @@ const Financials = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
-              <CardHeader>
-                <CardTitle className="text-lg">Projected Market Value (Post-Launch)</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold">
-                    <span className="text-muted-foreground">£0.001119</span>
-                    <span className="mx-3">→</span>
-                    <span className="gradient-text">£0.007462+</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">within 12–18 months</p>
-                </div>
-                <p className="text-sm text-muted-foreground text-center">
-                  Based on in-app utility and adoption curve (Pitch Deck Token Simulation)
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </section>
 
@@ -332,51 +315,6 @@ const Financials = () => {
           </div>
         </section>
 
-        {/* Investment Return Outlook */}
-        <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <DollarSign className="w-6 h-6 text-primary" />
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold">Investment Return Outlook</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
-              <CardHeader>
-                <CardTitle className="text-lg">Equity Return (£186.55K Seed @ 12.5%)</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Forecast enterprise value by 2028:</p>
-                  <p className="text-2xl font-bold">£261.17M–£373.1M</p>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">12.5% equity value potential:</p>
-                  <p className="text-3xl font-bold gradient-text">£32.64625M–£46.6375M+</p>
-
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-primary/20 bg-gradient-to-br from-background to-primary/5">
-              <CardHeader>
-                <CardTitle className="text-lg">Token Allocation</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Seed investor receives:</p>
-                  <p className="text-2xl font-bold">200,000,000 SUSU+ Tokens</p>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">Issued under an agreed vesting schedule:</p>
-                  <p className="text-base text-muted-foreground">Progressive release over the vesting period, with Validator Panel revenue participation while locked.</p>
-                </div>
-              </CardContent>
-            </Card>
-
-          </div>
-        </section>
 
         {/* Funding Milestones */}
         <section className="space-y-6">

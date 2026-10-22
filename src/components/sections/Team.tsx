@@ -14,14 +14,14 @@ const team = [
   {
     name: "Sam Igwe",
     role: "Founder and CEO",
-    bio: "Experienced Tech Consultant with a passion for social finance.",
+    bio: "Experienced technology consultant with a passion for social finance",
     image: samIgweImg,
     linkedin: "https://www.linkedin.com/in/samigwe-susumi/"
   },
   {
     name: "Dr John Oti",
     role: "Founder and CTO",
-    bio: "DSc in Electrophysics, Computer Science & System Science",
+    bio: "DSc in Electrophysics, Computer Science and System Science",
     image: johnOtiImg,
     linkedin: "https://www.linkedin.com/in/john-oti-3117621"
   },
@@ -35,28 +35,28 @@ const team = [
   {
     name: "Keith Benson",
     role: "Adviser",
-    bio: "Holds International Patent and IP NFC to IoT blockchain protocols",
+    bio: "International patents and IP, NFC-to-IoT blockchain protocols",
     image: keithBensonImg,
     linkedin: "https://www.linkedin.com/in/keith-benson-a61aaa12/"
   },
   {
     name: "John Ondoma",
     role: "CFO, Nigeria",
-    bio: "Pioneer of the Mobile Money industry in Nigeria",
+    bio: "Pioneer of the mobile money industry in Nigeria",
     image: johnOndomaImg,
     linkedin: "https://www.linkedin.com/in/john-o-ondoma/"
   },
   {
     name: "Uche Anyanwu",
     role: "Head of Legal, Nigeria",
-    bio: "Experienced Nigerian Attorney with over 30yrs expertise in corporate law",
+    bio: "Over 30 years' expertise in corporate law",
     image: ucheAnyanwuImg,
     linkedin: "https://www.linkedin.com/in/uchenna-anyanwu-cmc-fimc-94b24937/"
   },
   {
     name: "Felix Achibiri",
     role: "Adviser",
-    bio: "Harvard Alum and ex-Chairman Fortis Microfinance Bank",
+    bio: "Harvard alumnus and former Chairman, Fortis Microfinance Bank",
     image: felixAchibiriImg,
     linkedin: "https://www.linkedin.com/in/felixachibiri/"
   }
