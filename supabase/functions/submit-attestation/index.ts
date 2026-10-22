@@ -12,7 +12,7 @@ const schema = z.object({
   entityName: optional, entityRegistration: optional, signatoryRole: optional,
   email: z.string().trim().email().max(255), phone: optional,
   country: required, nationality: optional, isUsPerson: z.enum(['yes', 'no']),
-  referral: required, indicativeInvestment: z.enum(['Under £10k', '£10k–£25k', '£25k–£50k', 'Over £50k']),
+  referral: required, indicativeInvestment: z.enum(['under-10k', '10k-25k', '25k-50k', 'over-50k']),
   category: z.enum(['I-1', 'I-2', 'I-3', 'E-1', 'E-2']),
   categoryExplanation: z.string().trim().min(1).max(2000), declarationName: required,
   acknowledgements: z.array(z.literal(true)).length(10),
