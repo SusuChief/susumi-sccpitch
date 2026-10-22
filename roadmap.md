@@ -7,5 +7,5 @@
 # Revised investor attestation
 - [x] Apply the revised PDF wizard and named jurisdiction restrictions.
 - [x] Add a draft privacy notice and require renewed attestation for changed terms.
-- [ ] Save completed attestations privately with server timestamp and IP audit, without email verification or emailed copies.
-- [ ] Verify eligible completion and restricted-country denial end to end.
+- [x] Save completed attestations privately with server timestamp and IP audit, without email verification or emailed copies.
+- [x] Verify eligible completion and restricted-country denial end to end.
