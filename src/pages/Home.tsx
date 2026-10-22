@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { hasCurrentAttestation } from "@/lib/attestation-rules";
 import { supabase } from "@/integrations/supabase/client";
 import { Hero } from "@/components/sections/Hero";
 import { MarketMetrics } from "@/components/sections/MarketMetrics";
@@ -34,7 +35,7 @@ const Home = () => {
 
   useEffect(() => {
     // Check if access was previously granted
-    if (localStorage.getItem("susumi_access") === "granted") {
+    if (localStorage.getItem("susumi_access") === "granted" && hasCurrentAttestation()) {
       setHasAccess(true);
     }
   }, []);

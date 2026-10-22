@@ -1,4 +1,5 @@
 import { currencyNote } from "@/lib/financial-reference";
+import { hasCurrentAttestation } from "@/lib/attestation-rules";
 import { useEffect } from "react";
 import { ArrowLeft, TrendingUp, Shield, Users, Coins, Calendar, CheckCircle, DollarSign, BarChart3, Zap, MessageCircle } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,7 +11,7 @@ const Financials = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem("susumi_access") !== "granted") {
+    if (localStorage.getItem("susumi_access") !== "granted" || !hasCurrentAttestation()) {
       navigate("/", { replace: true });
     }
   }, [navigate]);

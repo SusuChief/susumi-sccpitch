@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
+import { jurisdictionDenial, type DenialReason } from "@/lib/attestation-rules";
+export { ATTESTATION_VERSION, ATTESTATION_STORAGE_KEY } from "@/lib/attestation-rules";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,9 +24,6 @@ import {
   Check,
 } from "lucide-react";
 
-export const ATTESTATION_VERSION = "scc-attestation-v1";
-export const ATTESTATION_STORAGE_KEY = "susumi_attestation";
-
 const COUNTRIES = [
   "Nigeria", "Ghana", "Kenya", "South Africa", "Egypt", "Morocco", "Rwanda", "Uganda", "Tanzania",
   "Senegal", "Côte d'Ivoire", "Cameroon", "Ethiopia", "Zambia", "Zimbabwe", "Botswana", "Mauritius",
@@ -35,7 +34,7 @@ const COUNTRIES = [
   "China", "Japan", "South Korea", "Malaysia", "Indonesia", "Philippines", "Thailand", "Vietnam",
   "Australia", "New Zealand", "Brazil", "Mexico", "Argentina", "Chile", "Colombia", "Peru",
   "St Kitts and Nevis", "Cayman Islands", "British Virgin Islands", "Bermuda", "Bahamas",
-  "Barbados", "Jersey", "Guernsey", "Isle of Man", "Other",
+  "Barbados", "Jersey", "Guernsey", "Isle of Man", "Iran", "North Korea", "Russia", "Sudan", "Afghanistan", "Other",
 ];
 
 const INDIVIDUAL_CATEGORIES = [
@@ -119,8 +118,6 @@ const ACKNOWLEDGEMENTS = [
 
 const STEPS = ["Your details", "Qualification", "Acknowledgements", "Sign"];
 
-type DenialReason = "uk" | "us" | "none";
-
 interface AttestationWizardProps {
   accessCode: string;
   onComplete: () => void;
@@ -182,25 +179,24 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
       if (!form.entityName.trim() || !form.entityRegistration.trim() || !form.signatoryRole.trim()) return false;
     }
     if (form.investingAs === "individual") {
-      if (!form.nationality || !form.isUsPerson) return false;
+      if (!form.nationality) return false;
     }
+    if (!form.isUsPerson) return false;
     if (!form.referral.trim() || !form.indicativeInvestment) return false;
     return true;
   }, [form]);
 
-  const categoryValid = form.category !== "" && form.categoryExplanation.trim().length > 0;
+  const categoryValid = categories.some((category) => category.code === form.category) && form.categoryExplanation.trim().length > 0;
   const allChecked = checked.every(Boolean);
   const signValid = form.declarationName.trim().length > 0;
 
   const handleDetailsContinue = () => {
-    if (form.country === "United Kingdom") {
-      setDenied("uk");
+    const reason = jurisdictionDenial(form.country, form.isUsPerson);
+    if (reason) {
+      setDenied(reason);
       return;
     }
-    if (form.country === "United States" || form.isUsPerson === "yes") {
-      setDenied("us");
-      return;
-    }
+    if (!detailsValid) return;
     setStep(1);
   };
 
@@ -209,48 +205,15 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
       setDenied("none");
       return;
     }
+    if (!categoryValid) return;
     setStep(2);
   };
 
   const handleSubmit = async () => {
-    setSubmitting(true);
-    setError(null);
-    const { error: insertError } = await supabase.from("investor_attestations").insert({
-      access_code: accessCode,
-      investing_as: form.investingAs,
-      full_name: form.fullName.trim(),
-      entity_name: form.investingAs === "entity" ? form.entityName.trim() : null,
-      entity_registration: form.investingAs === "entity" ? form.entityRegistration.trim() : null,
-      signatory_role: form.investingAs === "entity" ? form.signatoryRole.trim() : null,
-      email: form.email.trim().toLowerCase(),
-      phone: form.phone.trim() || null,
-      country: form.country,
-      nationality: form.investingAs === "individual" ? form.nationality : null,
-      is_us_person: form.isUsPerson === "yes",
-      referral: form.referral.trim(),
-      indicative_investment: form.indicativeInvestment,
-      category: form.category,
-      category_explanation: form.categoryExplanation.trim(),
-      declaration_name: form.declarationName.trim(),
-      form_version: ATTESTATION_VERSION,
-    });
-
-    if (insertError) {
-      setError("Something went wrong saving your attestation. Please try again.");
-      setSubmitting(false);
-      return;
-    }
-
-    localStorage.setItem(
-      ATTESTATION_STORAGE_KEY,
-      JSON.stringify({
-        version: ATTESTATION_VERSION,
-        email: form.email.trim().toLowerCase(),
-        passedAt: new Date().toISOString(),
-      })
-    );
-    setSubmitting(false);
-    onComplete();
+    if (!detailsValid || !categoryValid || !allChecked || !signValid || jurisdictionDenial(form.country, form.isUsPerson)) return;
+    // Fail closed until the sender domain and server verification flow are ready.
+    // Never certify an unverified email or consume this visitor's access code.
+    setError("Email verification is not available yet. Your form has not been submitted and your access code has not been used. Please contact Susumi to arrange access.");
   };
 
   if (denied) {
@@ -267,6 +230,10 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
         title: "Thank you",
         body: "This presentation is available only to qualifying investors.",
       },
+      restricted: {
+        title: "Presentation access is restricted",
+        body: "This presentation is not available to residents or entities incorporated in your selected country under Susumi's access policy.",
+      },
     };
     const m = messages[denied];
     return (
@@ -277,6 +244,8 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
           </div>
           <h2 className="text-3xl font-bold">{m.title}</h2>
           <p className="text-muted-foreground">{m.body}</p>
+          {denied === "uk" && <Button variant="outline" asChild><a href="https://wa.me/447501785599" target="_blank" rel="noreferrer">Contact Susumi about the HoldCo route</a></Button>}
+          <Button variant="ghost" onClick={() => { setDenied(null); setStep(0); }}>Back to your details</Button>
         </div>
       </div>
     );
@@ -297,6 +266,7 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
             the law of your country of residence.
           </p>
         </div>
+        <p className="text-center text-sm text-muted-foreground">Email verification is currently unavailable. New presentation access cannot be completed yet.</p>
 
         {/* Progress */}
         <div className="flex items-center justify-center gap-2">
@@ -332,10 +302,11 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                 <Label>Investing as</Label>
                 <div className="grid grid-cols-2 gap-3">
                   {(["individual", "entity"] as const).map((v) => (
-                    <button
+                    <Button
+                      variant="outline"
                       key={v}
                       type="button"
-                      onClick={() => set("investingAs", v)}
+                      onClick={() => setForm((current) => ({ ...current, investingAs: v, category: "", categoryExplanation: "" }))}
                       className={`py-3 rounded-lg border text-sm font-medium transition-colors ${
                         form.investingAs === v
                           ? "border-primary bg-primary/10 text-foreground"
@@ -343,7 +314,7 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                       }`}
                     >
                       {v === "individual" ? "Individual" : "Entity"}
-                    </button>
+                    </Button>
                   ))}
                 </div>
               </div>
@@ -401,6 +372,7 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                     onChange={(e) => set("email", e.target.value)}
                     className="bg-secondary"
                   />
+                  <p className="text-xs text-muted-foreground">Your email must be verified by link before access is granted.</p>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone (optional)</Label>
@@ -446,11 +418,14 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                       </SelectContent>
                     </Select>
                   </div>
+                </>
+              )}
                   <div className="space-y-2">
                     <Label>Are you a US Person?</Label>
                     <div className="grid grid-cols-2 gap-3">
                       {(["no", "yes"] as const).map((v) => (
-                        <button
+                        <Button
+                          variant="outline"
                           key={v}
                           type="button"
                           onClick={() => set("isUsPerson", v)}
@@ -461,12 +436,10 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                           }`}
                         >
                           {v === "no" ? "No" : "Yes"}
-                        </button>
+                        </Button>
                       ))}
                     </div>
                   </div>
-                </>
-              )}
 
               <div className="space-y-2">
                 <Label htmlFor="referral">How did you hear about Susumi?</Label>
@@ -518,11 +491,12 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
               </p>
               <div className="space-y-3">
                 {categories.map((cat) => (
-                  <button
+                  <Button
+                    variant="outline"
                     key={cat.code}
                     type="button"
                     onClick={() => set("category", cat.code)}
-                    className={`w-full text-left p-4 rounded-lg border transition-colors ${
+                    className={`h-auto block whitespace-normal w-full text-left p-4 rounded-lg border transition-colors ${
                       form.category === cat.code
                         ? "border-primary bg-primary/10"
                         : "border-border hover:border-primary/50"
@@ -532,12 +506,13 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                       {cat.code} — {cat.title}
                     </div>
                     <div className="text-sm text-muted-foreground mt-1">{cat.description}</div>
-                  </button>
+                  </Button>
                 ))}
-                <button
+                <Button
+                  variant="outline"
                   type="button"
                   onClick={() => set("category", "NONE")}
-                  className={`w-full text-left p-4 rounded-lg border transition-colors ${
+                  className={`h-auto block whitespace-normal w-full text-left p-4 rounded-lg border transition-colors ${
                     form.category === "NONE"
                       ? "border-destructive bg-destructive/10"
                       : "border-border hover:border-destructive/50"
@@ -547,7 +522,7 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
                   <div className="text-sm text-muted-foreground mt-1">
                     Selecting this ends the process.
                   </div>
-                </button>
+                </Button>
               </div>
 
               {form.category && form.category !== "NONE" && (
@@ -594,6 +569,7 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
               </div>
 
               <p className="text-sm text-muted-foreground">Each box must be ticked. I confirm that:</p>
+              <Link to="/privacy" target="_blank" className="text-sm text-primary underline">Read the investor privacy notice</Link>
 
               <div className="space-y-4">
                 {ACKNOWLEDGEMENTS.map((ack, i) => (
