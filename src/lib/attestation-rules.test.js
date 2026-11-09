@@ -3,7 +3,7 @@ import { jurisdictionDenial, validAttestation, ATTESTATION_VERSION, ACCESS_DURAT
 
 describe("revised attestation access rules", () => {
   test("Nigeria is eligible", () => expect(jurisdictionDenial("Nigeria", "no")).toBeNull());
-  test("UK residents are denied", () => expect(jurisdictionDenial("United Kingdom", "no")).toBe("uk"));
+  test("UK residents and entities are eligible", () => expect(jurisdictionDenial("United Kingdom", "no")).toBeNull());
   test("US residents are denied", () => expect(jurisdictionDenial("United States", "no")).toBe("us"));
   test("US Persons are denied outside the US including entities", () => expect(jurisdictionDenial("Nigeria", "yes")).toBe("us"));
   for (const country of ["Iran", "North Korea", "China", "Russia", "Sudan", "Afghanistan", "Israel"]) {
