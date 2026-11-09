@@ -5,7 +5,7 @@ export const ACCESS_DURATION_MS = 365 * 24 * 60 * 60 * 1000;
 export const RESTRICTED_COUNTRIES = ["Iran", "North Korea", "China", "Russia", "Sudan", "Afghanistan", "Israel"] as const;
 export type DenialReason = "uk" | "us" | "restricted" | "none";
 export function jurisdictionDenial(country: string, isUsPerson: string): DenialReason | null {
-  if (country === "United Kingdom") return "uk";
+  // UK investors are admitted: access codes are issued only after offline accreditation.
   if (country === "United States" || isUsPerson === "yes") return "us";
   if (RESTRICTED_COUNTRIES.some((restricted) => restricted === country)) return "restricted";
   return null;
