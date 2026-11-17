@@ -15,6 +15,13 @@
       "when": 1792678851547,
       "tag": "0001_save_signed_attestations_privately",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794908913393,
+      "tag": "0002_tighten_open_policies",
+      "breakpoints": true
     }
   ]
 }
