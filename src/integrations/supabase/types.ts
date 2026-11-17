@@ -359,6 +359,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_access_code: { Args: { p_code: string }; Returns: string }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -370,6 +371,7 @@ export type Database = {
         Args: { p_form: Json; p_ip: string }
         Returns: Json
       }
+      use_access_code: { Args: { p_code: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin" | "viewer" | "user"
