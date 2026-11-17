@@ -30,19 +30,16 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
     if (!code.trim()) return;
 
     setLoading(true);
-    const { data, error } = await supabase
-      .from("access_codes")
-      .select("id, is_used")
-      .eq("code", code.trim().toUpperCase())
-      .maybeSingle();
+    const normalized = code.trim().toUpperCase();
+    const { data: status, error } = await supabase.rpc("check_access_code", { p_code: normalized });
 
-    if (error || !data) {
+    if (error || status === "invalid" || !status) {
       toast.error("Invalid access code. Please try again.");
       setLoading(false);
       return;
     }
 
-    if (data.is_used) {
+    if (status === "used") {
       toast.error("This access code has already been used.");
       setLoading(false);
       return;
@@ -52,14 +49,14 @@ export const AccessGate = ({ onAccessGranted }: AccessGateProps) => {
 
     // Valid code — returning investors who already attested go straight in.
     if (hasCurrentAttestation()) {
-      const { error: useError } = await supabase.from("access_codes").update({ is_used: true, used_at: new Date().toISOString() }).eq("id", data.id).eq("is_used", false);
-      if (useError) { toast.error("Unable to use this access code. Please try again."); return; }
+      const { data: used, error: useError } = await supabase.rpc("use_access_code", { p_code: normalized });
+      if (useError || !used) { toast.error("Unable to use this access code. Please try again."); return; }
       await grantAccess();
       return;
     }
 
     // New investor: complete the attestation wizard before access is granted.
-    setPendingCode({ id: data.id, code: code.trim().toUpperCase() });
+    setPendingCode({ id: normalized, code: normalized });
   };
 
   if (pendingCode) {
