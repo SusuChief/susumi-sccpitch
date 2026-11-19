@@ -28,11 +28,11 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             Funding the launch of
             <br />
-            <span className="gradient-text">Susumi in Nigeria</span>
+            <span className="gradient-text">the Susumi Platform</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-            A £200,000 equity round in Susumi Capital Corp, the company that owns the Susumi technology and licenses it to local operators, starting with our SEC-licensed partner in Nigeria.
+            A £200,000 equity round in Susumi Technologies Ltd, the company that owns the Susumi technology and licenses it to local operators, starting with our SEC-licensed partner in Nigeria.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">

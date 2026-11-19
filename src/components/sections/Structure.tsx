@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 const flow = [
   { n: "01", title: "Funds raised", text: "Fund Creators raise in USDT, USDC or cNGN" },
   { n: "02", title: "Platform fee", text: "8.3% / 5% / 3.1% of each successful fund, by fund type" },
-  { n: "03", title: "Franchise split", text: "Susumi Nigeria receives 10% of gross platform earnings; the balance goes to Susumi Capital Corp" },
+  { n: "03", title: "Franchise split", text: "Susumi Nigeria receives 10% of gross platform earnings; the balance goes to Susumi Technologies Ltd" },
   { n: "04", title: "Shareholder value", text: "The company grows with each new country licensee" },
 ];
 
@@ -35,7 +35,7 @@ export const Structure = ({ onView }: { onView: () => void }) => {
           <ArrowRight className="hidden md:block h-6 w-6 text-primary mx-auto" />
           <Card className="p-6 bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30">
             <div className="text-xs font-semibold tracking-widest text-primary mb-1">ISSUER</div>
-            <div className="font-semibold mb-1">Susumi Capital Corp</div>
+            <div className="font-semibold mb-1">Susumi Technologies Ltd</div>
             <div className="text-sm text-muted-foreground">Owns the Susumi IP and technology. Franchisor to every country licensee.</div>
           </Card>
           <ArrowRight className="hidden md:block h-6 w-6 text-primary mx-auto" />

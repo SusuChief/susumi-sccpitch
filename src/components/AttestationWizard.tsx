@@ -78,7 +78,7 @@ const ENTITY_CATEGORIES = [
 const ACKNOWLEDGEMENTS = [
   {
     title: "Not an offer",
-    text: "These materials are for information only and are not an offer of securities. Any investment will be made only on the terms of a final investment agreement with Susumi Capital Corp, a company incorporated in St Kitts and Nevis.",
+    text: "These materials are for information only and are not an offer of securities. Any investment will be made only on the terms of a final investment agreement with Susumi Technologies Ltd, a UK company registered at 71-75 Shelton Street, Covent Garden, London WC2H 9JQ.",
   },
   {
     title: "Risk",
@@ -114,7 +114,7 @@ const ACKNOWLEDGEMENTS = [
   },
   {
     title: "Data",
-    text: "I consent to Susumi Capital Corp processing my personal data as set out in its privacy notice, including keeping this record.",
+    text: "I consent to Susumi Technologies Ltd processing my personal data as set out in its privacy notice, including keeping this record.",
   },
 ];
 
@@ -243,7 +243,7 @@ export const AttestationWizard = ({ accessCode, onComplete }: AttestationWizardP
     const messages: Record<DenialReason, { title: string; body: string }> = {
       uk: {
         title: "Not available to UK residents",
-        body: "UK law requires a signed investor statement in a prescribed form, which this site does not provide. This presentation is not available to UK residents. Please contact Susumi Capital Corp about the HoldCo route for UK investors.",
+        body: "UK law requires a signed investor statement in a prescribed form, which this site does not provide. This presentation is not available to UK residents. Please contact Susumi Technologies Ltd about the HoldCo route for UK investors.",
       },
       us: {
         title: "Not available to US Persons",

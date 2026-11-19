@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { FileText, LineChart, Timer, Scale } from "lucide-react";
 
 const notes = [
-  { icon: FileText, title: "The offer", text: "Shares are issued by Susumi Capital Corp, incorporated in St Kitts and Nevis. The company owns the Susumi IP and is franchisor to local licence holders. This round is equity only: no SUSU+ tokens are offered." },
+  { icon: FileText, title: "The offer", text: "Shares are issued by Susumi Technologies Ltd, a UK company registered at 71-75 Shelton Street, Covent Garden, London WC2H 9JQ. The company owns the Susumi IP and is franchisor to local licence holders. This round is equity only: no SUSU+ tokens are offered." },
   { icon: LineChart, title: "Forecasts", text: "The growth scenarios and the financial forecast are separate management models with different assumptions. Both are measured from commercial launch. They are not audited, independently verified, or combined into one forecast." },
   { icon: Timer, title: "Break-even and runway", text: "Month 4 post-launch break-even is a management assumption; the growth model shows Month 9. Annual totals do not establish monthly cash break-even. Runway is stated at the planned monthly burn." },
   { icon: Scale, title: "Your own advice", text: "Investors should take their own legal, tax and financial advice, including on the rules that apply where they live." },

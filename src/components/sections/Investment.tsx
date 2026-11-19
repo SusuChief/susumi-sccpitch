@@ -12,7 +12,7 @@ const objectives = [
 ];
 
 const benefits = [
-  "12.5% of the ordinary shares in Susumi Capital Corp",
+  "12.5% of the ordinary shares in Susumi Technologies Ltd",
   "A share in the company that owns the Susumi IP and licenses it to local operators",
   "Exposure to platform revenue earned in stablecoins",
   "Board observer seat and quarterly milestone reporting for the lead investor",
@@ -45,7 +45,7 @@ export const Investment = ({ onView, onCTAClick }: InvestmentProps) => {
           Investment <span className="gradient-text">Proposition</span>
         </h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          £200,000 for 12.5% of Susumi Capital Corp, to take the Basic Susu Fund live in Nigeria and build the base for expansion.
+          £200,000 for 12.5% of Susumi Technologies Ltd, to take the Basic Susu Fund live in Nigeria and build the base for expansion.
         </p>
 
         <div className="max-w-4xl mx-auto space-y-8">

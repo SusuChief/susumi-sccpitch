@@ -12,7 +12,7 @@ const supports = [
 ];
 
 const terms = [
-  ["Issuer", "Susumi Capital Corp, St Kitts and Nevis"],
+  ["Issuer", "Susumi Technologies Ltd, 71-75 Shelton Street, Covent Garden, London WC2H 9JQ"],
   ["Round size", "£200,000; minimum close to be confirmed"],
   ["Instrument", "Ordinary shares only, no token allocation"],
   ["Valuation", "£1,400,000 pre-money; £1,600,000 post-money"],
